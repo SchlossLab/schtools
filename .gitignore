@@ -1,2 +1,9 @@
 .DS_Store
 *.zip
+.Rproj.user
+
+example_files/HMPdata_gsoc2013/.Rhistory
+
+.RData
+
+.Rhistory
