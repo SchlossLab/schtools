@@ -24,7 +24,7 @@ RarePlot <- function(x,y,ylab= "Number of Different OTUs",xlab= "Number of Tags 
   }
   else 
   {
-    PureSteps <- seq(from=2,to=Length-2,by=3)
+ PureSteps <- seq(from=2,to=Length-2,by=3)
     LowSteps <- seq(from=3,to=Length-1,by=3)
     HighSteps <- seq(from=4,to=Length,by=3)
     PureDat <- Data[,c(1,PureSteps)]
@@ -38,13 +38,30 @@ RarePlot <- function(x,y,ylab= "Number of Different OTUs",xlab= "Number of Tags 
     substr(names(PureDat), 1, 6) <- ""
     substr(names(PureDat), 1, 6) <- ""
     names(PureDat)[1] <- "Number"
+    PureNumber <- PureDat[1]
     PureColumns <- PureDat[-1]
-    matplot(Number,PureColumns[,y],ylab= ylab,xlab = xlab, pch=pch,col=1:15, xlim = xlim, ylim = ylim)
+    LowNames <- names(LowDat)
+    substr(names(LowDat), 1, 6) <- ""
+    substr(names(LowDat), 1, 6) <- ""
+    substr(names(LowDat), 1, 6) <- ""
+    substr(names(LowDat), 1, 6) <- ""
+    names(LowDat)[1] <- "Number"
+    LowNumber <- LowDat[1]
+    LowColumns <- LowDat[-1]
+    HighNames <- names(LowDat)
+    substr(names(HighDat), 1, 6) <- ""
+    substr(names(HighDat), 1, 6) <- ""
+    substr(names(HighDat), 1, 6) <- ""
+    substr(names(HighDat), 1, 6) <- ""
+    names(HighDat)[1] <- "Number"
+    HighNumber <- HighDat[1]
+    HighColumns <- HighDat[-1]
+    matplot(PureNumber,PureColumns[,y],ylab= ylab,xlab = xlab, pch=pch,col=1:15, xlim = xlim, ylim = ylim)
     legend("topleft",legend=names(PureColumns[,y]), col =1:15,pch=19)
-    matlines(Number,PureColumns[,y], col=1:15)
+    matlines(PureNumber,PureColumns[,y], col=1:15)
     LowColumns<- LowDat[-1]
-    matlines(Number,LowColumns[,y], col=1:15, lwd=.2)
+    matlines(LowNumber,LowColumns[,y], col=1:15, lwd=.2)
     HighColumns<- HighDat[-1]
-    matlines(Number,HighColumns[,y], col=1:15, lwd=.2)
+    matlines(HighNumber,HighColumns[,y], col=1:15, lwd=.2)
   }
 }
