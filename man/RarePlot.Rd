@@ -10,14 +10,14 @@ Plot the .group.rarefraction data which is the output from mothur's rarefraction
 }
 \usage{
 rarePlot(file,groups,ylab= "Number of Different OTUs",xlab= "Number of Tags Sampled",
-         pch= NA, xlim = NULL, ylim = NULL, error=FALSE)
+         pch= NA, xlim = NULL, ylim = NULL, error=FALSE, delNum=6)
 }
 \arguments{
   \item{file}{
     The .group.rarefaction file which you wish to plot. Only works for the output of rarefaction.single from mothur.
-}
+  }
   \item{groups}{
-    The specific groups within x which you wish to plot, in list form c("Examplegroup1", "Examplegroup2'). either the names ie c("m24626d36", "Day3") or the number the group falls in the list of all groups. ie c(1,4,7) (the 1st 4th and 7th group). 
+  The specific groups within x which you wish to plot, in list form c("Examplegroup1", "Examplegroup2'). either the names ie c("m24626d36", "Day3") or the number the group falls in the list of all groups. ie c(1,4,7) (the 1st 4th and 7th group). 
 }
   \item{ylab}{
     Title for y axis. Defaults to "Number of Different OTUs"
@@ -36,6 +36,9 @@ rarePlot(file,groups,ylab= "Number of Different OTUs",xlab= "Number of Tags Samp
 }
   \item{error}{
     If error = TRUE then plot the Lower and Upperbounds for each group. 
+}
+  \item{delNum}{
+    The number of excess characters before each name generally X0.03. or something similiar. Set delNum to the number you which to delete.
 }
   }
 \seealso{

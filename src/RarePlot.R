@@ -1,4 +1,4 @@
-RarePlot <- function(file,groups,ylab= "Number of Different OTUs",xlab= "Number of Tags Sampled",pch= NA, xlim = NULL, ylim = NULL, error=FALSE) #Same Defaults as matplot
+rarePlot <- function(file,groups,ylab= "Number of Different OTUs",xlab= "Number of Tags Sampled",pch= NA, xlim = NULL, ylim = NULL, error=FALSE) #Same Defaults as matplot
 {
   library(reshape2)
   require(ggplot2)#install.packages("ggplot2")
