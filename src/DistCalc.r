@@ -1,93 +1,95 @@
 #Imports a phylip-formatted distance matrix to be analyzed
-read.dist<-function(file){
-    pre.dist<-read.table(file, skip=1)
-    dist<-pre.dist[2:ncol(pre.dist)]
-    colnames(dist) <- t(pre.dist[1])
-    rownames(dist) <- t(pre.dist[1])
-    invisible(dist)
+read.dist<-function(file){ 
+    pre.dist<-read.table(file, skip=1) # Skip first row but read the phylip table into a variable
+    dist<-pre.dist[2:ncol(pre.dist)]   # make a new variable which doesn't include the point names
+    colnames(dist) <- t(pre.dist[1])   # set column names to the corrosponding point name
+    rownames(dist) <- t(pre.dist[1])   # set the row names to the correct point name
+    invisible(dist)                    #return dist for later use
 }
 
 
 #Imports the design file that separates samples into groups
 read.design<-function(file){
-    design<-read.table(file)
-    design<-matrix(unlist(design),ncol=2)
-    colnames(design) <- c('sample','group')
-    invisible(design)
+    design<-read.table(file)                #read the file
+    design<-matrix(unlist(design),ncol=2)   #unlist it.
+    colnames(design) <- c('sample','group') # name the columns
+    invisible(design)                       #return design for later use
 }
 
 #Returns min, max, mean, median, and sd of distance between two groups
 between.dist<-function(dist,design,groups){
-
-    if(length(groups)==1){
-        options(warn=(-1))    
-        if(groups=='all'){
-            if(length(design)==1){dsn<-read.table(design)}
-            if(length(design)>1){dsn<-design}
-            groups<-as.vector(unique(dsn[,2]))
-            options(warn=(0))    
+    if(length(groups)==1){                                 # if there is only one group 
+        options(warn=(-1))                                 # Wait for warnings untill between.dist is returned
+        if(groups=='all'){                                 # if the group file is all groups
+            if(length(design)==1){dsn<-read.table(design)} # if the design file is just the group names read the design file
+            if(length(design)>1){dsn<-design}              # if the design file contains both the group names and the point names set design to dsn
+            groups<-as.vector(unique(dsn[,2]))             # set groups to just the group names. 
+            options(warn=(0))                              # wait for warnings untill betwen.dist is returned.
         }
     }
     one.between<-function(dist,design,group1,group2){
-        if(typeof(dist)=='character') { dist<-read.dist(dist) }
-        if(length(design)==1) { design<-read.design(design) }
+        if(typeof(dist)=='character') { dist<-read.dist(dist) }  # if the dist file is a character vector then setx ft dst to readdist(dist)
+        if(length(design)==1) { design<-read.design(design) }    # if the design file is just the groups the set it to design
         get.dists<-function(dist,Detailsdesign,group1,group2){
-            group1<<-group1
-            group2<<-group2
-            get.grp1<-function(d , g){ 
-                c1<-1
-                grp1<-c()
-                for(i in 1:nrow(d)){
-                    if(d[i,2]==g){
-                        grp1[c1]<-d[i,1]
-                        c1<-c1+1
+            group1<<-group1    # group 1 is previous group 1
+            group2<<-group2   # group 2 is previous group 2
+            get.grp1<-function(d , g){ # given a design file and a group get all of the point names  within the group. (but not distances)
+                c1<-1  # Set c1 for use in a loop
+                grp1<-c()  # Prepare grp1 for use in a loop
+                for(i in 1:nrow(d)){  # for every row in d that is of a group put in in grp1 of row c1 and make c1 move up 1
+                    if(d[i,2]==g){ # if that row is that group 
+                        grp1[c1]<-d[i,1]  # the set row c1 = d[i,1]
+                        c1<-c1+1  # increase c1 by 1 ifor the next group
                     }
                 }
-                invisible(grp1)
+                invisible(grp1)  # return grp1 wihout printing it.
             }
-            get.grp2<-function(d, g){ 
-                c2<-1
-                grp2<-c()
-                for(i in 1:nrow(d)){
-                    if(d[i,2]==g){
-                        grp2[c2]<-d[i,1]
-                        c2<-c2+1
+            get.grp2<-function(d, g){  # same as get.grp1 
+                c2<-1  #  
+                grp2<-c()  #
+                for(i in 1:nrow(d)){  #
+                    if(d[i,2]==g){  #
+                        grp2[c2]<-d[i,1]  #
+                        c2<-c2+1  #
                     }
                 }
-                invisible(grp2)
+                invisible(grp2)  #
             }
             
-            grp1<-get.grp1(design,group1)
-            grp2<-get.grp2(design,group2)
+            grp1<-get.grp1(design,group1)  # Get group 1
+            grp2<-get.grp2(design,group2)  # Get group 2
             
-            get.rows<-function(dist, grp){
-                rows<-dist[grp[1],]
-                for(i in 2:length(grp)){
-                    rows<-rbind(rows,dist[grp[i],])      
+            get.rows<-function(dist, grp){  # given a dist and group get only the rows of that group
+                rows<-dist[grp[1],]  # rows becomes the row with grp1's first point name. 
+                for(i in 2:length(grp)){  #  put all of the other row's that ahave 
+                    rows<-rbind(rows,dist[grp[i],])  #      
                 }
-                invisible(rows)
+                invisible(rows)  #
             }
-            rows<-get.rows(dist,grp1)
+            rows<-get.rows(dist,grp1)  # get the rows of group 1 
             
-            get.rows<-function(dist, grp){
-                matrix<-dist[,grp[1]]
-                for(i in 2:length(grp)){
-                    matrix<-cbind(matrix,dist[,grp[i]])      
+            get.rows<-function(dist, grp){  # Similar to get rows of above but for the group2 columns 
+                matrix<-dist[,grp[1]]  #  
+                for(i in 2:length(grp)){  #
+                    matrix<-cbind(matrix,dist[,grp[i]])  #    
                 }
-                invisible(matrix)
+                invisible(matrix)  # returns a matrix
             }
-            matrix<-get.rows(rows,grp2)
-            vect<-as.vector(matrix)
-            invisible(vect)
+            matrix<-get.rows(rows,grp2)  # get the columns of group 2
+            vect<-as.vector(matrix)  #
+            invisible(vect)  # reurn grp 2 as a matrix
         }
-        dists<-get.dists(dist,design,group1,group2) 
-        cat(sprintf("Stats for distances between %s and %s", group1, group2), "\n", sprintf('Minimum: %f', min(dists)), "\n", sprintf('Maximum: %f', max(dists)), "\n", sprintf('Median: %f', median(dists)), "\n",sprintf('Mean: %f', mean(dists)), "\n", sprintf('Std. Dev.: %f', sd(dists)), "\n", "\n", sep='')
-        return(dists)
+        dists<-get.dists(dist,design,group1,group2)   # use get.dists using the dist,design and the 2 groups
+        cat(sprintf("Stats for distances between %s and %s", group1, group2), "\n", # Stats for distances between grp1 and grp 2
+            sprintf('Minimum: %f', min(dists)), "\n", sprintf('Maximum: %f', max(dists)),  # minimum: (mindists)
+            "\n", sprintf('Median: %f', median(dists)), "\n",sprintf('Mean: %f', mean(dists)),  #maximum: (maxdists) ; Mean: (mean(dists))
+            "\n", sprintf('Std. Dev.: %f', sd(dists)), "\n", "\n", sep='') 
+        return(dists) return this
     }  
      
     dist.vect<-c()
-    c<-1
-    dist.list<-vector(mode='list',length=((length(groups)^2-length(groups))/2))
+    c<-1 # start c for the loop
+    dist.list<-vector(mode='list',length=((length(groups)^2-length(groups))/2)) #  
     list.names<-c()
     for(i in 1:(length(groups)-1)){
         for(j in (i+1):length(groups)){
@@ -117,7 +119,7 @@ within.dist<-function(dist,design,groups){
         if(length(design)==1) { design<-read.design(design) }
         
         get.dists<-function(dist,design,group1,group2){
-            get.grp1<-function(d , g){ 
+            get.grp1<-function(d , g){ #given a design and a group for every row with group=g  
                 c1<-1
                 grp1<-c()
                 for(i in 1:nrow(d)){
@@ -175,8 +177,12 @@ within.dist<-function(dist,design,groups){
             invisible(half.dists)
         }
         lt.dist<-rm.duplicates(dists)
-        cat(sprintf("Stats for distances within %s", group), "\n", sprintf('Minimum: %f', min(lt.dist)), "\n", sprintf('Maximum: %f', max(lt.dist)), "\n", sprintf('Median: %f', median(lt.dist)), "\n",sprintf('Mean: %f', mean(lt.dist)), "\n", sprintf('Std. Dev.: %f', sd(lt.dist)), "\n", "\n", sep='')
+        cat(sprintf("Stats for distances within %s", group), "\n", sprintf('Minimum: %f', min(lt.dist)),
+            "\n", sprintf('Maximum: %f', max(lt.dist)), "\n", sprintf('Median: %f', median(lt.dist)),
+            "\n",sprintf('Mean: %f', mean(lt.dist)), "\n", sprintf('Std. Dev.: %f', sd(lt.dist)),
+            "\n", sprintf('Std. Error.:%f', sd(lt.dist)/(sqrt(nrow(design)-1))), "\n", "\n", sep='')
         invisible(lt.dist)
+        print(lt.dist)
     }
     dist.vect<-c()
     c<-1
@@ -206,5 +212,5 @@ plot.dists<-function(list, space=NULL, col=c(), ylim=c(0,1), ylab='Average Dista
     }
 }
 
-gf.design <- read.design('germfree.design')
-gf.sq.dist <- read.dist('germfree.sq.dist')
+#gf.design <- read.design('germfree.design')
+#gf.sq.dist <- read.dist('germfree.sq.dist')

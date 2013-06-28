@@ -8,7 +8,7 @@ Plot Mothur's PCoA Data with an optional design file for groups in 2d.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-plotPCOA(axes,design=FALSE, ax1=1, ax2=2, Lab1="axis1", Lab2= "axis2",Shape=F, psize=I(4.5))
+plotPCOA(axes,design=FALSE, ax1=1, ax2=2, Lab1="axis1", Lab2= "axis2", ..., Shape=F, psize=I(4.5))
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -23,6 +23,15 @@ plotPCOA(axes,design=FALSE, ax1=1, ax2=2, Lab1="axis1", Lab2= "axis2",Shape=F, p
   }
   \item{Lab1, Lab2}{
   titles for the 1st/x and 2nd/y axes.
+  }
+  \item{...}{
+  other aesthetics passed for each layer
+  }
+  \item{Shape}{
+  f
+  }
+  \item{psize}{
+  f
   }
 }
 \details{
