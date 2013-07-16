@@ -16,10 +16,23 @@ read.design <- function(file){
     invisible(design)                                 #return design for later use
 }
 
+
 #Returns min, max, mean, median, and sd of distance between two groups
 between.dist <- 
-function(dist,design,groups){                  # Get the   
-  
+function(dist,design,groups,subgroups=FALSE){                  # Get the   
+    if(length(design)==1){design<-read.table(design)}
+    if(length(design)>1){design<-design}
+    if(subgroups==FALSE){
+      if(ncol(design)==1){warning("design needs at least a name and group column with an optional subgroup column" )}
+      if(ncol(design)==3){design<-design[,-3]}
+      if(ncol(design)>3){warning("Too many columns design should be in the form [names  groups  subgroups*] subgroups are optional")}
+    }
+    if(subgroups==TRUE){
+      if(ncol(design)==1){warning("design needs atleast a name and group column with an optional subgroup column")}
+      if(ncol(design)==2){warning("no subgroup column")}
+      if(ncol(design)==3){design<-design[,-2]}
+      if(ncol(design)>3){warning("Too many columns design should be in the form  [names  groups  subgroups*] subgroups are optional")}
+    }
     if(length(groups)==1){                                       # if there is only one group 
         options(warn=(-1))                                         # Wait for warnings untill between.dist is returned
         if(groups=='all'){                                         # if the group file is all groups
@@ -28,21 +41,24 @@ function(dist,design,groups){                  # Get the
             groups<-as.vector(unique(dsn[,2]))                       # set groups to just the group names. 
             options(warn=(0))                                        # wait for warnings untill betwen.dist is returned.
         }
+        
     }
     one.between<-function(dist,design,group1,group2){            #
         if(typeof(dist)=='character') { dist <- read.dist(dist) }# if the dist file is a character vector then setx ft dst to readdist(dist)                                                                                                                                                                       
         if(length(design)==1) { design<-read.design(design) }   # if the design file is just the groups the set it to design
-        get.dists <- function(dist,Detailsdesign,group1,group2){#
-            group1 <<- group1                                     # group 1 is previous group 1
+        get.dists <- function(dist,design,group1,group2){  #
+            group1 <<- group1                                     # group1 is globally group1
             group2 <<- group2                                     # group 2 is previous group 2
             get.grp1 <- function(d , g){                          #  get all names of a group. 
                 c1 <- 1                                             # Set c1 for use in a loop
                 grp1 <- c()                                         # Prepare grp1 for use in a loop
-                for(i in 1:nrow(d)){                                # for every row in d 
+                if (nrow(d) >= 1) {
+                  for(i in 1:nrow(d)){                                # for every row in d 
                     if(d[i,2]==g){                                   # if that row is that group 
                         grp1[c1] <- d[i,1]                             # the set row c1 = d[i,1]
                         c1 <- c1+1                                     # increase c1 by 1 ifor the next group
                     }
+                 }
                 }
                 invisible(grp1)                                    # return grp1 wihout printing it.
             }
@@ -63,17 +79,29 @@ function(dist,design,groups){                  # Get the
             
             get.rows <- function(dist, grp){                     # given a dist and group get only the rows of that group
                 rows <- dist[grp[1],]                              # rows becomes the row with grp1's first point name. 
-                for(i in 2:length(grp)){                           #  put all of the other row's that ahave 
-                    rows <- rbind(rows,dist[grp[i],])                    #      
+
+                if(length(grp)==2){
+                  rows <- rbind(rows,dist[grp[2],])
+                }
+                if(length(grp)>2){
+                  for(i in 2:length(grp)){                           #  put all of the other row's that ahave 
+                      rows <- rbind(rows,dist[grp[i],])                    #      
+                  }
                 }
                 invisible(rows)                                        #
             }
             rows <- get.rows(dist,grp1)                              # get the rows of group 1 
             
             get.rows <- function(dist, grp){                         # Similar to get rows of above but for the group2 columns 
-                matrix <- dist[,grp[1]]                                #  
-                for(i in 2:length(grp)){                               #
-                    matrix <- cbind(matrix,dist[,grp[i]])                #    
+                matrix <- dist[,grp[1]]                                # 
+                if(length(grp)==2){
+                  matrix <- cbind(matrix,dist[,grp[2]])
+                }
+                if(length(grp)>2){
+                  
+                  for(i in 2:length(grp)){                               #
+                      matrix <- cbind(matrix,dist[,grp[i]])                #    
+                  }
                 }
                 invisible(matrix)                                      # returns a matrix
             }
@@ -82,15 +110,17 @@ function(dist,design,groups){                  # Get the
             invisible(vect)  # reurn grp 2 as a matrix
         }
         dists <- get.dists(dist,design,group1,group2)   # use get.dists using the dist,design and the 2 groups
+        print(dists)
         cat(sprintf("Stats for distances between %s and %s", group1, group2), "\n", # Stats for distances between grp1 and grp 2
-            sprintf('Minimum: %f', min(dists)), "\n", sprintf('Maximum: %f', max(dists)),  # minimum: (mindists)
+            sprintf('n: %f', length(dists)), "\n", sprintf('Minimum: %f', min(dists)),"\n", sprintf('Maximum: %f', max(dists)),  # minimum: (mindists)
             "\n", sprintf('Median: %f', median(dists)), "\n",sprintf('Mean: %f', mean(dists)),  # maximum: (maxdists) ; Mean: (mean(dists))
-            "\n", sprintf('Std. Dev.: %f', sd(dists)), "\n",sprintf('Std. Error: %f', sd(dists)/sqrt(length(dists))), "\n", "\n", sep='') # Std.Dev.: (sd(dists)/length(get.dists))  ______________________________________________________________________________________________________________________________
-        return(dists) # return this
+            "\n", sprintf('Std. Dev.: %f', sd(dists)), "\n",sprintf('Std. Error: %f', sd(dists)/sqrt(length(dists))),"\n",
+            sprintf('Wilcoxon rank sum: %f', wilcox.test(x=as.numeric(as.data.frame(unlist(dists,usenames=F))))), "\n", "\n", sep='') # Std.Dev.: (sd(dists)/length(get.dists))  
+        return(dists) # return this1
     }  
      
     dist.vect <- c() # 
-    c <- 1 # start c for the loop
+    c <- 1 # start c for  the loop
     dist.list <- vector(mode='list',length=((length(groups)^2-length(groups))/2)) #  length(groups=lg), length= lg^2-lg/2  
     list.names <- c() # prep list.names for the loop
     for(i in 1:(length(groups)-1)){ # 
@@ -105,7 +135,21 @@ function(dist,design,groups){                  # Get the
     invisible(dist.list)
 }
 #Returns min, max, mean, median, and sd of distance within a group
-within.dist <- function(dist,design,groups){ # 
+within.dist <- function(dist,design,groups,Subgroups=FALSE){  
+  
+  if(length(design)==1){design<-read.table(design)}
+  if(length(design)>1){design<-design}
+  if(subgroups==FALSE){
+    if(ncol(design)==1){warning("design needs at least a name and group column with an optional subgroup column" )}
+    if(ncol(design)==3){design<-design[,-3]}
+    if(ncol(design)>3){warning("Too many columns design should be in the form [names  groups  subgroups*] subgroups are optional")}
+  }
+  if(subgroups==TRUE){
+    if(ncol(design)==1){warning("design needs atleast a name and group column with an optional subgroup column")}
+    if(ncol(design)==2){warning("no subgroup column")}
+    if(ncol(design)==3){design<-design[,-2]}
+    if(ncol(design)>3){warning("Too many columns design should be in the form  [names  groups  subgroups*] subgroups are optional")}
+  }
     
     if(length(groups)==1){ # if only one group
         options(warn=(-1))   #  wait till end to show warnings
@@ -144,14 +188,16 @@ within.dist <- function(dist,design,groups){ #
                 invisible(grp2)#
             }
             
-            grp1 <- get.grp1(design,group1) # get group 1#
+            grp1 <- get.grp1(design,group1) # get group 1
             grp2 <- get.grp2(design,group2) # get group 2
             
             get.rows <- function(dist, grp){ # Function
                 rows <- dist[grp[1],]        # every row with a name in group1
-                for(i in 2:length(grp)){   # for every row with a name in group 1 
+                
+                  for(i in 2:length(grp)){   # for every row with a name in group 1 
                     rows <- rbind(rows,dist[grp[i],]) #   
-                }
+                  }
+                
                 invisible(rows)
             }
             rows <- get.rows(dist,grp1)
@@ -179,7 +225,7 @@ within.dist <- function(dist,design,groups){ #
             invisible(half.dists)#
         }
         lt.dist <- rm.duplicates(dists)#
-        cat(sprintf("Stats for distances within %s", group), "\n", sprintf('Minimum: %f', min(lt.dist)),#  add all of these together
+        cat(sprintf("Stats for distances within %s", group),"\n", sprintf('n: %f', length(lt.dist)), "\n", sprintf('Minimum: %f', min(lt.dist)),#  add all of these together
             "\n", sprintf('Maximum: %f', max(lt.dist)), "\n", sprintf('Median: %f', median(lt.dist)),#
             "\n",sprintf('Mean: %f', mean(lt.dist)), "\n", sprintf('Std. Dev.: %f', sd(lt.dist)),#
             "\n", sprintf('Std. Error.:%f', sd(lt.dist)/(sqrt(length(lt.dist)))), "\n", "\n", sep='')#
