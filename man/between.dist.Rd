@@ -43,7 +43,7 @@ If the dist paramater is a phylip file, then the function will start by using th
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
+Andrew Hanna (ahanna12345gmail.com)
 }
 \note{
 Since the output of this function is a list, pulling out a vector from the list is done using my.list[[1]].  To get a single distance assign my.list[[1]] to a variable (i.e. vect1<-my.list[[1]]) then specify the component of the list using vect1[1].  I only say this because it may not be obvious to people who aren't experienced R users.

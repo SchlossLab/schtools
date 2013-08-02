@@ -110,12 +110,15 @@ function(dist,design,groups,subgroups=FALSE){                  # Get the
             invisible(vect)  # reurn grp 2 as a matrix
         }
         dists <- get.dists(dist,design,group1,group2)   # use get.dists using the dist,design and the 2 groups
-        print(dists)
+        data<- as.data.frame(dists)
+        data[,2] <- 0
+        #print(data)
+        print(wilcox.test(x=data[,1],y=data[,2]))
         cat(sprintf("Stats for distances between %s and %s", group1, group2), "\n", # Stats for distances between grp1 and grp 2
             sprintf('n: %f', length(dists)), "\n", sprintf('Minimum: %f', min(dists)),"\n", sprintf('Maximum: %f', max(dists)),  # minimum: (mindists)
             "\n", sprintf('Median: %f', median(dists)), "\n",sprintf('Mean: %f', mean(dists)),  # maximum: (maxdists) ; Mean: (mean(dists))
             "\n", sprintf('Std. Dev.: %f', sd(dists)), "\n",sprintf('Std. Error: %f', sd(dists)/sqrt(length(dists))),"\n",
-            sprintf('Wilcoxon rank sum: %f', wilcox.test(x=as.numeric(as.data.frame(unlist(dists,usenames=F))))), "\n", "\n", sep='') # Std.Dev.: (sd(dists)/length(get.dists))  
+            sprintf('Wilcoxon rank sum: %f',print(wilcox.test(x=data[,1],y=data[,2]))), "\n", "\n", sep='') # Std.Dev.: (sd(dists)/length(get.dists))  
         return(dists) # return this1
     }  
      
@@ -133,6 +136,7 @@ function(dist,design,groups,subgroups=FALSE){                  # Get the
    
     names(dist.list) <-list.names
     invisible(dist.list)
+    
 }
 #Returns min, max, mean, median, and sd of distance within a group
 within.dist <- function(dist,design,groups,Subgroups=FALSE){  

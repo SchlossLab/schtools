@@ -88,12 +88,13 @@ between.dist <-
         }
         matrix <- get.rows(rows,grp2)    # get the columns of group 2
         vect <- as.vector(matrix)    #
+        
         invisible(vect)  # reurn grp 2 as a matrix
       }
       dists <- get.dists(dist,design,group1,group2)   # use get.dists using the dist,design and the 2 groups
       
       cat(sprintf("Stats for distances between %s and %s", group1, group2), "\n", # Stats for distances between grp1 and grp 2
-          sprintf('n: %f', length(dists)), "\n", sprintf('Minimum: %f', min(dists)),"\n", sprintf('Maximum: %f', max(dists)),  # minimum: (mindists)
+          sprintf('N=n1*n2: %f', length(dists)), "\n", sprintf('Minimum: %f', min(dists)),"\n", sprintf('Maximum: %f', max(dists)),  # minimum: (mindists)
           "\n", sprintf('Median: %f', median(dists)), "\n",sprintf('Mean: %f', mean(dists)),  # maximum: (maxdists) ; Mean: (mean(dists))
           "\n", sprintf('Std. Dev.: %f', sd(dists)), "\n",sprintf('Std. Error: %f', sd(dists)/sqrt(length(dists))),"\n","\n", sep='') # Std.Dev.: (sd(dists)/length(get.dists))  
       return(dists) # return this1
