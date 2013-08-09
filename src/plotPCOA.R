@@ -2,7 +2,7 @@ plotPCOA<- function(axes,design=FALSE, ax1=1, ax2=2, Lab1="axis1", Lab2= "axis2"
   require(ggplot2) 
   axi             <- read.table(axes,header = T)
   if (design==FALSE){
-    qplot(data= axi,x= axis1, y=axis2, xlab=Lab1, ylab=Lab2,..., size = I(psize))
+    qplot(data= axi,x= axis1, y=axis2, xlab=Lab1, ylab=Lab2, size = I(psize))
   }
   else {
     design         <- suppressWarnings(read.table(design, header=F))

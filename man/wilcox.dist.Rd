@@ -40,7 +40,9 @@ wilcox.dist(dist,design,groups,subgroups=FALSE)
 %% ~put references to the literature/web site here ~
 }
 \author{
-Andrew Hanna (ahanna12345@gmail.com)
+Andrew Hanna (ahanna12345@gmail.com) 
+Nielson Baxter (ntbaxter@umich.edu)
+
 }
 \note{
 %%  ~~further notes~~
@@ -52,12 +54,8 @@ Andrew Hanna (ahanna12345@gmail.com)
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (x) 
+Get the wilcox dists of all of the subgroups.  
+wilcox.dist("germfree.sq.dist","germfreesubgroups.design",groups='all',subgroups=T)
 {
   }
 }

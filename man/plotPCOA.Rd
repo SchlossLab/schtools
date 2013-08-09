@@ -8,7 +8,7 @@ Plot Mothur's PCoA Data with an optional design file for groups in 2d.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-plotPCOA(axes,design=FALSE, ax1=1, ax2=2, Lab1="axis1", Lab2= "axis2", ..., Shape=F, psize=I(4.5))
+plotPCOA(axes,design=FALSE, ax1=1, ax2=2, Lab1="axis1", Lab2= "axis2", psize=I(4.5))
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -24,14 +24,8 @@ plotPCOA(axes,design=FALSE, ax1=1, ax2=2, Lab1="axis1", Lab2= "axis2", ..., Shap
   \item{Lab1, Lab2}{
   titles for the 1st/x and 2nd/y axes.
   }
-  \item{...}{
-  other aesthetics passed for each layer
-  }
-  \item{Shape}{
-  f
-  }
   \item{psize}{
-  f
+  Size of the points plotted.
   }
 }
 \details{
@@ -48,7 +42,7 @@ plotPCOA(axes,design=FALSE, ax1=1, ax2=2, Lab1="axis1", Lab2= "axis2", ..., Shap
 The mothuR page on mothur's wiki: \code{\link{http://www.mothur.org/wiki/mothuR}}
 }
 \author{
-Andrew Hanna: ahanna12345@gmail.com
+Andrew Hanna (ahanna12345gmail.com)
 }
 \note{
 %%  ~~further notes~~
@@ -60,9 +54,9 @@ Andrew Hanna: ahanna12345@gmail.com
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-plotPCOA(axes,design=FALSE, ax1=1, ax2=2, Lab1="axis1", Lab2= "axis2",Shape=F, psize=I(4.5)) 
-{
-  }
+plotPCOA("98_lt_phylip_amazon.pcoa.axes",design=="Amazon_Data.design") 
+this plots the first 2 axes in a 2d scatterplot in black and white 
+
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
