@@ -114,7 +114,8 @@ within.dist <-
       cat(sprintf("Stats for distances within %s", group), "\n", sprintf('n: %f', (1+sqrt(1+8*length(lt.dist)))/2),
           "\n", sprintf('Minimum: %f', min(lt.dist)),
           "\n", sprintf('Maximum: %f', max(lt.dist)), "\n", sprintf('Median: %f', median(lt.dist)), 
-          "\n",sprintf('Mean: %f', mean(lt.dist)), "\n", sprintf('Std. Dev.: %f', sd(lt.dist)), "\n", "\n", sep='')
+          "\n",sprintf('Mean: %f', mean(lt.dist)), "\n", sprintf('Std. Dev.: %f', sd(lt.dist)), "\n",
+          sprintf('Std. Error: %f', sd(dists)/sqrt(length(dists))),"\n", "\n", sep='')
       invisible(lt.dist)
       
     }

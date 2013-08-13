@@ -1,4 +1,4 @@
-wilcox.dist<- function(dist,design,groups,subgroups=FALSE, between=F){
+xwilcox.dist<- function(dist,design,groups='all',subgroups=FALSE, between=F){
   between.dist <- 
     function(dist,design,groups,subgroups=FALSE){                  # Get the   
       if(length(design)==1){design<-read.table(design)}
@@ -264,11 +264,10 @@ wilcox.dist<- function(dist,design,groups,subgroups=FALSE, between=F){
   }
   if(between==F){
     distances <- within.dist(dist,design,groups,subgroups=subgroups)
-    
     for(i in 1:(length(distances)-1)){
       for(j in (i+1):length(distances)){
         names <-names(distances)
-        printme <- paste(sprintf("wilcox of %s and %s", names[i], names[j]), sep='')
+        printme <- paste(sprintf("wilcox of %s(x), and %s(y).", names[i], names[j]), sep='')
         print(printme)
         alpha  <- distances[i]
         alpha  <- as.data.frame(alpha)
@@ -281,7 +280,6 @@ wilcox.dist<- function(dist,design,groups,subgroups=FALSE, between=F){
         Y  <- c(beta[,1:length(beta)])
         Y  <- as.double(Y)
         print(wilcox.test(X,Y,conf.int=T))
-        
       }
     }    
   }

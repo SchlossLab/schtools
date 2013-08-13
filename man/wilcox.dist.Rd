@@ -5,8 +5,7 @@
 %%  ~~function to do ... ~~
 }
 \description{
- compares every pair of distances with everyother pair with wilcox.dist. EG if there are 3 groups A B and C wilcox.dist outputs the wilcox rank- 
- sum test of AB vs AC, AB vs BC and AC vs BC
+ preforms wilcox test on the given groups of a phylip formatted distance matrix. .
 }
 \usage{
 wilcox.dist(dist,design,groups,subgroups=FALSE)
@@ -23,11 +22,15 @@ wilcox.dist(dist,design,groups,subgroups=FALSE)
   a vector of strings containing the names of the groups to be analyzed.  There is no limit to the number of groups that can be analyzed.  The parameter 'all' can be used to analyze the relationships between all groups.
   }
   \item{subgroups}{
-   a logical value determing whether to use the group column or the subgroup column in the analysis (FALSE is groups TRUE is subgroups). (which subgroups to use are determined by the groups vector.)
+   a logical value determining whether to use the group column or the subgroup column in the analysis (FALSE is groups TRUE is subgroups). (which subgroups to use are determined by the groups vector.)
   }
+  \item{between}{
+  A logical value If FALSE wilcox.dist takes the distances of all the points of each group relative to all the other points of the same group then prints a wilcox rank sum test comparing every 2 groups. If TRUE wilcox.dist the distances of all the points of each group relative to all the other points of another group for example if there are 3 groups, 'A', 'B' and 'C', wilcox.dist outputs the wilcox rank-sum test of AB vs AC, AB vs BC and AC vs BC.
+  }
+  
 }
 \details{
-%%  ~~ If necessary, more details than the description  above ~~
+
 }
 \value{
 %%  ~Describe the value returned
