@@ -2,7 +2,7 @@
 \alias{wilcox.dist}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+Not Sure Yet
 }
 \description{
  preforms wilcox test on the given groups of a phylip formatted distance matrix. .

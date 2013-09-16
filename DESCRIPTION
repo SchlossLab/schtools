@@ -1,0 +1,10 @@
+Package: mothuR
+Type: Package
+Title: mothur R package
+Version: 1.0
+Date: 2013-09-12
+Author: Andrew Hannah, Nielson Baxter, Alyxandria Schubert
+Maintainer: Alyxandria Schubert <alyx@umich.edu>
+Description: For analysis of microbial communities using mothur outputs.
+License: Schloss
+LazyLoad: yes
