@@ -18,7 +18,7 @@ read.dist <- function(file, input='lt', make.square=T, diag=0){
       c<-c+i #this because math
     }
     if(make.square){
-      m[upper.tri(m)] <- m[lower.tri(m)] #fills in upper triangle
+      m[upper.tri(m)] <- t(m)[upper.tri(m)] #fills in upper triangle
     }
   }
    
