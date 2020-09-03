@@ -1,6 +1,6 @@
 Package: mothuR
 Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: c(
     person(given = "Kelly",
            family = "Sovacool",
@@ -24,7 +24,7 @@ Authors@R: c(
            family = "Schubert",
            role = c("aut")
            ),
-    person(given = "Kathryn"
+    person(given = "Kathryn",
            family = "Iverson",
            role = c("aut")
            ),
