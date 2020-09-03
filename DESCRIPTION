@@ -45,3 +45,5 @@ Suggests:
     testthat,
     covr
 VignetteBuilder: knitr
+Imports: 
+    dplyr
