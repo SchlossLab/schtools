@@ -46,4 +46,5 @@ Suggests:
     covr
 VignetteBuilder: knitr
 Imports: 
-    dplyr
+    dplyr,
+    tidyr
