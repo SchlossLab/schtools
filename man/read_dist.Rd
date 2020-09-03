@@ -16,7 +16,11 @@ distance matrix as a tibble
 Read in lower left triangular matrix from file
 }
 \examples{
-# TODO: add dist file to inst/ext-data and create a real example of using this
+dist_filepath <- system.file("extdata",
+                             "sample.final.thetayc.0.03.lt.ave.dist",
+                             package = "mothuR")
+dist_tbl <- read_dist(dist_filepath)
+head(dist_tbl)
 }
 \author{
 Nick Lesniak, \email{nlesniak@umich.edu}
