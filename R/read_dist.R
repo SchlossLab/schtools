@@ -4,11 +4,12 @@
 #'
 #' @return distance matrix as a tibble
 #' @export
-#' @author Nick Lesniak, , \email{nlesniak@@umich.edu}
+#' @author Nick Lesniak, \email{nlesniak@@umich.edu}
 #'
 #' @examples
 #' # TODO: add dist file to inst/ext-data and create a real example of using this
 read_dist <- function(dist_file_name) {
+  # TODO: input validation - make sure file has expected format & throw errors if it doesn't
   # read in the first row to determine the matrix dimensions
   matrix_dim <-
     as.numeric(utils::read.table(dist_file_name, nrow = 1, as.is = TRUE))
