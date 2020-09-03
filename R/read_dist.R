@@ -13,7 +13,7 @@ read_dist <- function(dist_filename) {
   # read in the first row to determine the matrix dimensions
   matrix_dim <-
     as.numeric(utils::read.table(dist_filename, nrow = 1, as.is = TRUE))
-  # read in all the data from the lower triangle (exlcude the first which is the matrix dim)
+  # read in all the data from the lower triangle (exclude the first which is the matrix dim)
   distance_matrix <- utils::read.table(dist_filename,
                                        fill = TRUE,
                                        skip = 1,
@@ -25,10 +25,10 @@ read_dist <- function(dist_filename) {
   # convert to long form and eliminate NAs (upper right of triangle)
   return(
     distance_matrix %>%
-      tidyr::pivot_longer(col = -rows,
+      tidyr::pivot_longer(col = -.data['rows'],
                           values_to = 'distances',
                           names_to = 'columns'
                           ) %>%
-      dplyr::filter(!is.na(distances))
+      dplyr::filter(!is.na(.data['distances']))
   )
 }
