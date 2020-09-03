@@ -1,10 +1,51 @@
 Package: mothuR
-Type: Package
-Title: mothur R package
-Version: 1.0
-Date: 2013-09-12
-Author: Andrew Hannah, Nielson Baxter, Alyxandria Schubert
-Maintainer: Alyxandria Schubert <alyx@umich.edu>
-Description: For analysis of microbial communities using mothur outputs.
-License: Schloss
-LazyLoad: yes
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.1
+Authors@R: c(
+    person(given = "Kelly",
+           family = "Sovacool",
+           role = c("aut", "cre"),
+           email = "sovacool@umich.edu",
+           comment = c(ORCID = "0000-0003-3283-829X")),
+    person(given = "Nick",
+           family = "Lesniak",
+           role = c("aut"),
+           email = "nlesniak@umich.edu"
+           ),
+    person(given = "Andrew",
+           family = "Hannah",
+           role = c("aut")
+           ),
+    person(given = "Nielson",
+           family = "Baxter",
+           role = c("aut")
+           ),
+    person(given = "Alyxandria",
+           family = "Schubert",
+           role = c("aut")
+           ),
+    person(given = "Kathryn",
+           family = "Iverson",
+           role = c("aut")
+           ),
+    person(given = "Patrick",
+           family = "Schloss",
+           role = c("aut"),
+           email = "pschloss@umich.edu"
+           ))
+Description: What the package does (one paragraph).
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat,
+    covr
+VignetteBuilder: knitr
+Imports: 
+    dplyr,
+    tidyr,
+    rlang

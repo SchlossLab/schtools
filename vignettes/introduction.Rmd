@@ -1,0 +1,30 @@
+---
+title: "Introduction to mothuR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to mothuR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(mothuR)
+```
+
+Reading distance files:
+ 
+```{r read_dist}
+dist_filepath <- system.file("extdata",
+                             "sample.final.thetayc.0.03.lt.ave.dist",
+                             package = "mothuR")
+dist_tbl <- read_dist(dist_filepath)
+head(dist_tbl)
+```
+
