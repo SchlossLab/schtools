@@ -17,7 +17,7 @@ The word 'and' is inserted before the last element and an Oxford comma is used.
 }
 \examples{
 paste_oxford_list(1:3)
-paste_oxford_list(c('cats', 'dogs', 'turtles'))
+paste_oxford_list(c("cats", "dogs", "turtles"))
 }
 \author{
 Kelly Sovacool \email{sovacool@umich.edu}
