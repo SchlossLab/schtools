@@ -2,6 +2,7 @@
 
 export("%>%")
 export(.data)
+export(paste_oxford_list)
 export(read_dist)
 importFrom(dplyr,"%>%")
 importFrom(rlang,.data)
