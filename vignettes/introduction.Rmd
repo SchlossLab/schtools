@@ -40,11 +40,9 @@ We provide `paste_oxford_list()` to help you do just that.
 animals <- c('cats', 'dogs', 'fish')
 ```
 
-Insert the string as inline code with ``r ``:
+Insert the string as inline code with `` `r ` ``:
 
-```
-`r paste_oxford_list(animals)` are the most common pets.
-```
+> `` `r "\u0060r paste_oxford_list(animals)\u0060"` `` are the most common pets.
 
 Rendered output:
 
