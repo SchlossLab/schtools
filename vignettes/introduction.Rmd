@@ -18,7 +18,9 @@ knitr::opts_chunk$set(
 library(mothuR)
 ```
 
-Reading distance files:
+## Parsing mothur output files
+
+### Phylip-formatted distance file as a tibble
  
 ```{r read_dist}
 dist_filepath <- system.file("extdata",
@@ -28,3 +30,22 @@ dist_tbl <- read_dist(dist_filepath)
 head(dist_tbl)
 ```
 
+## Miscellaneous helpers
+
+When writing with R Markdown, you may wish to insert a list or vector 
+inline and correctly format it with an Oxford comma. 
+We provide `paste_oxford_list()` to help you do just that. 
+
+```{r oxford}
+animals <- c('cats', 'dogs', 'fish')
+```
+
+Insert the string as inline code with ``r ``:
+
+```
+`r paste_oxford_list(animals)` are the most common pets.
+```
+
+Rendered output:
+
+> `r paste_oxford_list(animals)` are the most common pets.
