@@ -8,6 +8,7 @@
 #' @return a string where each element in `x` is separated by a comma
 #' @export
 #' @author Kelly Sovacool \email{sovacool@@umich.edu}
+#' @author Pat Schloss \email{pschloss@@umich.edu}
 #'
 #' @examples
 #' paste_oxford_list(1:3)
@@ -51,4 +52,24 @@ inline_hook <- function(x){
     } else {
         paste(x)
     }
+}
+
+
+#' Set knitr chunk options & inline hook
+#'
+#'  Call this function in the setup chunk of your R Markdown files.
+#'
+#' @export
+#' @author Pat Schloss \email{pschloss@@umich.edu}
+#' @author Kelly Sovacool \email{sovacool@@umich.edu}
+#'
+set_knitr_opts <- function() {
+    knitr::opts_chunk$set(
+        tidy = TRUE,
+        echo = FALSE,
+        eval = TRUE,
+        warning = FALSE,
+        cache = FALSE
+    )
+    knitr::knit_hooks$set(inline=inline_hook)
 }
