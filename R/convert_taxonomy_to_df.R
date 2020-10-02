@@ -1,6 +1,5 @@
 #' Convert taxonomy strings into dataframe of labels based on taxnomic classification
 #'
-#' @importFrom magrittr %>%
 #' @param taxonomy_filename filename of taxonomy file
 #'
 #' @return dataframe of taxonomic labels
