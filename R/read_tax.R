@@ -11,9 +11,9 @@
 #'   "final.taxonomy",
 #'   package = "mothuR"
 #' )
-#' taxonomy_tbl <- convert_taxonomy_to_df(taxonomy_filepath)
+#' taxonomy_tbl <- read_tax(taxonomy_filepath)
 #' head(taxonomy_tbl)
-convert_taxonomy_to_df <- function(taxonomy_file){
+read_tax <- function(taxonomy_file){
   levels <- c('Kingdom','Phylum','Class','Order','Family','Genus')
   taxonomy_df <- utils::read.table(taxonomy_file, 
     sep = '\t', 
