@@ -8,7 +8,7 @@
 #'
 #' @examples
 #' taxonomy_filepath <- system.file("extdata",
-#'   "final.taxonomy",
+#'   "test.taxonomy",
 #'   package = "mothuR"
 #' )
 #' taxonomy_tbl <- read_tax(taxonomy_filepath)
@@ -20,7 +20,7 @@ read_tax <- function(taxonomy_file){
     header = T, 
     stringsAsFactors = F
     ) %>% 
-  # convert mothur taxonomy string to columns
+    dplyr::mutate(Taxonomy = gsub('_', ' ', Taxonomy)) %>% 
     tidyr::separate(Taxonomy, levels, sep = '\\(\\d{2,3}\\);', extra = 'drop') %>% 
     dplyr::select(-Size) 
   # in older version of mothur unclassified are listed as unclassified
@@ -28,29 +28,33 @@ read_tax <- function(taxonomy_file){
   # for those cases, append with lowest identified classification
   if(any(taxonomy_df$Genus == 'unclassified')){ 
     taxonomy_df <- taxonomy_df %>% 
-      # convert to long form to group classification by OTU 
-      tidyr::gather(Level, Classification, -OTU) %>% 
+      tidyr::pivot_longer(
+        cols = -.data[['OTU']],
+        names_to = 'Level', 
+        values_to = 'Classification'
+        ) %>% 
       # order classification level
-      dplyr::mutate(Level = factor(Level, levels))  %>% 
-      # create dataframe with OTU and lowest level classification
+      dplyr::mutate(Level = factor(Level, levels)) %>% 
       dplyr::left_join(dplyr::group_by(., OTU) %>% 
-          # remove unclassifieds
-          filter(Classification != 'unclassified') %>% 
+          dplyr::filter(Classification != 'unclassified') %>% 
           # select lowest level classification
-          filter(Level == levels[max(as.numeric(Level))]) %>% 
-          select(OTU, Lowest_classified = Classification), 
+          dplyr::filter(Level == levels[max(as.numeric(Level))]) %>% 
+          dplyr::select(OTU, Lowest_classified = Classification), 
         by = 'OTU') %>% 
       dplyr::mutate(Classification = ifelse(Classification == 'unclassified', 
           # append unclassified with lowest classification
-          paste(Lowest_classified, Classification, sep= '_'), 
+          paste(Lowest_classified, Classification, sep= ' '), 
           Classification)) %>% 
       dplyr::select(-Lowest_classified) %>% 
-      tidyr::spread(Level, Classification)
+      tidyr::pivot_wider(
+        names_from = 'Level', 
+        values_from = 'Classification')
   }
   # create label options for OTU and lowest taxonomic classification with the OTU
   taxonomy_df <- taxonomy_df %>%  
       dplyr::mutate(
       	tax_otu_label = paste0(Genus, ' (', gsub('tu0*', 'TU ', OTU),')'),
+        tax_otu_label = gsub(' unclassified', '', tax_otu_label),
         otu_label = paste0(gsub('tu0*', 'TU ', OTU))
         )
   return(taxonomy_df)
