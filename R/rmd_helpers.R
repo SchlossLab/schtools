@@ -27,13 +27,14 @@ paste_oxford_list <- function(x) {
   return(prose)
 }
 
-#' Inline hook for knitr to paste human-readable numbers
+#' Inline hook for knitr to paste human-readable numbers.
 #'
-#' Pastes rounded `x` if numeric, otherwise `x` unmodified.
+#' Pastes formatted `x` if numeric, otherwise `x` unmodified.
+#' Circumvents R's automatic scientific notation.
 #'
 #' @param x inline code
 #'
-#' @return rounded `x` if numeric, otherwise `x` unmodified.
+#' @return formatted `x` if numeric, otherwise `x` unmodified.
 #' @export
 #' @author Pat Schloss \email{pschloss@@umich.edu}
 #' @author Kelly Sovacool \email{sovacool@@umich.edu}
