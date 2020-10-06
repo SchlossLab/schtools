@@ -44,9 +44,9 @@ Imports:
     tidyr,
     rlang
 Suggests: 
-    knitr,
-    rmarkdown,
-    testthat,
     covr,
-    purrr
+    knitr,
+    purrr,
+    rmarkdown,
+    testthat
 VignetteBuilder: knitr
