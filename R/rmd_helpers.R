@@ -40,18 +40,18 @@ paste_oxford_list <- function(x) {
 #' @examples
 #' inline_hook(0.02)
 #' inline_hook(.Machine$double.eps^0.5)
-#' inline_hook('this is a string')
-inline_hook <- function(x){
-    print(x)
-    if(is.numeric(x)) {
-        if(abs(x - round(x)) < .Machine$double.eps^0.5){
-            paste(format(x,big.mark=',', digits=0, scientific=FALSE))
-        } else {
-            paste(format(x,big.mark=',', digits=2, nsmall=2, scientific=FALSE))
-        }
+#' inline_hook("this is a string")
+inline_hook <- function(x) {
+  print(x)
+  if (is.numeric(x)) {
+    if (abs(x - round(x)) < .Machine$double.eps^0.5) {
+      paste(format(x, big.mark = ",", digits = 0, scientific = FALSE))
     } else {
-        paste(x)
+      paste(format(x, big.mark = ",", digits = 2, nsmall = 2, scientific = FALSE))
     }
+  } else {
+    paste(x)
+  }
 }
 
 
@@ -64,12 +64,12 @@ inline_hook <- function(x){
 #' @author Kelly Sovacool \email{sovacool@@umich.edu}
 #'
 set_knitr_opts <- function() {
-    knitr::opts_chunk$set(
-        tidy = TRUE,
-        echo = FALSE,
-        eval = TRUE,
-        warning = FALSE,
-        cache = FALSE
-    )
-    knitr::knit_hooks$set(inline=inline_hook)
+  knitr::opts_chunk$set(
+    tidy = TRUE,
+    echo = FALSE,
+    eval = TRUE,
+    warning = FALSE,
+    cache = FALSE
+  )
+  knitr::knit_hooks$set(inline = inline_hook)
 }
