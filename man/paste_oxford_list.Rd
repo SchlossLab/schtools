@@ -21,4 +21,6 @@ paste_oxford_list(c("cats", "dogs", "turtles"))
 }
 \author{
 Kelly Sovacool \email{sovacool@umich.edu}
+
+Pat Schloss \email{pschloss@umich.edu}
 }

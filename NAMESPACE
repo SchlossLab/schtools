@@ -2,7 +2,9 @@
 
 export("%>%")
 export(.data)
+export(inline_hook)
 export(paste_oxford_list)
 export(read_dist)
+export(set_knitr_opts)
 importFrom(dplyr,"%>%")
 importFrom(rlang,.data)
