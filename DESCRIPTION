@@ -39,13 +39,14 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-Suggests: 
-    knitr,
-    rmarkdown,
-    testthat,
-    covr
-VignetteBuilder: knitr
 Imports: 
     dplyr,
     tidyr,
     rlang
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat,
+    covr,
+    purrr
+VignetteBuilder: knitr
