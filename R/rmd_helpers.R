@@ -67,12 +67,12 @@ inline_hook <- function(x) {
 #' @author Kelly Sovacool \email{sovacool@@umich.edu}
 #'
 set_knitr_opts <- function() {
-    knitr::opts_chunk$set(
-        tidy = TRUE,
-        echo = FALSE,
-        eval = TRUE,
-        warning = FALSE,
-        cache = FALSE
-    )
-    knitr::knit_hooks$set(inline=inline_hook)
+  knitr::opts_chunk$set(
+    tidy = TRUE,
+    echo = FALSE,
+    eval = TRUE,
+    warning = FALSE,
+    cache = FALSE
+  )
+  knitr::knit_hooks$set(inline = inline_hook)
 }
