@@ -1,5 +1,5 @@
 test_that("convert_taxonomy_to_df works on example file", {
-  tbl_head <- structure(list(
+  taxonomy_out <- read_tax(system.file("extdata",
     OTU = c("Otu0001", "Otu0002", "Otu0003", "Otu0004", "Otu0005", "Otu0006"),
     Kingdom = c("Bacteria", "Bacteria", "Bacteria", "Bacteria", "Bacteria", "Bacteria"),
     Phylum = c("Bacteroidetes", "Verrucomicrobia", "Bacteroidetes", "Bacteroidetes", "Firmicutes", "Bacteroidetes"),
