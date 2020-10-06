@@ -3,5 +3,6 @@
 export("%>%")
 export(.data)
 export(read_dist)
+export(read_tax)
 importFrom(dplyr,"%>%")
 importFrom(rlang,.data)
