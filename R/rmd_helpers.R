@@ -42,16 +42,16 @@ paste_oxford_list <- function(x) {
 #' @examples
 #' inline_hook(0.02)
 #' inline_hook(.Machine$double.eps^0.5)
-#' inline_hook('this is a string')
+#' inline_hook("this is a string")
 inline_hook <- function(x) {
   if (is.list(x)) {
     x <- unlist(x)
   }
   if (is.numeric(x)) {
-    if (abs(x - round(x)) < .Machine$double.eps ^ 0.5) {
-      x_str <- paste(format(x, big.mark = ',', digits = 0, scientific = FALSE))
+    if (abs(x - round(x)) < .Machine$double.eps^0.5) {
+      x_str <- paste(format(x, big.mark = ",", digits = 0, scientific = FALSE))
     } else {
-      x_str <- paste(format(x, big.mark = ',', digits = 2, nsmall = 2, scientific = FALSE))
+      x_str <- paste(format(x, big.mark = ",", digits = 2, nsmall = 2, scientific = FALSE))
     }
   } else {
     x_str <- paste(x)
