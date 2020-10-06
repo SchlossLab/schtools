@@ -2,7 +2,7 @@
 % Please edit documentation in R/rmd_helpers.R
 \name{inline_hook}
 \alias{inline_hook}
-\title{Inline hook for knitr to paste human-readable numbers}
+\title{Inline hook for knitr to paste human-readable numbers.}
 \usage{
 inline_hook(x)
 }
@@ -10,10 +10,11 @@ inline_hook(x)
 \item{x}{inline code}
 }
 \value{
-rounded \code{x} if numeric, otherwise \code{x} unmodified.
+formatted \code{x} if numeric, otherwise \code{x} unmodified.
 }
 \description{
-Pastes rounded \code{x} if numeric, otherwise \code{x} unmodified.
+Pastes formatted \code{x} if numeric, otherwise \code{x} unmodified.
+Circumvents R's automatic scientific notation.
 }
 \examples{
 inline_hook(0.02)
