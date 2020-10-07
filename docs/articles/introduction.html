@@ -69,7 +69,7 @@
 
       
 
-      </header><script src="introduction_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction to mothuR</h1>
@@ -82,35 +82,41 @@
 
     
     
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">mothuR</span>)</pre></body></html></div>
 <div id="parsing-mothur-output-files" class="section level2">
 <h2 class="hasAnchor">
 <a href="#parsing-mothur-output-files" class="anchor"></a>Parsing mothur output files</h2>
 <div id="phylip-formatted-distance-file-as-a-tibble" class="section level3">
 <h3 class="hasAnchor">
 <a href="#phylip-formatted-distance-file-as-a-tibble" class="anchor"></a>Phylip-formatted distance file as a tibble</h3>
-<pre><code>#&gt; # A tibble: 6 x 3
-#&gt;   rows      columns   distances
-#&gt;   &lt;chr&gt;     &lt;chr&gt;         &lt;dbl&gt;
-#&gt; 1 104_1_D1  104_1_D0      0.893
-#&gt; 2 104_1_D10 104_1_D0      0.254
-#&gt; 3 104_1_D10 104_1_D1      0.922
-#&gt; 4 104_1_D2  104_1_D0      0.874
-#&gt; 5 104_1_D2  104_1_D1      0.109
-#&gt; 6 104_1_D2  104_1_D10     0.904</code></pre>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">dist_filepath</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, <span class="st">"sample.final.thetayc.0.03.lt.ave.dist"</span>,
+    <span class="kw">package</span> <span class="kw">=</span> <span class="st">"mothuR"</span>)
+<span class="no">dist_tbl</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/read_dist.html">read_dist</a></span>(<span class="no">dist_filepath</span>)
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">dist_tbl</span>)
+<span class="co">#&gt; # A tibble: 6 x 3</span>
+<span class="co">#&gt;   rows      columns   distances</span>
+<span class="co">#&gt;   &lt;chr&gt;     &lt;chr&gt;         &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 104_1_D1  104_1_D0      0.893</span>
+<span class="co">#&gt; 2 104_1_D10 104_1_D0      0.254</span>
+<span class="co">#&gt; 3 104_1_D10 104_1_D1      0.922</span>
+<span class="co">#&gt; 4 104_1_D2  104_1_D0      0.874</span>
+<span class="co">#&gt; 5 104_1_D2  104_1_D1      0.109</span>
+<span class="co">#&gt; 6 104_1_D2  104_1_D10     0.904</span></pre></body></html></div>
 </div>
 </div>
 <div id="miscellaneous-helpers" class="section level2">
 <h2 class="hasAnchor">
 <a href="#miscellaneous-helpers" class="anchor"></a>Miscellaneous helpers</h2>
 <p>When writing scientific papers with R Markdown, we often find ourselves using the same knitr chunk options and miscellaneous helper functions. To use our favorite options like <code>eval=TRUE</code>, <code>echo=FALSE</code>, and others, run <code><a href="../reference/set_knitr_opts.html">set_knitr_opts()</a></code> in the first chunk of your R Markdown document:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="bn">```{r, include = FALSE}</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="bn">set_knitr_opts()</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="bn">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb3-1" title="1"><span class="bn">```{r, include = FALSE}</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="bn">set_knitr_opts()</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="bn">```</span></a></code></pre></div>
 <p>This also sets the inline hook to <code><a href="../reference/inline_hook.html">inline_hook()</a></code>, which formats small numbers in a human-readable way rather than R’s default scientific notation.</p>
 <div id="who-doesnt-love-an-oxford-comma" class="section level3">
 <h3 class="hasAnchor">
 <a href="#who-doesnt-love-an-oxford-comma" class="anchor"></a>Who doesn’t love an Oxford comma?</h3>
 <p>When writing with R Markdown, you may wish to insert a list or vector inline and correctly format it with an Oxford comma. We provide <code><a href="../reference/paste_oxford_list.html">paste_oxford_list()</a></code> to help you do just that.</p>
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">animals</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"cats"</span>, <span class="st">"dogs"</span>, <span class="st">"fish"</span>)</pre></body></html></div>
 <p>Insert the string as inline code with <code>`r `</code>:</p>
 <blockquote>
 <p><code>`r paste_oxford_list(animals)`</code> are the most common pets.</p>
@@ -146,7 +152,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
