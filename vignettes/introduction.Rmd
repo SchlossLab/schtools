@@ -69,8 +69,8 @@ Rendered output:
 It uses `inline_hook()` under the hood to automatically format numbers
 to a human-readable format, rather than display in scientific notation.
 
-> `` `r The numbers "\u0060r paste_oxford_list(c(1e-04, 1e-05, 1e-06, 1e-07))\u0060"` `` are very precise.
+> `` The numbers `r "\u0060r paste_oxford_list(c(1e-04, 1e-05, 1e-06, 1e-07))\u0060"` `` are very precise.
 
 Rendered output:
 
-> `r The numbers paste_oxford_list(c(1e-04, 1e-05, 1e-06, 1e-07))` are very precise.
+> The numbers `r paste_oxford_list(c(1e-04, 1e-05, 1e-06, 1e-07))` are very precise.
