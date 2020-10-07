@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>mothuR: one-line description goes here — mothuR • mothuR</title>
+<title>Convert taxonomy strings into dataframe of labels based on taxnomic classification — read_tax • mothuR</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="mothuR: one-line description goes here — mothuR" />
-<meta property="og:description" content="longer description (paragraph) goes here" />
+<meta property="og:title" content="Convert taxonomy strings into dataframe of labels based on taxnomic classification — read_tax" />
+<meta property="og:description" content="Convert taxonomy strings into dataframe of labels based on taxnomic classification" />
 
 
 
@@ -115,21 +115,49 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>mothuR: one-line description goes here</h1>
+    <h1>Convert taxonomy strings into dataframe of labels based on taxnomic classification</h1>
     
-    <div class="hidden name"><code>mothuR.Rd</code></div>
+    <div class="hidden name"><code>read_tax.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>longer description (paragraph) goes here</p>
+    <p>Convert taxonomy strings into dataframe of labels based on taxnomic classification</p>
     </div>
 
+    <pre class="usage"><span class='fu'>read_tax</span><span class='op'>(</span><span class='va'>taxonomy_filename</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>taxonomy_filename</th>
+      <td><p>filename of taxonomy file</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="brief-overview-of-functions"><a class="anchor" href="#brief-overview-of-functions"></a>brief overview of functions</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>NA</p>
+    <p>dataframe of taxonomic labels</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
+    <p>Nick Lesniak, <a href='mailto:nlesniak@umich.edu'>nlesniak@umich.edu</a></p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='va'>taxonomy_filepath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>,
+  <span class='st'>"test.taxonomy"</span>,
+  package <span class='op'>=</span> <span class='st'>"mothuR"</span>
+<span class='op'>)</span>
+<span class='va'>taxonomy_tbl</span> <span class='op'>&lt;-</span> <span class='fu'>read_tax</span><span class='op'>(</span><span class='va'>taxonomy_filepath</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>taxonomy_tbl</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 6 x 9</span><span>
+#&gt;   OTU    Kingdom  Phylum  Class  Order  Family  Genus   tax_otu_label  otu_label
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>          </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    
+#&gt; </span><span style='color: #555555;'>1</span><span> Otu00… Bacteria Bacter… Bacte… Bacte… Bacter… Bacter… Bacteroides (… OTU 1    
+#&gt; </span><span style='color: #555555;'>2</span><span> Otu00… Bacteria Bacter… Bacte… Bacte… Porphy… Porphy… Porphyromonad… OTU 3    
+#&gt; </span><span style='color: #555555;'>3</span><span> Otu00… Bacteria Bacter… Bacte… Bacte… Porphy… Porphy… Porphyromonad… OTU 4    
+#&gt; </span><span style='color: #555555;'>4</span><span> Otu00… Bacteria Proteo… Gamma… Enter… Entero… Entero… Enterobacteri… OTU 8    
+#&gt; </span><span style='color: #555555;'>5</span><span> Otu00… Bacteria Bacter… Bacte… Bacte… Bacter… Bacter… Bacteria (OTU… OTU 44   
+#&gt; </span><span style='color: #555555;'>6</span><span> Otu00… Bacteria Bacter… Bacte… Bacte… Bacter… Bacter… Bacteria (OTU… OTU 56   </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
