@@ -19,7 +19,7 @@ Circumvents R's automatic scientific notation.
 \examples{
 inline_hook(0.02)
 inline_hook(.Machine$double.eps^0.5)
-inline_hook('this is a string')
+inline_hook("this is a string")
 }
 \author{
 Pat Schloss \email{pschloss@umich.edu}
