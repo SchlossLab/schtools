@@ -84,7 +84,12 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit">
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">mothuR</span><span class="op">)</span></pre></div>
-<p>Reading distance files:</p>
+<div id="parsing-mothur-output-files" class="section level2">
+<h2 class="hasAnchor">
+<a href="#parsing-mothur-output-files" class="anchor"></a>Parsing mothur output files</h2>
+<div id="phylip-formatted-distance-file-as-a-tibble" class="section level3">
+<h3 class="hasAnchor">
+<a href="#phylip-formatted-distance-file-as-a-tibble" class="anchor"></a>Phylip-formatted distance file as a tibble</h3>
 <div class="sourceCode" id="cb2"><pre class="downlit">
 <span class="va">dist_filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>,
                              <span class="st">"sample.final.thetayc.0.03.lt.ave.dist"</span>,
@@ -100,11 +105,47 @@
 <span class="co">#&gt; 4 104_1_D2  104_1_D0      0.874</span>
 <span class="co">#&gt; 5 104_1_D2  104_1_D1      0.109</span>
 <span class="co">#&gt; 6 104_1_D2  104_1_D10     0.904</span></pre></div>
+</div>
+</div>
+<div id="miscellaneous-helpers" class="section level2">
+<h2 class="hasAnchor">
+<a href="#miscellaneous-helpers" class="anchor"></a>Miscellaneous helpers</h2>
+<p>When writing scientific papers with R Markdown, we often find ourselves using the same knitr chunk options and miscellaneous helper functions. To use our favorite options like <code>eval=TRUE</code>, <code>echo=FALSE</code>, and others, run <code><a href="../reference/set_knitr_opts.html">set_knitr_opts()</a></code> in the first chunk of your R Markdown document:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="bn">```{r, include = FALSE}</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="bn">set_knitr_opts()</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="bn">```</span></span></code></pre></div>
+<p>This also sets the inline hook to <code><a href="../reference/inline_hook.html">inline_hook()</a></code>, which formats small numbers in a human-readable way rather than R’s default scientific notation.</p>
+<div id="who-doesnt-love-an-oxford-comma" class="section level3">
+<h3 class="hasAnchor">
+<a href="#who-doesnt-love-an-oxford-comma" class="anchor"></a>Who doesn’t love an Oxford comma?</h3>
+<p>When writing with R Markdown, you may wish to insert a list or vector inline and correctly format it with an Oxford comma. We provide <code><a href="../reference/paste_oxford_list.html">paste_oxford_list()</a></code> to help you do just that.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'cats'</span>, <span class="st">'dogs'</span>, <span class="st">'fish'</span><span class="op">)</span></pre></div>
+<p>Insert the string as inline code with <code>`r `</code>:</p>
+<blockquote>
+<p><code>`r paste_oxford_list(animals)`</code> are the most common pets.</p>
+</blockquote>
+<p>Rendered output:</p>
+<blockquote>
+<p>cats, dogs, and fish are the most common pets.</p>
+</blockquote>
+<p>It uses <code><a href="../reference/inline_hook.html">inline_hook()</a></code> under the hood to automatically format numbers to a human-readable format, rather than display in scientific notation.</p>
+<blockquote>
+<p><code>The numbers `r paste_oxford_list(c(1e-04, 1e-05, 1e-06, 1e-07))`</code> are very precise.</p>
+</blockquote>
+<p>Rendered output:</p>
+<blockquote>
+<p>The numbers 0.0001, 0.00001, 0.000001, and 0.0000001 are very precise.</p>
+</blockquote>
+</div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-      </div>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
+</div>
 
 </div>
 

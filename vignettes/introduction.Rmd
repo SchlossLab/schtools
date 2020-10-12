@@ -8,8 +8,10 @@ vignette: >
 ---
 
 ```{r, include = FALSE}
+mothuR::set_knitr_opts()
 knitr::opts_chunk$set(
   collapse = TRUE,
+  echo = TRUE,
   comment = "#>"
 )
 ```
@@ -18,7 +20,9 @@ knitr::opts_chunk$set(
 library(mothuR)
 ```
 
-Reading distance files:
+## Parsing mothur output files
+
+### Phylip-formatted distance file as a tibble
  
 ```{r read_dist}
 dist_filepath <- system.file("extdata",
@@ -28,3 +32,46 @@ dist_tbl <- read_dist(dist_filepath)
 head(dist_tbl)
 ```
 
+## Miscellaneous helpers
+
+When writing scientific papers with R Markdown, we often find ourselves 
+using the same knitr chunk options and miscellaneous helper functions.
+To use our favorite options like `eval=TRUE`, `echo=FALSE`, and others,
+run `set_knitr_opts()` in the first chunk of your R Markdown document:
+
+
+````markdown
+`r ''````{r, include = FALSE}
+set_knitr_opts()
+```
+````
+
+This also sets the inline hook to `inline_hook()`, which formats small numbers 
+in a human-readable way rather than R's default scientific notation.
+
+### Who doesn't love an Oxford comma?
+
+When writing with R Markdown, you may wish to insert a list or vector 
+inline and correctly format it with an Oxford comma. 
+We provide `paste_oxford_list()` to help you do just that. 
+
+```{r oxford}
+animals <- c('cats', 'dogs', 'fish')
+```
+
+Insert the string as inline code with `` `r ` ``:
+
+> `` `r "\u0060r paste_oxford_list(animals)\u0060"` `` are the most common pets.
+
+Rendered output:
+
+> `r paste_oxford_list(animals)` are the most common pets.
+
+It uses `inline_hook()` under the hood to automatically format numbers
+to a human-readable format, rather than display in scientific notation.
+
+> `` The numbers `r "\u0060r paste_oxford_list(c(1e-04, 1e-05, 1e-06, 1e-07))\u0060"` `` are very precise.
+
+Rendered output:
+
+> The numbers `r paste_oxford_list(c(1e-04, 1e-05, 1e-06, 1e-07))` are very precise.
