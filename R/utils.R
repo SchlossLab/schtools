@@ -8,7 +8,8 @@ dplyr::`%>%`
 utils::globalVariables(c("."))
 
 #' Install & load packages
-load_deps <- function(deps) {
+load_deps <- function(...) {
+  deps <- c(...)
   not_installed <- names(Filter(isFALSE, sapply(deps, requireNamespace, 
                                                 quietly = TRUE)))
   install.packages(not_installed, quiet = TRUE, dependencies = TRUE,
