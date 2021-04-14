@@ -8,9 +8,21 @@ test_that("paste_oxford_list() works for vectors & lists", {
     "0, 0.000000015, 0.00000003, and 0.000000045"
   )
 })
+
+test_that("is_nearly_whole() works", {
+  expect_true(is_nearly_whole(.Machine$double.eps))
+  expect_true(is_nearly_whole(0))
+  expect_true(is_nearly_whole(1))
+  expect_false(is_nearly_whole(.Machine$double.eps^0.5))
+  expect_false(is_nearly_whole(2100.05))
+})
+
 test_that("inline_hook() works for small numbers & strings", {
   expect_equal(inline_hook(0.02), "0.02")
   expect_equal(inline_hook(.Machine$double.eps^0.5), "0.000000015")
+  expect_equal(inline_hook(1000), "1,000")
+  expect_equal(inline_hook(1000.06), "1,000.1")
+  expect_equal(inline_hook(TRUE), "TRUE")
   expect_equal(inline_hook("this is a string"), "this is a string")
 })
 test_that("set_knitr_opts() works", {
