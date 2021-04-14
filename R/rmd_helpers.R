@@ -60,9 +60,10 @@ is_nearly_whole <- function(x) {
 #' @author Kelly Sovacool \email{sovacool@@umich.edu}
 #'
 #' @examples
-#' inline_hook(0.02)
+#' inline_hook(0.0256)
 #' inline_hook(.Machine$double.eps^0.5)
 #' inline_hook(100000.08)
+#' inline_hook(1.00000000000000000001)
 #' inline_hook("this is a string")
 inline_hook <- function(x, nsmall = 1) {
   if (is.list(x)) {

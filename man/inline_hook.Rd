@@ -23,9 +23,10 @@ zero decimal places. Otherwise, numbers >= 1 are rounded to 1 decimal place;
 numbers < 1 are rounded to have 2 significant digits.
 }
 \examples{
-inline_hook(0.02)
+inline_hook(0.0256)
 inline_hook(.Machine$double.eps^0.5)
 inline_hook(100000.08)
+inline_hook(1.00000000000000000001)
 inline_hook("this is a string")
 }
 \author{
