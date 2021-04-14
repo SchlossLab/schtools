@@ -79,8 +79,10 @@ inline_hook <- function(x, nsmall = 1) {
         x <- round(x, nsmall)
       }
     }
-    x_str <- paste(format(x, digits = signif_digits, nsmall = nsmall,
-                          big.mark = ',', scientific = FALSE))
+    x_str <- paste(format(x,
+      digits = signif_digits, nsmall = nsmall,
+      big.mark = ",", scientific = FALSE
+    ))
   } else {
     x_str <- paste(x)
   }
