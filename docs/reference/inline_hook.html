@@ -41,7 +41,10 @@
 
 <meta property="og:title" content="Inline hook for knitr to paste human-readable numbers. — inline_hook" />
 <meta property="og:description" content="Pastes formatted x if numeric, otherwise x unmodified.
-Circumvents R's automatic scientific notation." />
+Circumvents R's automatic scientific notation.
+If a number is nearly whole (see is_nearly_whole()), it is rounded to have
+zero decimal places. Otherwise, numbers &amp;gt;= 1 are rounded to 1 decimal place;
+numbers &amp;lt; 1 are rounded to have 2 significant digits." />
 
 
 
@@ -81,7 +84,7 @@ Circumvents R's automatic scientific notation." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -123,10 +126,13 @@ Circumvents R's automatic scientific notation." />
 
     <div class="ref-description">
     <p>Pastes formatted <code>x</code> if numeric, otherwise <code>x</code> unmodified.
-Circumvents R's automatic scientific notation.</p>
+Circumvents R's automatic scientific notation.
+If a number is nearly whole (see <code><a href='is_nearly_whole.html'>is_nearly_whole()</a></code>), it is rounded to have
+zero decimal places. Otherwise, numbers &gt;= 1 are rounded to 1 decimal place;
+numbers &lt; 1 are rounded to have 2 significant digits.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>inline_hook</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>inline_hook</span><span class='op'>(</span><span class='va'>x</span>, nsmall <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -134,6 +140,11 @@ Circumvents R's automatic scientific notation.</p>
     <tr>
       <th>x</th>
       <td><p>inline code</p></td>
+    </tr>
+    <tr>
+      <th>nsmall</th>
+      <td><p>number of digits after the decimal point to round to when
+<code>x</code> is not nearly whole but <code>x &gt;= 1</code>.</p></td>
     </tr>
     </table>
 
@@ -148,7 +159,8 @@ Circumvents R's automatic scientific notation.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>inline_hook</span><span class='op'>(</span><span class='fl'>0.02</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "0.02"</div><div class='input'><span class='fu'>inline_hook</span><span class='op'>(</span><span class='va'>.Machine</span><span class='op'>$</span><span class='va'>double.eps</span><span class='op'>^</span><span class='fl'>0.5</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "0.000000015"</div><div class='input'><span class='fu'>inline_hook</span><span class='op'>(</span><span class='st'>"this is a string"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "0.000000015"</div><div class='input'><span class='fu'>inline_hook</span><span class='op'>(</span><span class='fl'>100000.08</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "100,000.1"</div><div class='input'><span class='fu'>inline_hook</span><span class='op'>(</span><span class='st'>"this is a string"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "this is a string"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
