@@ -103,6 +103,9 @@ numbers &amp;lt; 1 are rounded to have 2 significant digits." />
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -132,7 +135,7 @@ zero decimal places. Otherwise, numbers &gt;= 1 are rounded to 1 decimal place;
 numbers &lt; 1 are rounded to have 2 significant digits.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>inline_hook</span><span class='op'>(</span><span class='va'>x</span>, nsmall <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>inline_hook</span><span class='op'>(</span><span class='va'>x</span>, nsmall <span class='op'>=</span> <span class='fl'>1</span>, signif_precise <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -143,8 +146,13 @@ numbers &lt; 1 are rounded to have 2 significant digits.</p>
     </tr>
     <tr>
       <th>nsmall</th>
-      <td><p>number of digits after the decimal point to round to when
-<code>x</code> is not nearly whole but <code>x &gt;= 1</code>.</p></td>
+      <td><p>number of digits after the decimal point to round to when <code>x</code>
+is not nearly whole but <code>x &gt;= 1</code>.</p></td>
+    </tr>
+    <tr>
+      <th>signif_precise</th>
+      <td><p>number of significant digits to use when <code>x</code> is not
+nearly whole</p></td>
     </tr>
     </table>
 
