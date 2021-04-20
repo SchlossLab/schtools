@@ -51,9 +51,10 @@ is_nearly_whole <- function(x) {
 #' numbers < 1 are rounded to have 2 significant digits.
 #'
 #' @param x inline code
-#' @param nsmall number of digits after the decimal point to round to when
-#' `x` is not nearly whole but `x >= 1`.
-#' @param signif_small number of significant digits to use when `x < 1`
+#' @param nsmall number of digits after the decimal point to round to when `x`
+#'   is not nearly whole but `x >= 1`.
+#' @param signif_precise number of significant digits to use when `x` is not
+#'   nearly whole
 #'
 #'
 #' @return formatted `x` if numeric, otherwise `x` unmodified.
@@ -67,7 +68,7 @@ is_nearly_whole <- function(x) {
 #' inline_hook(100000.08)
 #' inline_hook(1.00000000000000000001)
 #' inline_hook("this is a string")
-inline_hook <- function(x, nsmall = 1, signif_small = 2) {
+inline_hook <- function(x, nsmall = 1, signif_precise = 2) {
   if (is.list(x)) {
     x <- unlist(x)
   }
@@ -76,7 +77,7 @@ inline_hook <- function(x, nsmall = 1, signif_small = 2) {
       signif_digits <- 0 # drop the decimal digits entirely
       nsmall <- 0
     } else { # need more precision
-      signif_digits <- signif_small
+      signif_digits <- signif_precise
       if (x >= 1) { # only round to `nsmall` if it's greater than or equal to 1
         x <- round(x, nsmall)
       }

@@ -4,15 +4,16 @@
 \alias{inline_hook}
 \title{Inline hook for knitr to paste human-readable numbers.}
 \usage{
-inline_hook(x, nsmall = 1, signif_small = 2)
+inline_hook(x, nsmall = 1, signif_precise = 2)
 }
 \arguments{
 \item{x}{inline code}
 
-\item{nsmall}{number of digits after the decimal point to round to when
-\code{x} is not nearly whole but \code{x >= 1}.}
+\item{nsmall}{number of digits after the decimal point to round to when \code{x}
+is not nearly whole but \code{x >= 1}.}
 
-\item{signif_small}{number of significant digits to use when \code{x < 1}}
+\item{signif_precise}{number of significant digits to use when \code{x} is not
+nearly whole}
 }
 \value{
 formatted \code{x} if numeric, otherwise \code{x} unmodified.
