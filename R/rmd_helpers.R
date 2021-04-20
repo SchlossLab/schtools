@@ -27,12 +27,35 @@ paste_oxford_list <- function(x) {
   return(prose)
 }
 
+#' Checks whether a number is near to a whole number
+#'
+#' @param x a numeric
+#'
+#' @return `TRUE` or `FALSE`
+#' @export
+#'
+#' @examples
+#' is_nearly_whole(.Machine$double.eps^0.5)
+#' is_nearly_whole(.Machine$double.eps^0.6)
+#' is_nearly_whole(1)
+is_nearly_whole <- function(x) {
+  abs(x - round(x)) < .Machine$double.eps^0.5
+}
+
 #' Inline hook for knitr to paste human-readable numbers.
 #'
 #' Pastes formatted `x` if numeric, otherwise `x` unmodified.
 #' Circumvents R's automatic scientific notation.
+#' If a number is nearly whole (see `is_nearly_whole()`), it is rounded to have
+#' zero decimal places. Otherwise, numbers >= 1 are rounded to 1 decimal place;
+#' numbers < 1 are rounded to have 2 significant digits.
 #'
 #' @param x inline code
+#' @param nsmall number of digits after the decimal point to round to when `x`
+#'   is not nearly whole but `x >= 1`.
+#' @param signif_precise number of significant digits to use when `x` is not
+#'   nearly whole
+#'
 #'
 #' @return formatted `x` if numeric, otherwise `x` unmodified.
 #' @export
@@ -40,19 +63,29 @@ paste_oxford_list <- function(x) {
 #' @author Kelly Sovacool \email{sovacool@@umich.edu}
 #'
 #' @examples
-#' inline_hook(0.02)
+#' inline_hook(0.0256)
 #' inline_hook(.Machine$double.eps^0.5)
+#' inline_hook(100000.08)
+#' inline_hook(1.00000000000000000001)
 #' inline_hook("this is a string")
-inline_hook <- function(x) {
+inline_hook <- function(x, nsmall = 1, signif_precise = 2) {
   if (is.list(x)) {
     x <- unlist(x)
   }
   if (is.numeric(x)) {
-    if (abs(x - round(x)) < .Machine$double.eps^0.5) {
-      x_str <- paste(format(x, big.mark = ",", digits = 0, scientific = FALSE))
-    } else {
-      x_str <- paste(format(x, big.mark = ",", digits = 2, nsmall = 2, scientific = FALSE))
+    if (is_nearly_whole(x)) {
+      signif_digits <- 0 # drop the decimal digits entirely
+      nsmall <- 0
+    } else { # need more precision
+      signif_digits <- signif_precise
+      if (x >= 1) { # only round to `nsmall` if it's greater than or equal to 1
+        x <- round(x, nsmall)
+      }
     }
+    x_str <- paste(format(x,
+      digits = signif_digits, nsmall = nsmall,
+      big.mark = ",", scientific = FALSE
+    ))
   } else {
     x_str <- paste(x)
   }

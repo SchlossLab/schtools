@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -82,16 +82,16 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">mothuR</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">mothuR</span><span class="op">)</span></code></pre></div>
 <div id="parsing-mothur-output-files" class="section level2">
 <h2 class="hasAnchor">
 <a href="#parsing-mothur-output-files" class="anchor"></a>Parsing mothur output files</h2>
 <div id="phylip-formatted-distance-file-as-a-tibble" class="section level3">
 <h3 class="hasAnchor">
 <a href="#phylip-formatted-distance-file-as-a-tibble" class="anchor"></a>Phylip-formatted distance file as a tibble</h3>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="va">dist_filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>,
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dist_filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>,
                              <span class="st">"sample.final.thetayc.0.03.lt.ave.dist"</span>,
                              package <span class="op">=</span> <span class="st">"mothuR"</span><span class="op">)</span>
 <span class="va">dist_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_dist.html">read_dist</a></span><span class="op">(</span><span class="va">dist_filepath</span><span class="op">)</span>
@@ -104,7 +104,7 @@
 <span class="co">#&gt; 3 104_1_D10 104_1_D1      0.922</span>
 <span class="co">#&gt; 4 104_1_D2  104_1_D0      0.874</span>
 <span class="co">#&gt; 5 104_1_D2  104_1_D1      0.109</span>
-<span class="co">#&gt; 6 104_1_D2  104_1_D10     0.904</span></pre></div>
+<span class="co">#&gt; 6 104_1_D2  104_1_D10     0.904</span></code></pre></div>
 </div>
 </div>
 <div id="miscellaneous-helpers" class="section level2">
@@ -119,8 +119,8 @@
 <h3 class="hasAnchor">
 <a href="#who-doesnt-love-an-oxford-comma" class="anchor"></a>Who doesn’t love an Oxford comma?</h3>
 <p>When writing with R Markdown, you may wish to insert a list or vector inline and correctly format it with an Oxford comma. We provide <code><a href="../reference/paste_oxford_list.html">paste_oxford_list()</a></code> to help you do just that.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'cats'</span>, <span class="st">'dogs'</span>, <span class="st">'fish'</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'cats'</span>, <span class="st">'dogs'</span>, <span class="st">'fish'</span><span class="op">)</span></code></pre></div>
 <p>Insert the string as inline code with <code>`r `</code>:</p>
 <blockquote>
 <p><code>`r paste_oxford_list(animals)`</code> are the most common pets.</p>
