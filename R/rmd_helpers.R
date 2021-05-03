@@ -2,6 +2,7 @@
 #' Create a prose string from a list or vector
 #'
 #' The word 'and' is inserted before the last element and an Oxford comma is used.
+#' Numerics are processed with `inline_hook()` for rounding.
 #'
 #' @param x a list or vector
 #'
@@ -108,5 +109,5 @@ set_knitr_opts <- function() {
     warning = FALSE,
     cache = FALSE
   )
-  knitr::knit_hooks$set(inline = inline_hook)
+  knitr::knit_hooks$set(inline = paste_oxford_list)
 }
