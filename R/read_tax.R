@@ -9,7 +9,7 @@
 #' @examples
 #' taxonomy_filepath <- system.file("extdata",
 #'   "test.taxonomy",
-#'   package = "mothuR"
+#'   package = "schtools"
 #' )
 #' taxonomy_tbl <- read_tax(taxonomy_filepath)
 #' head(taxonomy_tbl)

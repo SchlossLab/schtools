@@ -1,7 +1,7 @@
 test_that("read_tax works on example file", {
   taxonomy_out <- read_tax(system.file("extdata",
     "test.taxonomy",
-    package = "mothuR"
+    package = "schtools"
   ))
   expect_equal(
     colnames(taxonomy_out),
