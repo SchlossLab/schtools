@@ -4,10 +4,16 @@
 \alias{inline_hook}
 \title{Inline hook for knitr to paste human-readable numbers.}
 \usage{
-inline_hook(x)
+inline_hook(x, nsmall = 1, signif_precise = 2)
 }
 \arguments{
 \item{x}{inline code}
+
+\item{nsmall}{number of digits after the decimal point to round to when \code{x}
+is not nearly whole but \code{x >= 1}.}
+
+\item{signif_precise}{number of significant digits to use when \code{x} is not
+nearly whole}
 }
 \value{
 formatted \code{x} if numeric, otherwise \code{x} unmodified.
@@ -15,10 +21,15 @@ formatted \code{x} if numeric, otherwise \code{x} unmodified.
 \description{
 Pastes formatted \code{x} if numeric, otherwise \code{x} unmodified.
 Circumvents R's automatic scientific notation.
+If a number is nearly whole (see \code{is_nearly_whole()}), it is rounded to have
+zero decimal places. Otherwise, numbers >= 1 are rounded to 1 decimal place;
+numbers < 1 are rounded to have 2 significant digits.
 }
 \examples{
-inline_hook(0.02)
+inline_hook(0.0256)
 inline_hook(.Machine$double.eps^0.5)
+inline_hook(100000.08)
+inline_hook(1.00000000000000000001)
 inline_hook("this is a string")
 }
 \author{
