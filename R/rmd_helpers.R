@@ -5,8 +5,8 @@
 #' @return a string where each element in `x` is separated by a comma and numbers
 #'   are in a human-readable format.
 #' @export
-#' @author Pat Schloss \email{pschloss@@umich.edu}
 #' @author Kelly Sovacool \email{sovacool@@umich.edu}
+#' @author Pat Schloss \email{pschloss@@umich.edu}
 #'
 #' @examples
 #' inline_hook(c(1.2993992, 0.03, 1000))
@@ -19,7 +19,6 @@ inline_hook <- function(x) {
 #' Create a prose string from a list or vector
 #'
 #' The word 'and' is inserted before the last element and an Oxford comma is used.
-#' Numerics are processed with `format_number()` for rounding.
 #'
 #' @param x a list or vector
 #'

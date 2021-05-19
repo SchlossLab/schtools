@@ -16,3 +16,5 @@ man/StackedBarChartSD.Rd
 inst/doc
 doc
 Meta
+/doc/
+/Meta/
