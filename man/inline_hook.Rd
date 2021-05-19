@@ -2,24 +2,23 @@
 % Please edit documentation in R/rmd_helpers.R
 \name{inline_hook}
 \alias{inline_hook}
-\title{Inline hook for knitr to paste human-readable numbers.}
+\title{Inline hook for knitr to paste human-readable numbers and nice lists.}
 \usage{
 inline_hook(x)
 }
 \arguments{
-\item{x}{inline code}
+\item{x}{just about anything}
 }
 \value{
-formatted \code{x} if numeric, otherwise \code{x} unmodified.
+a string where each element in \code{x} is separated by a comma and numbers
+are in a human-readable format.
 }
 \description{
-Pastes formatted \code{x} if numeric, otherwise \code{x} unmodified.
-Circumvents R's automatic scientific notation.
+Inline hook for knitr to paste human-readable numbers and nice lists.
 }
 \examples{
-inline_hook(0.02)
-inline_hook(.Machine$double.eps^0.5)
-inline_hook("this is a string")
+inline_hook(c(1.2993992, 0.03, 1000))
+inline_hook(c('cats', 'dogs'))
 }
 \author{
 Pat Schloss \email{pschloss@umich.edu}

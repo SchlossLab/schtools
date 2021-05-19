@@ -14,6 +14,7 @@ a string where each element in \code{x} is separated by a comma
 }
 \description{
 The word 'and' is inserted before the last element and an Oxford comma is used.
+Numerics are processed with \code{format_number()} for rounding.
 }
 \examples{
 paste_oxford_list(1:3)
