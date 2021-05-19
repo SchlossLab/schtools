@@ -89,7 +89,7 @@ format_number <- function(x, nsmall = 1, signif_precise = 2) {
     x <- unlist(x)
   }
   if (is.numeric(x)) {
-    if (is_nearly_whole(x)) {
+    if (isTRUE(is_nearly_whole(x))) {
       signif_digits <- 0 # drop the decimal digits entirely
       nsmall <- 0
     } else { # need more precision
