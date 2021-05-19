@@ -1,5 +1,5 @@
-Package: mothuR
-Title: What the Package Does (One Line, Title Case)
+Package: schtools
+Title: Schloss Lab tools for reproducible microbiome research
 Version: 0.0.1
 Authors@R: c(
     person(given = "Kelly",
@@ -33,8 +33,13 @@ Authors@R: c(
            family = "Iverson",
            role = c("ctb")
            ))
-Description: What the package does (one paragraph).
-License: GPL-3
+Description: A collection of useful functions and example code created and used 
+  by the Schloss Lab for reproducible microbiome research. Do common tasks like 
+  read mothur output files, tidy up your microbiome data, and format rmarkdown 
+  documents for publication. 
+  See the website <http://www.schlosslab.org/schtools/> for more information, 
+  documentation, and examples.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

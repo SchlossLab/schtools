@@ -1,4 +1,4 @@
 library(testthat)
-library(mothuR)
+library(schtools)
 
-test_check("mothuR")
+test_check("schtools")

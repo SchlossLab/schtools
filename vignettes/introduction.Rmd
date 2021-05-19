@@ -1,14 +1,14 @@
 ---
-title: "Introduction to mothuR"
+title: "Introduction to schtools"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Introduction to mothuR}
+  %\VignetteIndexEntry{Introduction to schtools}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}
-mothuR::set_knitr_opts()
+schtools::set_knitr_opts()
 knitr::opts_chunk$set(
   collapse = TRUE,
   echo = TRUE,
@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(mothuR)
+library(schtools)
 ```
 
 ## Parsing mothur output files
@@ -27,7 +27,7 @@ library(mothuR)
 ```{r read_dist}
 dist_filepath <- system.file("extdata",
                              "sample.final.thetayc.0.03.lt.ave.dist",
-                             package = "mothuR")
+                             package = "schtools")
 dist_tbl <- read_dist(dist_filepath)
 head(dist_tbl)
 ```

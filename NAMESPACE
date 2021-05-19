@@ -3,6 +3,7 @@
 export("%>%")
 export(.data)
 export(inline_hook)
+export(load_deps)
 export(paste_oxford_list)
 export(read_dist)
 export(read_tax)
