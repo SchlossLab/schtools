@@ -11,6 +11,13 @@ coverage](https://codecov.io/gh/SchlossLab/schtools/branch/master/graph/badge.sv
 
 Schloss Lab tools for reproducible microbiome research 💩
 
+A collection of useful functions and example code created and used by
+the Schloss Lab for reproducible microbiome research. Perform common
+tasks like read mothur output files, tidy up your microbiome data, and
+format rmarkdown documents for publication. See the website
+<http://www.schlosslab.org/schtools/> for more information,
+documentation, and examples.
+
 ## Installation
 
 You can install the development version of schtools from
@@ -19,15 +26,6 @@ You can install the development version of schtools from
 ``` r
 # install.packages("devtools")
 devtools::install_github("SchlossLab/schtools")
-```
-
-## Example
-
-TODO: basic example
-
-``` r
-#library(schtools)
-## basic example code
 ```
 
 ## Code of Conduct
