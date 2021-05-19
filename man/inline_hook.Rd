@@ -18,10 +18,10 @@ Inline hook for knitr to paste human-readable numbers and nice lists.
 }
 \examples{
 inline_hook(c(1.2993992, 0.03, 1000))
-inline_hook(c('cats', 'dogs'))
+inline_hook(c("cats", "dogs"))
 }
 \author{
-Pat Schloss \email{pschloss@umich.edu}
-
 Kelly Sovacool \email{sovacool@umich.edu}
+
+Pat Schloss \email{pschloss@umich.edu}
 }
