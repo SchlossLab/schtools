@@ -1,8 +1,25 @@
+#' Inline hook for knitr to paste human-readable numbers and nice lists.
+#'
+#' @param x just about anything
+#'
+#' @return a string where each element in `x` is separated by a comma and numbers
+#'   are in a human-readable format.
+#' @export
+#' @author Pat Schloss \email{pschloss@@umich.edu}
+#' @author Kelly Sovacool \email{sovacool@@umich.edu}
+#'
+#' @examples
+#' inline_hook(c(1.2993992, 0.03, 1000))
+#' inline_hook(c('cats', 'dogs'))
+inline_hook <- function(x) {
+  x_formatted <- purrr::map_chr(x, format_number)
+  return(paste_oxford_list(x_formatted))
+}
 
 #' Create a prose string from a list or vector
 #'
 #' The word 'and' is inserted before the last element and an Oxford comma is used.
-#' Numerics are processed with `inline_hook()` for rounding.
+#' Numerics are processed with `format_number()` for rounding.
 #'
 #' @param x a list or vector
 #'
@@ -15,7 +32,6 @@
 #' paste_oxford_list(1:3)
 #' paste_oxford_list(c("cats", "dogs", "turtles"))
 paste_oxford_list <- function(x) {
-  x <- purrr::map_chr(x, inline_hook)
   if (length(x) < 2) {
     prose <- as.character(x)
   } else if (length(x) == 2) {
@@ -43,7 +59,7 @@ is_nearly_whole <- function(x) {
   abs(x - round(x)) < .Machine$double.eps^0.5
 }
 
-#' Inline hook for knitr to paste human-readable numbers.
+#' Format human-readable numbers.
 #'
 #' Pastes formatted `x` if numeric, otherwise `x` unmodified.
 #' Circumvents R's automatic scientific notation.
@@ -64,12 +80,12 @@ is_nearly_whole <- function(x) {
 #' @author Kelly Sovacool \email{sovacool@@umich.edu}
 #'
 #' @examples
-#' inline_hook(0.0256)
-#' inline_hook(.Machine$double.eps^0.5)
-#' inline_hook(100000.08)
-#' inline_hook(1.00000000000000000001)
-#' inline_hook("this is a string")
-inline_hook <- function(x, nsmall = 1, signif_precise = 2) {
+#' format_number(0.0256)
+#' format_number(.Machine$double.eps^0.5)
+#' format_number(100000.08)
+#' format_number(1.00000000000000000001)
+#' format_number("this is a string")
+format_number <- function(x, nsmall = 1, signif_precise = 2) {
   if (is.list(x)) {
     x <- unlist(x)
   }
@@ -109,5 +125,5 @@ set_knitr_opts <- function() {
     warning = FALSE,
     cache = FALSE
   )
-  knitr::knit_hooks$set(inline = paste_oxford_list)
+  knitr::knit_hooks$set(inline = inline_hook)
 }
