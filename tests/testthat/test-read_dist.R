@@ -20,7 +20,7 @@ test_that("read_dist works on example file", {
   )
   dist_out <- read_dist(system.file("extdata",
     "sample.final.thetayc.0.03.lt.ave.dist",
-    package = "mothuR"
+    package = "schtools"
   ))
   expect_equal(head(dist_out), tbl_head)
   expect_equal(tail(dist_out), tbl_tail)
