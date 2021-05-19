@@ -3,7 +3,7 @@
 \docType{package}
 \name{schtools}
 \alias{schtools}
-\title{schtools: Schloss Lab tools for reproducible microbiome research}
+\title{schtools: Schloss Lab Tools for Reproducible Microbiome Research}
 \description{
 A collection of useful functions and example code created and used by the
 Schloss Lab for reproducible microbiome research. Perform common tasks like
