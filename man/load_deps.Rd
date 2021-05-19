@@ -7,8 +7,11 @@
 load_deps(...)
 }
 \arguments{
-\item{...}{names of packages to install}
+\item{...}{package names to install & load}
 }
 \description{
 Install & load packages
+}
+\author{
+Kelly Sovacool \email{sovacool@umich.edu}
 }

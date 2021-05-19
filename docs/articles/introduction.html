@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mothuR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
       </span>
     </div>
 
@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -57,6 +57,9 @@
       <a href="../articles/introduction.html">Introduction to mothuR</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right"></ul>
@@ -82,16 +85,16 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">mothuR</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">mothuR</span><span class="op">)</span></code></pre></div>
 <div id="parsing-mothur-output-files" class="section level2">
 <h2 class="hasAnchor">
 <a href="#parsing-mothur-output-files" class="anchor"></a>Parsing mothur output files</h2>
 <div id="phylip-formatted-distance-file-as-a-tibble" class="section level3">
 <h3 class="hasAnchor">
 <a href="#phylip-formatted-distance-file-as-a-tibble" class="anchor"></a>Phylip-formatted distance file as a tibble</h3>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="va">dist_filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>,
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dist_filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>,
                              <span class="st">"sample.final.thetayc.0.03.lt.ave.dist"</span>,
                              package <span class="op">=</span> <span class="st">"mothuR"</span><span class="op">)</span>
 <span class="va">dist_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_dist.html">read_dist</a></span><span class="op">(</span><span class="va">dist_filepath</span><span class="op">)</span>
@@ -104,7 +107,7 @@
 <span class="co">#&gt; 3 104_1_D10 104_1_D1      0.922</span>
 <span class="co">#&gt; 4 104_1_D2  104_1_D0      0.874</span>
 <span class="co">#&gt; 5 104_1_D2  104_1_D1      0.109</span>
-<span class="co">#&gt; 6 104_1_D2  104_1_D10     0.904</span></pre></div>
+<span class="co">#&gt; 6 104_1_D2  104_1_D10     0.904</span></code></pre></div>
 </div>
 </div>
 <div id="miscellaneous-helpers" class="section level2">
@@ -114,28 +117,32 @@
 <div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="bn">```{r, include = FALSE}</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="bn">set_knitr_opts()</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="bn">```</span></span></code></pre></div>
-<p>This also sets the inline hook to <code><a href="../reference/inline_hook.html">inline_hook()</a></code>, which formats small numbers in a human-readable way rather than R’s default scientific notation.</p>
+<p>This also sets the inline hook to our custom <code><a href="../reference/inline_hook.html">inline_hook()</a></code> function, which automatically formats numbers in a human-readable way and inserts an Oxford comma into lists when needed.</p>
 <div id="who-doesnt-love-an-oxford-comma" class="section level3">
 <h3 class="hasAnchor">
 <a href="#who-doesnt-love-an-oxford-comma" class="anchor"></a>Who doesn’t love an Oxford comma?</h3>
-<p>When writing with R Markdown, you may wish to insert a list or vector inline and correctly format it with an Oxford comma. We provide <code><a href="../reference/paste_oxford_list.html">paste_oxford_list()</a></code> to help you do just that.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'cats'</span>, <span class="st">'dogs'</span>, <span class="st">'fish'</span><span class="op">)</span></pre></div>
+<p>When writing with R Markdown, you may wish to insert a list or vector inline and correctly format it with an Oxford comma. <code><a href="../reference/inline_hook.html">inline_hook()</a></code> uses <code><a href="../reference/paste_oxford_list.html">paste_oxford_list()</a></code> to help you do just that!</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'cats'</span>, <span class="st">'dogs'</span>, <span class="st">'fish'</span><span class="op">)</span></code></pre></div>
 <p>Insert the string as inline code with <code>`r `</code>:</p>
 <blockquote>
-<p><code>`r paste_oxford_list(animals)`</code> are the most common pets.</p>
+<p><code>`r animals`</code> are the most common pets.</p>
 </blockquote>
 <p>Rendered output:</p>
 <blockquote>
 <p>cats, dogs, and fish are the most common pets.</p>
 </blockquote>
-<p>It uses <code><a href="../reference/inline_hook.html">inline_hook()</a></code> under the hood to automatically format numbers to a human-readable format, rather than display in scientific notation.</p>
+</div>
+<div id="human-readable-numbers" class="section level3">
+<h3 class="hasAnchor">
+<a href="#human-readable-numbers" class="anchor"></a>Human-readable numbers</h3>
+<p><code><a href="../reference/inline_hook.html">inline_hook()</a></code> uses <code>format_numbers()</code> under the hood to automatically format numbers to a human-readable format, rather than display in scientific notation.</p>
 <blockquote>
-<p><code>The numbers `r paste_oxford_list(c(1e-04, 1e-05, 1e-06, 1e-07))`</code> are very precise.</p>
+<p>The numbers <code>`r c(1e-04, 1e-05, 1e-06)`</code> are very precise, while <code>`r c(1e04, 1e05, 1e06)`</code> are very large.</p>
 </blockquote>
 <p>Rendered output:</p>
 <blockquote>
-<p>The numbers 0.0001, 0.00001, 0.000001, and 0.0000001 are very precise.</p>
+<p>The numbers 0.0001, 0.00001, and 0.000001 are very precise. while 10,000, 100,000, and 1,000,000 are very large.</p>
 </blockquote>
 </div>
 </div>

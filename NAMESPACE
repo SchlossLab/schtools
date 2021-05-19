@@ -2,7 +2,9 @@
 
 export("%>%")
 export(.data)
+export(format_number)
 export(inline_hook)
+export(is_nearly_whole)
 export(load_deps)
 export(paste_oxford_list)
 export(read_dist)
