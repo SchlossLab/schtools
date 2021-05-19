@@ -1,5 +1,5 @@
 Package: schtools
-Title: Schloss Lab tools for reproducible microbiome research
+Title: Schloss Lab Tools for Reproducible Microbiome Research
 Version: 0.0.1.9000
 Authors@R: c(
     person(given = "Kelly",

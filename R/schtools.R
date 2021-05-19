@@ -1,4 +1,4 @@
-#' schtools: Schloss Lab tools for reproducible microbiome research
+#' schtools: Schloss Lab Tools for Reproducible Microbiome Research
 #'
 #' A collection of useful functions and example code created and used by the
 #' Schloss Lab for reproducible microbiome research. Perform common tasks like
