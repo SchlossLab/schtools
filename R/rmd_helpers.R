@@ -94,7 +94,7 @@ format_number <- function(x, nsmall = 1, signif_precise = 2) {
       nsmall <- 0
     } else { # need more precision
       signif_digits <- signif_precise
-      if (x >= 1) { # only round to `nsmall` if it's greater than or equal to 1
+      if (isTRUE(x >= 1)) { # only round to `nsmall` if it's greater than or equal to 1
         x <- round(x, nsmall)
       }
     }
