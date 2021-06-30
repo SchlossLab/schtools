@@ -19,6 +19,7 @@ test_that("format_number() works for numbers & strings", {
   expect_equal(format_number(.Machine$double.eps^0.5), "0.000000015")
   expect_equal(format_number(1000), "1,000")
   expect_equal(format_number(1000.06), "1,000.1")
+  expect_equal(format_number(0.795123), "0.80")
   expect_equal(format_number(TRUE), "TRUE")
   expect_equal(format_number("this is a string"), "this is a string")
 })

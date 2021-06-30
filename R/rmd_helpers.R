@@ -96,6 +96,8 @@ format_number <- function(x, nsmall = 1, signif_precise = 2) {
       signif_digits <- signif_precise
       if (isTRUE(x >= 1)) { # only round to `nsmall` if it's greater than or equal to 1
         x <- round(x, nsmall)
+      } else {
+        nsmall <- signif_precise
       }
     }
     x_str <- paste(format(x,
