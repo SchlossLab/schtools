@@ -1,12 +1,3 @@
-#' dplyr pipe
-#' @importFrom dplyr %>%
-#' @export
-dplyr::`%>%`
-
-## make R CMD CHECK shut up about the dot `.`
-## See: \url{https://github.com/tidyverse/magrittr/issues/29}
-utils::globalVariables(c("."))
-
 #' Checks whether a number is near to a whole number
 #'
 #' @param x a numeric
@@ -24,7 +15,7 @@ is_nearly_whole <- function(x) {
 
 #' Check whether two numeric vectors are close enough for gov't work.
 #'
-#' This like `dplyr::near()` except with much less precision.
+#' This is like `dplyr::near()` except with much less precision.
 #'
 #' @param x a numeric vector
 #' @param y another numeric vector
