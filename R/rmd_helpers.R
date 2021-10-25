@@ -43,21 +43,6 @@ paste_oxford_list <- function(x) {
   return(prose)
 }
 
-#' Checks whether a number is near to a whole number
-#'
-#' @param x a numeric
-#'
-#' @return `TRUE` or `FALSE`
-#' @export
-#'
-#' @examples
-#' is_nearly_whole(.Machine$double.eps^0.5)
-#' is_nearly_whole(.Machine$double.eps^0.6)
-#' is_nearly_whole(1)
-is_nearly_whole <- function(x) {
-  abs(x - round(x)) < .Machine$double.eps^0.5
-}
-
 #' Format human-readable numbers.
 #'
 #' Pastes formatted `x` if numeric, otherwise `x` unmodified.
