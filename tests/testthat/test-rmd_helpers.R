@@ -5,15 +5,6 @@ test_that("paste_oxford_list() works for vectors & lists", {
   expect_equal(paste_oxford_list(1), "1")
 })
 
-test_that("is_nearly_whole() works", {
-  expect_true(is_nearly_whole(.Machine$double.eps))
-  expect_true(is_nearly_whole(0))
-  expect_true(is_nearly_whole(1))
-  expect_false(is_nearly_whole(.Machine$double.eps^0.5))
-  expect_false(is_nearly_whole(2100.05))
-  expect_equal(is_nearly_whole(NA), NA)
-})
-
 test_that("format_number() works for numbers & strings", {
   expect_equal(format_number(0.02), "0.02")
   expect_equal(format_number(.Machine$double.eps^0.5), "0.000000015")
