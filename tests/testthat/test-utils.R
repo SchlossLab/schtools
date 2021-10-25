@@ -9,8 +9,8 @@ test_that("is_nearly_whole() works", {
 })
 
 test_that("close_enough() works", {
-    expect_true(close_enough(0.0004, 0))
-    expect_true(close_enough(0.8887, 0.8884))
-    expect_false(close_enough(1, 2))
-    expect_equal(close_enough(1, NA), NA)
+  expect_true(close_enough(0.0004, 0))
+  expect_true(close_enough(0.8887, 0.8884))
+  expect_false(close_enough(1, 2))
+  expect_equal(close_enough(1, NA), NA)
 })
