@@ -23,4 +23,5 @@ test_that("is_nondesc() works", {
   expect_false(is_nondesc(c('z', 'y')))
   expect_true(is_nondesc(1))
   expect_warning(is_nondesc(c()), 'Zero elements were given to `is_nondesc\\(\\)`')
+  expect_true(is_nondesc(1,2,3,4,5,6,7))
 })

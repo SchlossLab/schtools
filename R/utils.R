@@ -59,7 +59,7 @@ is_nondesc <- function(...) {
   }
   first <- things[1]
   last <- things[length(things)]
-  !is.unsorted(...) & first <= last
+  !is.unsorted(things) & first <= last
 }
 
 #' Install & load packages
