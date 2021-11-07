@@ -146,21 +146,22 @@
     <p>Nick Lesniak, <a href='mailto:nlesniak@umich.edu'>nlesniak@umich.edu</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>dist_filepath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>,
-  <span class='st'>"sample.final.thetayc.0.03.lt.ave.dist"</span>,
-  package <span class='op'>=</span> <span class='st'>"schtools"</span>
-<span class='op'>)</span>
-<span class='va'>dist_tbl</span> <span class='op'>&lt;-</span> <span class='fu'>read_dist</span><span class='op'>(</span><span class='va'>dist_filepath</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dist_tbl</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 × 3</span>
-#&gt;   rows      columns   distances
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>1</span> 104_1_D1  104_1_D0      0.893
-#&gt; <span style='color: #BCBCBC;'>2</span> 104_1_D10 104_1_D0      0.254
-#&gt; <span style='color: #BCBCBC;'>3</span> 104_1_D10 104_1_D1      0.922
-#&gt; <span style='color: #BCBCBC;'>4</span> 104_1_D2  104_1_D0      0.874
-#&gt; <span style='color: #BCBCBC;'>5</span> 104_1_D2  104_1_D1      0.109
-#&gt; <span style='color: #BCBCBC;'>6</span> 104_1_D2  104_1_D10     0.904</div></pre>
+    <pre class="examples"><span class='r-in'><span class='va'>dist_filepath</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>,</span>
+<span class='r-in'>  <span class='st'>"sample.final.thetayc.0.03.lt.ave.dist"</span>,</span>
+<span class='r-in'>  package <span class='op'>=</span> <span class='st'>"schtools"</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>dist_tbl</span> <span class='op'>&lt;-</span> <span class='fu'>read_dist</span><span class='op'>(</span><span class='va'>dist_filepath</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dist_tbl</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 6 × 3</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   rows      columns   distances</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 104_1_D1  104_1_D0      0.893</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> 104_1_D10 104_1_D0      0.254</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span> 104_1_D10 104_1_D1      0.922</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>4</span> 104_1_D2  104_1_D0      0.874</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>5</span> 104_1_D2  104_1_D1      0.109</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>6</span> 104_1_D2  104_1_D10     0.904</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
