@@ -47,7 +47,7 @@ jobs:
           -m '📄 Render README.Rmd' || echo "No changes to commit"
       - name: Docs
         run: |
-          Rscript -e "devtools::build_site()"
+          Rscript -e "pkgdown::build_reference; devtools::build_site()"
           git add docs
           git commit \
           --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" \

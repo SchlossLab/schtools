@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Import a design file — read.design • mothuR</title>
+<title>Check whether all elements given are sorted in non-descending order — is_nondesc • schtools</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Import a design file — read.design" />
-<meta property="og:description" content="This function reads in a design file. The leftmost column should have the names of all of the samples. The next column should have the name of the group they each fall into. You may also have an optional third column with the name of the subgroup they each fall into. The columns should be separated by a tab, and it should NOT have any headers." />
+<meta property="og:title" content="Check whether all elements given are sorted in non-descending order — is_nondesc" />
+<meta property="og:description" content="Check whether all elements given are sorted in non-descending order" />
 
 
 
@@ -71,8 +71,8 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">mothuR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <a class="navbar-link" href="../index.html">schtools</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
       </span>
     </div>
 
@@ -80,12 +80,27 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/introduction.html">Introduction to schtools</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -103,65 +118,42 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Import a design file</h1>
+    <h1>Check whether all elements given are sorted in non-descending order</h1>
     
-    <div class="hidden name"><code>read.design.Rd</code></div>
+    <div class="hidden name"><code>is_nondesc.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function reads in a design file. The leftmost column should have the names of all of the samples. The next column should have the name of the group they each fall into. You may also have an optional third column with the name of the subgroup they each fall into. The columns should be separated by a tab, and it should NOT have any headers.</p>
+    <p>Check whether all elements given are sorted in non-descending order</p>
     </div>
 
-    <pre class="usage"><span class='fu'>read.design</span>(<span class='no'>file</span>)</pre>
+    <pre class="usage"><span class='fu'>is_nondesc</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>file</th>
-      <td><p>a design file formatted as described above.</p></td>
+      <th>...</th>
+      <td><p>anything!</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p><!-- %%  ~~ If necessary, more details than the description above ~~ --></p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><!-- %%  ~Describe the value returned -->
-<!-- %%  If it is a LIST, use -->
-<!-- %%  \item{comp1 }{Description of 'comp1'} -->
-<!-- %%  \item{comp2 }{Description of 'comp2'} -->
-<!-- %% ... --></p>
-    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+    <p><code>TRUE</code> if the elements are sorted in non-descending order, otherwise <code>FALSE</code></p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
-    <p><!-- %% ~put references to the literature/web site here ~ --></p>
-    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
-
-    <p><!-- %%  ~~further notes~~ --></p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><!-- %% ~~objects to See Also as \code{\link{help}}, ~~~ --></p></div>
+    <p>Kelly Sovacool <a href='mailto:sovacool@umich.edu'>sovacool@umich.edu</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>#read.design(~/Desktop/'germfree.design')</span>
-
-
-<span class='co'>## The function is currently defined as</span>
-<span class='kw'>function</span> (<span class='no'>file</span>)
-{
-    <span class='no'>design</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.table</a></span>(<span class='no'>file</span>)
-    <span class='no'>design</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/unlist.html'>unlist</a></span>(<span class='no'>design</span>), <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='fl'>2</span>)
-    <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>design</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"sample"</span>, <span class='st'>"group"</span>)
-    <span class='fu'><a href='https://rdrr.io/r/base/invisible.html'>invisible</a></span>(<span class='no'>design</span>)
-  }</div><div class='output co'>#&gt; function (file) 
-#&gt; {
-#&gt;     design &lt;- read.table(file)
-#&gt;     design &lt;- matrix(unlist(design), ncol = 2)
-#&gt;     colnames(design) &lt;- c("sample", "group")
-#&gt;     invisible(design)
-#&gt;   }
-#&gt; &lt;environment: 0x7fad4d5114f8&gt;</div></pre>
+    <pre class="examples"><div class='input'>
+<span class='fu'>is_nondesc</span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>3</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>is_nondesc</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>, <span class='fl'>3</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>is_nondesc</span><span class='op'>(</span><span class='fl'>6</span>, <span class='fl'>4</span>, <span class='fl'>1</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>is_nondesc</span><span class='op'>(</span><span class='st'>'a'</span>, <span class='st'>'b'</span>, <span class='st'>'c'</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='fu'>is_nondesc</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'z'</span>, <span class='st'>'y'</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -173,11 +165,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Kelly Sovacool, Nick Lesniak, Andrew Hannah, Nielson Baxter, Alyxandria Schubert, Kathryn Iverson, Patrick Schloss.</p>
+  <p>Developed by Kelly Sovacool, Nick Lesniak, Patrick Schloss.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
