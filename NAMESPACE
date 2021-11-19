@@ -2,6 +2,7 @@
 
 export("%>%")
 export(.data)
+export(close_enough)
 export(format_number)
 export(inline_hook)
 export(is_nearly_whole)
