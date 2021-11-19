@@ -1,6 +1,6 @@
 Package: schtools
 Title: Schloss Lab Tools for Reproducible Microbiome Research
-Version: 0.0.1.9000
+Version: 0.1.0
 Authors@R: c(
     person(given = "Kelly",
            family = "Sovacool",
@@ -17,6 +17,15 @@ Authors@R: c(
            role = c("aut"),
            email = "pschloss@umich.edu"
            ),
+    person(given = "Sarah",
+           family = "Lucas",
+           role = c('ctb')),
+    person(given = "Courtney",
+           family = "Armour",
+           role = c('ctb')),
+    person(given = "Jacqueline",
+           family = "Moltzau",
+           role = c('ctb')),
     person(given = "Andrew",
            family = "Hannah",
            role = c("ctb")
