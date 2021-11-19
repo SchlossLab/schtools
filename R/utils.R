@@ -35,6 +35,31 @@ close_enough <- function(x, y, tol = 10^-3) {
   all(dplyr::near(x, y, tol = tol))
 }
 
+#' Check whether all elements given are sorted in non-descending order
+#'
+#' @param ... anything!
+#'
+#' @return `TRUE` if the elements are sorted in non-descending order, otherwise `FALSE`
+#' @export
+#' @author Kelly Sovacool \email{sovacool@@umich.edu}
+#'
+#' @examples
+#'
+#' is_nondesc(1, 2, 3)
+#' is_nondesc(c(1, 2), 3)
+#' is_nondesc(6, 4, 1)
+#' is_nondesc("a", "b", "c")
+#' is_nondesc(c("z", "y"))
+is_nondesc <- function(...) {
+  things <- c(...)
+  if (length(things) < 1) {
+    warning("Zero elements were given to `is_nondesc()`")
+  }
+  first <- things[1]
+  last <- things[length(things)]
+  !is.unsorted(things) & first <= last
+}
+
 #' Install & load packages
 #' @param ... package names to install & load
 #' @export
