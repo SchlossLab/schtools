@@ -6,7 +6,8 @@ Authors@R: c(
            family = "Sovacool",
            role = c("aut", "cre"),
            email = "sovacool@umich.edu",
-           comment = c(ORCID = "0000-0003-3283-829X")),
+           comment = c(ORCID = "0000-0003-3283-829X")
+           ),
     person(given = "Nick",
            family = "Lesniak",
            role = c("aut"),
@@ -19,13 +20,16 @@ Authors@R: c(
            ),
     person(given = "Sarah",
            family = "Lucas",
-           role = c('ctb')),
+           role = c('ctb')
+           ),
     person(given = "Courtney",
            family = "Armour",
-           role = c('ctb')),
+           role = c('ctb')
+           ),
     person(given = "Jacqueline",
            family = "Moltzau",
-           role = c('ctb')),
+           role = c('ctb')
+           ),
     person(given = "Andrew",
            family = "Hannah",
            role = c("ctb")
