@@ -5,6 +5,7 @@
 
 <!-- badges: start -->
 
+[![check](https://github.com/SchlossLab/mothuR/workflows/check/badge.svg)](https://github.com/SchlossLab/mothuR/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/SchlossLab/schtools/branch/master/graph/badge.svg)](https://codecov.io/gh/SchlossLab/schtools?branch=master)
 <!-- badges: end -->
