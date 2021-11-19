@@ -48,8 +48,8 @@ Authors@R: c(
            ))
 Description: A collection of useful functions and example code created and used 
   by the Schloss Lab for reproducible microbiome research. Perform common tasks 
-  like read mothur output files, tidy up your microbiome data, and format 
-  rmarkdown documents for publication. 
+  like read files created by mothur <https://mothur.org/>, tidy up your 
+  microbiome data, and format R Markdown documents for publication. 
   See the website <http://www.schlosslab.org/schtools/> for more information, 
   documentation, and examples.
 License: MIT + file LICENSE
@@ -58,8 +58,9 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
     dplyr,
-    tidyr,
-    rlang
+    formatR,
+    rlang,
+    tidyr
 Suggests: 
     covr,
     knitr,
