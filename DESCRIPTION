@@ -11,7 +11,8 @@ Authors@R: c(
     person(given = "Nick",
            family = "Lesniak",
            role = c("aut"),
-           email = "nlesniak@umich.edu"
+           email = "nlesniak@umich.edu",
+           comment = c(ORCID = "0000-0001-9359-5194")
            ),
     person(given = "Patrick",
            family = "Schloss",
@@ -20,15 +21,18 @@ Authors@R: c(
            ),
     person(given = "Sarah",
            family = "Lucas",
-           role = c('ctb')
+           role = c('ctb'),
+           comment = c(ORCID = "0000-0003-1676-5801")
            ),
     person(given = "Courtney",
            family = "Armour",
-           role = c('ctb')
+           role = c('ctb'),
+           comment = c(ORCID = "0000-0002-5250-1224")
            ),
     person(given = "Jacqueline",
            family = "Moltzau",
-           role = c('ctb')
+           role = c('ctb'),
+           comment = c(ORCID = "0000-0003-1398-5980")
            ),
     person(given = "Andrew",
            family = "Hannah",
