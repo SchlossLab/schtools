@@ -1,11 +1,12 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^mothuR\.Rproj$
+^schtools\.Rproj$
 ^LICENSE\.md$
 ^docs$
 ^doc$
 ^Meta$
 ^README\.Rmd$
 ^\.github$
-^CODE_OF_CONDUCT\.md$
 ^codecov\.yml$
+^cran-comments\.md$
+^CRAN-RELEASE$
