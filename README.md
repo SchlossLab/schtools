@@ -54,18 +54,19 @@ BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
 
 ## Citation
 
+``` 
 
-    To cite package 'schtools' in publications use:
+To cite package 'schtools' in publications use:
 
-      Kelly Sovacool, Nick Lesniak and Patrick Schloss (2021). schtools:
-      Schloss Lab Tools for Reproducible Microbiome Research. R package
-      version 0.0.1.9000.
+  Kelly Sovacool, Nick Lesniak and Patrick Schloss (NA). schtools:
+  Schloss Lab Tools for Reproducible Microbiome Research. R package
+  version 0.1.0.
 
-    A BibTeX entry for LaTeX users is
+A BibTeX entry for LaTeX users is
 
-      @Manual{,
-        title = {schtools: Schloss Lab Tools for Reproducible Microbiome Research},
-        author = {Kelly Sovacool and Nick Lesniak and Patrick Schloss},
-        year = {2021},
-        note = {R package version 0.0.1.9000},
-      }
+  @Manual{,
+    title = {schtools: Schloss Lab Tools for Reproducible Microbiome Research},
+    author = {Kelly Sovacool and Nick Lesniak and Patrick Schloss},
+    note = {R package version 0.1.0},
+  }
+```
