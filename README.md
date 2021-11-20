@@ -3,14 +3,14 @@
 
 # schtools
 
+Schloss Lab Tools for Reproducible Microbiome Research 💩
+
 <!-- badges: start -->
 
 [![check](https://github.com/SchlossLab/schtools/workflows/check/badge.svg)](https://github.com/SchlossLab/schtools/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/SchlossLab/schtools/branch/master/graph/badge.svg)](https://app.codecov.io/gh/SchlossLab/schtools?branch=main)
 <!-- badges: end -->
-
-Schloss Lab Tools for Reproducible Microbiome Research 💩
 
 A collection of useful functions and example code created and used by
 the Schloss Lab for reproducible microbiome research. Perform common
