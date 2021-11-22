@@ -23,6 +23,7 @@ Schloss Lab Tools for Reproducible Microbiome Research 💩
 [![check](https://github.com/SchlossLab/schtools/workflows/check/badge.svg)](https://github.com/SchlossLab/schtools/actions)
 [![codecov](https://codecov.io/gh/SchlossLab/schtools/branch/master/graph/badge.svg)](https://app.codecov.io/gh/SchlossLab/schtools?branch=main)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/SchlossLab/schtools/blob/main/LICENSE.md)
+[![CRAN status](https://www.r-pkg.org/badges/version/schtools)](https://CRAN.R-project.org/package=schtools)
 <!-- badges: end -->
 
 A collection of useful functions and example code created and used by the
@@ -34,7 +35,13 @@ documentation, and examples.
 
 ## Installation
 
-You can install the development version of schtools from [GitHub](https://github.com/SchlossLab) with:
+You can install the latest release from [CRAN](https://cran.r-project.org/package=schtools):
+
+```{r, eval = FALSE}
+install.packages("schtools")
+```
+
+or the development version from [GitHub](https://github.com/SchlossLab) with:
 
 ```{r, eval = FALSE}
 # install.packages("devtools")

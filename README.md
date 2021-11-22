@@ -10,6 +10,8 @@ Schloss Lab Tools for Reproducible Microbiome Research 💩
 [![check](https://github.com/SchlossLab/schtools/workflows/check/badge.svg)](https://github.com/SchlossLab/schtools/actions)
 [![codecov](https://codecov.io/gh/SchlossLab/schtools/branch/master/graph/badge.svg)](https://app.codecov.io/gh/SchlossLab/schtools?branch=main)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/SchlossLab/schtools/blob/main/LICENSE.md)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/schtools)](https://CRAN.R-project.org/package=schtools)
 <!-- badges: end -->
 
 A collection of useful functions and example code created and used by
@@ -21,8 +23,15 @@ information, documentation, and examples.
 
 ## Installation
 
-You can install the development version of schtools from
-[GitHub](https://github.com/SchlossLab) with:
+You can install the latest release from
+[CRAN](https://cran.r-project.org/package=schtools):
+
+``` r
+install.packages("schtools")
+```
+
+or the development version from [GitHub](https://github.com/SchlossLab)
+with:
 
 ``` r
 # install.packages("devtools")
@@ -54,19 +63,18 @@ BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
 
 ## Citation
 
-``` 
 
-To cite package 'schtools' in publications use:
+    To cite package 'schtools' in publications use:
 
-  Kelly Sovacool, Nick Lesniak and Patrick Schloss (NA). schtools:
-  Schloss Lab Tools for Reproducible Microbiome Research. R package
-  version 0.1.0.
+      Kelly Sovacool, Nick Lesniak and Patrick Schloss (2021). schtools:
+      Schloss Lab Tools for Reproducible Microbiome Research. R package
+      version 0.1.0.
 
-A BibTeX entry for LaTeX users is
+    A BibTeX entry for LaTeX users is
 
-  @Manual{,
-    title = {schtools: Schloss Lab Tools for Reproducible Microbiome Research},
-    author = {Kelly Sovacool and Nick Lesniak and Patrick Schloss},
-    note = {R package version 0.1.0},
-  }
-```
+      @Manual{,
+        title = {schtools: Schloss Lab Tools for Reproducible Microbiome Research},
+        author = {Kelly Sovacool and Nick Lesniak and Patrick Schloss},
+        year = {2021},
+        note = {R package version 0.1.0},
+      }
