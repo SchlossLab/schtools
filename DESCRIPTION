@@ -1,56 +1,69 @@
 Package: schtools
 Title: Schloss Lab Tools for Reproducible Microbiome Research
-Version: 0.0.1.9000
-Authors@R: c(
-    person(given = "Kelly",
-           family = "Sovacool",
-           role = c("aut", "cre"),
-           email = "sovacool@umich.edu",
-           comment = c(ORCID = "0000-0003-3283-829X")),
-    person(given = "Nick",
-           family = "Lesniak",
-           role = c("aut"),
-           email = "nlesniak@umich.edu"
-           ),
-    person(given = "Patrick",
-           family = "Schloss",
-           role = c("aut"),
-           email = "pschloss@umich.edu"
-           ),
-    person(given = "Andrew",
-           family = "Hannah",
-           role = c("ctb")
-           ),
-    person(given = "Nielson",
-           family = "Baxter",
-           role = c("ctb")
-           ),
-    person(given = "Alyxandria",
-           family = "Schubert",
-           role = c("ctb")
-           ),
-    person(given = "Kathryn",
-           family = "Iverson",
-           role = c("ctb")
-           ))
-Description: A collection of useful functions and example code created and used 
-  by the Schloss Lab for reproducible microbiome research. Perform common tasks 
-  like read mothur output files, tidy up your microbiome data, and format 
-  rmarkdown documents for publication. 
-  See the website <http://www.schlosslab.org/schtools/> for more information, 
-  documentation, and examples.
+Version: 0.1.0.9000
+Date: 2021-11-19
+Authors@R: 
+    c(person(given = "Kelly",
+             family = "Sovacool",
+             role = c("aut", "cre"),
+             email = "sovacool@umich.edu",
+             comment = c(ORCID = "0000-0003-3283-829X")),
+      person(given = "Nick",
+             family = "Lesniak",
+             role = "aut",
+             email = "nlesniak@umich.edu",
+             comment = c(ORCID = "0000-0001-9359-5194")),
+      person(given = "Patrick",
+             family = "Schloss",
+             role = "aut",
+             email = "pschloss@umich.edu"),
+      person(given = "Sarah",
+             family = "Lucas",
+             role = "ctb",
+             comment = c(ORCID = "0000-0003-1676-5801")),
+      person(given = "Courtney",
+             family = "Armour",
+             role = "ctb",
+             comment = c(ORCID = "0000-0002-5250-1224")),
+      person(given = "Jacqueline",
+             family = "Moltzau",
+             role = "ctb",
+             comment = c(ORCID = "0000-0003-1398-5980")),
+      person(given = "Andrew",
+             family = "Hannah",
+             role = "ctb"),
+      person(given = "Nielson",
+             family = "Baxter",
+             role = "ctb"),
+      person(given = "Alyxandria",
+             family = "Schubert",
+             role = "ctb"),
+      person(given = "Kathryn",
+             family = "Iverson",
+             role = "ctb"))
+Description: A collection of useful functions and example code created and
+    used by the Schloss Lab for reproducible microbiome research. Perform
+    common tasks like read files created by mothur <https://mothur.org/>,
+    tidy up your microbiome data, and format R Markdown documents for
+    publication.  See the website <http://www.schlosslab.org/schtools/>
+    for more information, documentation, and examples.
 License: MIT + file LICENSE
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+URL: https://github.com/SchlossLab/schtools
+BugReports: https://github.com/SchlossLab/schtools/issues
 Imports: 
     dplyr,
-    tidyr,
-    rlang
+    formatR,
+    rlang,
+    tidyr
 Suggests: 
     covr,
     knitr,
     purrr,
     rmarkdown,
     testthat
-VignetteBuilder: knitr
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1

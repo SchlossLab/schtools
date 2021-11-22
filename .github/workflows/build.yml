@@ -40,14 +40,14 @@ jobs:
           -m '🎨 Style R code' || echo "No changes to commit"
       - name: Render README
         run: |
-          Rscript -e 'rmarkdown::render("README.Rmd")'
+          Rscript -e 'devtools::build_readme()'
           git add README.md
           git commit \
           --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" \
           -m '📄 Render README.Rmd' || echo "No changes to commit"
       - name: Docs
         run: |
-          Rscript -e "pkgdown::build_reference; devtools::build_site()"
+          Rscript -e "pkgdown::build_reference(); devtools::build_site()"
           git add docs
           git commit \
           --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" \

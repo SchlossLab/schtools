@@ -24,7 +24,6 @@ This is like \code{dplyr::near()} except with much less precision.
 close_enough(0.0004, 0)
 close_enough(0.8887, 0.8884)
 close_enough(1, 2)
-
 }
 \author{
 Kelly Sovacool \email{sovacool@umich.edu}
