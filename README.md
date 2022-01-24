@@ -13,7 +13,7 @@ Schloss Lab Tools for Reproducible Microbiome Research 💩
 [![CRAN
 status](https://www.r-pkg.org/badges/version/schtools)](https://CRAN.R-project.org/package=schtools)
 [![Conda](https://img.shields.io/conda/vn/conda-forge/r-schtools)](https://anaconda.org/conda-forge/r-schtools)
-![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/mikropml)
+![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/schtools)
 <!-- badges: end -->
 
 A collection of useful functions and example code created and used by
