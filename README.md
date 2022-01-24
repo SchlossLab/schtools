@@ -12,6 +12,8 @@ Schloss Lab Tools for Reproducible Microbiome Research 💩
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/SchlossLab/schtools/blob/main/LICENSE.md)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/schtools)](https://CRAN.R-project.org/package=schtools)
+[![Conda](https://img.shields.io/conda/vn/conda-forge/r-schtools)](https://anaconda.org/conda-forge/r-schtools)
+![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/mikropml)
 <!-- badges: end -->
 
 A collection of useful functions and example code created and used by
@@ -63,21 +65,18 @@ BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
 
 ## Citation
 
-``` 
 
-To cite package 'schtools' in publications use:
+    To cite package 'schtools' in publications use:
 
-  Kelly Sovacool, Nick Lesniak and Patrick Schloss (2021). schtools:
-  Schloss Lab Tools for Reproducible Microbiome Research. R package
-  version 0.1.0.9000. https://github.com/SchlossLab/schtools
+      Kelly Sovacool, Nick Lesniak and Patrick Schloss (2021). schtools:
+      Schloss Lab Tools for Reproducible Microbiome Research. R package
+      version 0.1.0.
 
-A BibTeX entry for LaTeX users is
+    A BibTeX entry for LaTeX users is
 
-  @Manual{,
-    title = {schtools: Schloss Lab Tools for Reproducible Microbiome Research},
-    author = {Kelly Sovacool and Nick Lesniak and Patrick Schloss},
-    year = {2021},
-    note = {R package version 0.1.0.9000},
-    url = {https://github.com/SchlossLab/schtools},
-  }
-```
+      @Manual{,
+        title = {schtools: Schloss Lab Tools for Reproducible Microbiome Research},
+        author = {Kelly Sovacool and Nick Lesniak and Patrick Schloss},
+        year = {2021},
+        note = {R package version 0.1.0},
+      }
