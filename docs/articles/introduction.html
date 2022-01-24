@@ -79,7 +79,7 @@
 
       
 
-      </header><script src="introduction_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="introduction_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction to schtools</h1>
@@ -120,9 +120,9 @@
 <h2 class="hasAnchor">
 <a href="#miscellaneous-helpers" class="anchor"></a>Miscellaneous helpers</h2>
 <p>When writing scientific papers with R Markdown, we often find ourselves using the same knitr chunk options and miscellaneous helper functions. To use our favorite options like <code>eval=TRUE</code>, <code>echo=FALSE</code>, and others, run <code><a href="../reference/set_knitr_opts.html">set_knitr_opts()</a></code> in the first chunk of your R Markdown document:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="bn">```{r, include = FALSE}</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="bn">set_knitr_opts()</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="bn">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, include = FALSE}</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="in">set_knitr_opts()</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <p>This also sets the inline hook to our custom <code><a href="../reference/inline_hook.html">inline_hook()</a></code> function, which automatically formats numbers in a human-readable way and inserts an Oxford comma into lists when needed.</p>
 <div id="who-doesnt-love-an-oxford-comma" class="section level3">
 <h3 class="hasAnchor">

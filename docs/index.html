@@ -91,7 +91,7 @@
 <a href="#schtools" class="anchor"></a>schtools</h1></div>
 <p>Schloss Lab Tools for Reproducible Microbiome Research 💩</p>
 <!-- badges: start -->
-<p><a href="https://github.com/SchlossLab/schtools/actions"><img src="https://github.com/SchlossLab/schtools/workflows/check/badge.svg" alt="check"></a> <a href="https://app.codecov.io/gh/SchlossLab/schtools?branch=main"><img src="https://codecov.io/gh/SchlossLab/schtools/branch/master/graph/badge.svg" alt="codecov"></a> <a href="https://github.com/SchlossLab/schtools/blob/main/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="license"></a> <a href="https://CRAN.R-project.org/package=schtools"><img src="https://www.r-pkg.org/badges/version/schtools" alt="CRAN status"></a> <!-- badges: end --></p>
+<p><a href="https://github.com/SchlossLab/schtools/actions"><img src="https://github.com/SchlossLab/schtools/workflows/check/badge.svg" alt="check"></a> <a href="https://app.codecov.io/gh/SchlossLab/schtools?branch=main"><img src="https://codecov.io/gh/SchlossLab/schtools/branch/master/graph/badge.svg" alt="codecov"></a> <a href="https://github.com/SchlossLab/schtools/blob/main/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="license"></a> <a href="https://CRAN.R-project.org/package=schtools"><img src="https://www.r-pkg.org/badges/version/schtools" alt="CRAN status"></a> <a href="https://anaconda.org/conda-forge/r-schtools"><img src="https://img.shields.io/conda/vn/conda-forge/r-schtools" alt="Conda"></a> <img src="https://cranlogs.r-pkg.org/badges/grand-total/mikropml" alt="Downloads"><!-- badges: end --></p>
 <p>A collection of useful functions and example code created and used by the Schloss Lab for reproducible microbiome research. Perform common tasks like read output files from <a href="https://mothur.org">mothur</a>, tidy up your microbiome data, and format rmarkdown documents for publication. See the <a href="http://www.schlosslab.org/schtools/">website</a> for more information, documentation, and examples.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -102,7 +102,7 @@
 <p>or the development version from <a href="https://github.com/SchlossLab">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"SchlossLab/schtools"</span><span class="op">)</span></code></pre></div>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"SchlossLab/schtools"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="help--contributing" class="section level2">
 <h2 class="hasAnchor">
@@ -123,22 +123,20 @@
 <div id="citation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#citation" class="anchor"></a>Citation</h2>
-<pre><code>
-To cite package 'schtools' in publications use:
-
-  Kelly Sovacool, Nick Lesniak and Patrick Schloss (2021). schtools:
-  Schloss Lab Tools for Reproducible Microbiome Research. R package
-  version 0.1.0.9000. https://github.com/SchlossLab/schtools
-
-A BibTeX entry for LaTeX users is
-
-  @Manual{,
-    title = {schtools: Schloss Lab Tools for Reproducible Microbiome Research},
-    author = {Kelly Sovacool and Nick Lesniak and Patrick Schloss},
-    year = {2021},
-    note = {R package version 0.1.0.9000},
-    url = {https://github.com/SchlossLab/schtools},
-  }</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>To cite package <span class="st">'schtools'</span> <span class="cf">in</span> publications use<span class="sc">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  Kelly Sovacool, Nick Lesniak and Patrick <span class="fu">Schloss</span> (<span class="dv">2021</span>). schtools<span class="sc">:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  Schloss Lab Tools <span class="cf">for</span> Reproducible Microbiome Research. R package</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  version <span class="dv">0</span>.<span class="dv">1</span>.<span class="fl">0.</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>A BibTeX entry <span class="cf">for</span> LaTeX users is</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">@</span>Manual{,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    title <span class="ot">=</span> {schtools<span class="sc">:</span> Schloss Lab Tools <span class="cf">for</span> Reproducible Microbiome Research},</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    author <span class="ot">=</span> {Kelly Sovacool and Nick Lesniak and Patrick Schloss},</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    year <span class="ot">=</span> {<span class="dv">2021</span>},</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    note <span class="ot">=</span> {R package version <span class="dv">0</span>.<span class="fl">1.0</span>},</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
 </div>
 </div>
   </div>
