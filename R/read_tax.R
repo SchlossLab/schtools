@@ -13,7 +13,7 @@
 #' )
 #' taxonomy_tbl <- read_tax(taxonomy_filepath)
 #' head(taxonomy_tbl)
-parse_tax <- function(dat, sep = '\t') {
+parse_tax <- function(dat) {
   levels <- c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus")
   dat <- dat %>%
     dplyr::mutate(Taxonomy = gsub("_", " ", .data[["Taxonomy"]])) %>%
@@ -62,6 +62,7 @@ parse_tax <- function(dat, sep = '\t') {
 #' Read in a taxonomy file and parse it to a wide dataframe
 #'
 #' @param taxonomy_filename filename of taxonomy file
+#' @param sep Character that separates fields of the taxonomy file. (Default: `\t`).
 #'
 #' @return dataframe of taxonomic labels, formatted by `parse_tax()`
 #' @export
