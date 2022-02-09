@@ -76,13 +76,13 @@ parse_tax <- function(dat) {
 #' )
 #' taxonomy_tbl <- read_tax(taxonomy_filepath)
 #' head(taxonomy_tbl)
-read_tax <- function(taxonomy_filename, sep = '\t') {
-  if (endsWith(taxonomy_filename, '.csv')) sep <- ','
+read_tax <- function(taxonomy_filename, sep = "\t") {
+  if (endsWith(taxonomy_filename, ".csv")) sep <- ","
   tax_df <- utils::read.table(taxonomy_filename,
     sep = sep,
     header = TRUE,
     stringsAsFactors = FALSE
   ) %>%
-      parse_tax()
+    parse_tax()
   return(tax_df)
 }
