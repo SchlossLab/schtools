@@ -2,18 +2,20 @@
 % Please edit documentation in R/read_tax.R
 \name{read_tax}
 \alias{read_tax}
-\title{Convert taxonomy strings into dataframe of labels based on taxnomic classification}
+\title{Read in a taxonomy file and parse it to a wide dataframe}
 \usage{
-read_tax(taxonomy_filename)
+read_tax(taxonomy_filename, sep = "\\t")
 }
 \arguments{
 \item{taxonomy_filename}{filename of taxonomy file}
+
+\item{sep}{Character that separates fields of the taxonomy file. (Default: \verb{\\t}).}
 }
 \value{
-dataframe of taxonomic labels
+dataframe of taxonomic labels, formatted by \code{parse_tax()}
 }
 \description{
-Convert taxonomy strings into dataframe of labels based on taxnomic classification
+Read in a taxonomy file and parse it to a wide dataframe
 }
 \examples{
 taxonomy_filepath <- system.file("extdata",
@@ -25,4 +27,6 @@ head(taxonomy_tbl)
 }
 \author{
 Nick Lesniak, \email{nlesniak@umich.edu}
+
+Kelly Sovacool, \email{sovacool@umich.edu}
 }
