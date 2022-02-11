@@ -14,6 +14,6 @@ below to see their documentation.
 \describe{
   \item{dplyr}{\code{\link[dplyr:reexports]{\%>\%}}}
 
-  \item{rlang}{\code{\link[rlang:tidyeval-data]{.data}}}
+  \item{rlang}{\code{\link[rlang:dot-data]{.data}}}
 }}
 
