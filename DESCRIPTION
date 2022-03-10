@@ -58,9 +58,13 @@ Imports:
     tidyr
 Suggests: 
     covr,
+    cowplot,
+    here,
+    hexSticker,
     knitr,
     purrr,
     rmarkdown,
+    showtext,
     testthat
 VignetteBuilder: 
     knitr

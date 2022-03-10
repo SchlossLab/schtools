@@ -2,6 +2,10 @@ pandoc: 2.7.3
 pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
+  logo: logo.html
   introduction: introduction.html
-last_built: 2022-02-09T16:41Z
+last_built: 2022-03-10T22:29Z
+urls:
+  reference: http://www.schlosslab.org/schtools/reference
+  article: http://www.schlosslab.org/schtools/articles
 

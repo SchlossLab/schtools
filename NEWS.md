@@ -3,7 +3,7 @@
 - Refactored `read_tax()` (#30, @kelly-sovacool)
     - New function `parse_tax()` to separate that logic of reading and parsing taxonomy files.
     - `read_tax()` now accepts a `sep` parameter to handle different delim file types (e.g. csv or tsv).
-
+- schtools now has a logo! (#31, @kelly-sovacool)
 
 # schtools 0.1.0
 

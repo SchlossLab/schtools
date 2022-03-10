@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# schtools
+# schtools <a href='http://www.schlosslab.org/schtools'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 Schloss Lab Tools for Reproducible Microbiome Research 💩
 
@@ -66,9 +66,9 @@ Please note that the schtools project is released with a [Contributor Code of Co
 ## License
 
 The schtools package is licensed under 
-[the MIT license](https://github.com/SchlossLab/schtools/blob/main/LICENSE.md).
-Text and images included in this repository
-are licensed under the [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
+[the MIT license](https://github.com/SchlossLab/schtools/blob/main/LICENSE.md#mit-license).
+The logo is licensed under the 
+[CC BY-SA license](#creative-commons-share-alike-license)#creative-commons-share-alike-license).
 
 ## Citation
 
