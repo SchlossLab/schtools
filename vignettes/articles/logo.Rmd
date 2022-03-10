@@ -34,6 +34,8 @@ From OpenMoji, [licensed under CC BY SA 4.0](https://github.com/hfg-gmuend/openm
 - wrench: https://openmoji.org/library/#search=tool&emoji=1F527
 - hammer: https://openmoji.org/library/#search=tool&emoji=1F528
 
+## Logo
+
 ```{r logo, dpi=300}
 poo_file <- here('vignettes', 'articles','1F4A9_color.png')
 wrench_file <- here('vignettes', 'articles', '1F527_color.png')
@@ -58,7 +60,7 @@ sticker(img, package = 'schtools',
         p_x = 1, p_y = 1.55, p_color = black, 
         p_size = 23, p_family = 'Source Sans Pro', 
         h_fill = mint, h_color = orange,
-        url = 'schlosslab.org/schtools', u_size = 2.5,
-        filename = here('vignettes', 'articles', 'schools-logo.png'))
+        url = 'schlosslab.org/schtools', u_size = 3.5,
+        filename = here('vignettes', 'articles', 'schtools-logo.png'))
 ```
 
