@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# schtools
+# schtools <a href='http://www.schlosslab.org/schtools'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 Schloss Lab Tools for Reproducible Microbiome Research 💩
 
@@ -59,27 +59,25 @@ By contributing to this project, you agree to abide by its terms.
 ## License
 
 The schtools package is licensed under [the MIT
-license](https://github.com/SchlossLab/schtools/blob/main/LICENSE.md).
-Text and images included in this repository are licensed under the [CC
-BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
+license](https://github.com/SchlossLab/schtools/blob/main/LICENSE.md#mit-license).
+The logo is licensed under the [CC BY-SA
+license](#creative-commons-share-alike-license)#creative-commons-share-alike-license).
 
 ## Citation
 
-``` 
 
-To cite package 'schtools' in publications use:
+    To cite package 'schtools' in publications use:
 
-  Kelly Sovacool, Nick Lesniak and Patrick Schloss (2021). schtools:
-  Schloss Lab Tools for Reproducible Microbiome Research. R package
-  version 0.1.0.9000. https://github.com/SchlossLab/schtools
+      Kelly Sovacool, Nick Lesniak and Patrick Schloss (2021). schtools:
+      Schloss Lab Tools for Reproducible Microbiome Research. R package
+      version 0.1.0.9000. https://github.com/SchlossLab/schtools
 
-A BibTeX entry for LaTeX users is
+    A BibTeX entry for LaTeX users is
 
-  @Manual{,
-    title = {schtools: Schloss Lab Tools for Reproducible Microbiome Research},
-    author = {Kelly Sovacool and Nick Lesniak and Patrick Schloss},
-    year = {2021},
-    note = {R package version 0.1.0.9000},
-    url = {https://github.com/SchlossLab/schtools},
-  }
-```
+      @Manual{,
+        title = {schtools: Schloss Lab Tools for Reproducible Microbiome Research},
+        author = {Kelly Sovacool and Nick Lesniak and Patrick Schloss},
+        year = {2021},
+        note = {R package version 0.1.0.9000},
+        url = {https://github.com/SchlossLab/schtools},
+      }
