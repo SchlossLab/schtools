@@ -50,7 +50,7 @@ ggsave2(img,
         width = 2,
         units = 'in')
 
-mint <- '#CBF3F0'
+mint <- '#A2EAE0'
 pink <- '#FA9DC5'
 orange <- '#FFDBAD'
 black <- '#000000'
