@@ -48,7 +48,8 @@ Description: A collection of useful functions and example code created and
     publication.  See the website <http://www.schlosslab.org/schtools/>
     for more information, documentation, and examples.
 License: MIT + file LICENSE
-URL: https://github.com/SchlossLab/schtools
+URL: http://www.schlosslab.org/schtools/,
+    https://github.com/SchlossLab/schtools
 BugReports: https://github.com/SchlossLab/schtools/issues
 Imports: 
     dplyr,
