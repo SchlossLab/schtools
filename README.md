@@ -14,6 +14,7 @@ Schloss Lab Tools for Reproducible Microbiome Research 💩
 status](https://www.r-pkg.org/badges/version/schtools)](https://CRAN.R-project.org/package=schtools)
 [![Conda](https://img.shields.io/conda/vn/conda-forge/r-schtools)](https://anaconda.org/conda-forge/r-schtools)
 ![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/schtools)
+
 <!-- badges: end -->
 
 A collection of useful functions and example code created and used by
@@ -61,7 +62,7 @@ By contributing to this project, you agree to abide by its terms.
 The schtools package is licensed under the [MIT
 license](https://github.com/SchlossLab/schtools/blob/main/LICENSE.md#mit-license).
 The logo is licensed under the [CC BY-SA
-license](#creative-commons-share-alike-license#creative-commons-share-alike-license).
+license](https://github.com/SchlossLab/schtools/blob/main/LICENSE.md#creative-commons-share-alike-license).
 
 ## Citation
 
