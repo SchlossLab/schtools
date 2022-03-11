@@ -1,6 +1,6 @@
 ## Test environments
 
-- local macOS install; R 4.1.1
+- local macOS install; R 4.1.2
 - win-builder; R release
 - github-actions macOS-latest; R release
 - github-actions ubuntu-latest; R devel, devel, and oldrel
@@ -10,15 +10,13 @@
 
 0 errors | 0 warnings | 1 note
 
-This is a new submission.
-
-Possibly mis-spelled words in DESCRIPTION:
-  Microbiome (2:43)
-  Schloss (2:8, 50:10)
-  microbiome (50:39, 52:3)
-  mothur (51:30)
-  
-These words are all spelled correctly.
+Found the following (possibly) invalid URLs:
+  URL: https://anaconda.org/conda-forge/r-schtools
+    From: README.md
+    Status: 400
+    Message: Bad Request
+    
+This URL works in my browser.
 
 ## revdepcheck results
 
