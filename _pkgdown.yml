@@ -12,3 +12,28 @@ authors:
         href: "https://github.com/NLesniak"
     Patrick Schloss:
         href: "https://github.com/pschloss"
+reference:
+- title:  contents:
+  - schtools
+- title: Readers
+  desc: >
+    Read microbiome-related files.
+  contents:
+  - starts_with('read_')
+  - starts_with('parse_')
+- title: R Markdown helpers
+  desc: >
+    Format publication-quality documents.
+  contents:
+  - set_knitr_opts
+  - inline_hook
+  - paste_oxford_list
+  - format_number
+- title: Everything else
+  desc: >
+    Useful tools for miscellaneous tasks.
+  contents:
+  - close_enough
+  - is_nearly_whole
+  - is_nondesc
+  - load_deps
