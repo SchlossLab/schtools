@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# schtools <a href='http://www.schlosslab.org/schtools'><img src='man/figures/logo.png' align="right" height="139" /></a>
+# schtools <a href='http://www.schlosslab.org/schtools/'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 Schloss Lab Tools for Reproducible Microbiome Research 💩
 
