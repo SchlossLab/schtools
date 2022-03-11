@@ -12,3 +12,4 @@
 ^CRAN-RELEASE$
 ^vignettes/articles$
 ^_pkgdown\.yml$
+^pkgdown$
