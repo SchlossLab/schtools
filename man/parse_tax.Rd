@@ -2,18 +2,18 @@
 % Please edit documentation in R/read_tax.R
 \name{parse_tax}
 \alias{parse_tax}
-\title{Convert taxonomy strings into dataframe of labels based on taxnomic classification}
+\title{Convert taxonomy strings into dataframe of labels based on taxonomic classification}
 \usage{
 parse_tax(dat)
 }
 \arguments{
-\item{dat}{datframe from mothur taxonomy file with columns \code{OTU}, \code{Size}, and \code{Taxonomy}}
+\item{dat}{dataframe from mothur taxonomy file with columns \code{OTU}, \code{Size}, and \code{Taxonomy}}
 }
 \value{
 a wide dataframe with taxonomic labels
 }
 \description{
-Convert taxonomy strings into dataframe of labels based on taxnomic classification
+Convert taxonomy strings into dataframe of labels based on taxonomic classification
 }
 \examples{
 taxonomy_filepath <- system.file("extdata",
