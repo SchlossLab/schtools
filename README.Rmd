@@ -43,7 +43,7 @@ You can install the latest release from [CRAN](https://cran.r-project.org/packag
 install.packages("schtools")
 ```
 
-or the development version from [GitHub](https://github.com/SchlossLab) with:
+or the development version from [GitHub](https://github.com/SchlossLab/schtools) with:
 
 ```{r, eval = FALSE}
 # install.packages("devtools")

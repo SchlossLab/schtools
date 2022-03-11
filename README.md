@@ -32,8 +32,8 @@ You can install the latest release from
 install.packages("schtools")
 ```
 
-or the development version from [GitHub](https://github.com/SchlossLab)
-with:
+or the development version from
+[GitHub](https://github.com/SchlossLab/schtools) with:
 
 ``` r
 # install.packages("devtools")
