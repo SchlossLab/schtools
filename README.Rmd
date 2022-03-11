@@ -66,9 +66,9 @@ Please note that the schtools project is released with a [Contributor Code of Co
 ## License
 
 The schtools package is licensed under 
-[the MIT license](https://github.com/SchlossLab/schtools/blob/main/LICENSE.md#mit-license).
+the [MIT license](https://github.com/SchlossLab/schtools/blob/main/LICENSE.md#mit-license).
 The logo is licensed under the 
-[CC BY-SA license](#creative-commons-share-alike-license)#creative-commons-share-alike-license).
+[CC BY-SA license](#creative-commons-share-alike-license#creative-commons-share-alike-license).
 
 ## Citation
 

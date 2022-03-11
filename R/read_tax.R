@@ -1,6 +1,6 @@
-#' Convert taxonomy strings into dataframe of labels based on taxnomic classification
+#' Convert taxonomy strings into dataframe of labels based on taxonomic classification
 #'
-#' @param dat datframe from mothur taxonomy file with columns `OTU`, `Size`, and `Taxonomy`
+#' @param dat dataframe from mothur taxonomy file with columns `OTU`, `Size`, and `Taxonomy`
 #'
 #' @return a wide dataframe with taxonomic labels
 #' @export
