@@ -13,7 +13,8 @@ authors:
     Patrick Schloss:
         href: "https://github.com/pschloss"
 reference:
-- title:  contents:
+- title:
+  contents:
   - schtools
 - title: Readers
   desc: >
