@@ -41,6 +41,14 @@ or the development version from
 devtools::install_github("SchlossLab/schtools")
 ```
 
+## Usage
+
+Check out the [introductory
+vignette](http://www.schlosslab.org/schtools/articles/introduction.html)
+for a quick start tutorial or take a look at the [reference
+documentation](http://www.schlosslab.org/schtools/reference/index.html)
+for a comprehensive list of functions.
+
 ## Help & Contributing
 
 If you come across a bug, [open an
