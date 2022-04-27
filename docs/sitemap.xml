@@ -1,13 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.schlosslab.org/schtools/404.html</loc>
+  </url>
+  <url>
+    <loc>http://www.schlosslab.org/schtools/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>http://www.schlosslab.org/schtools/CONTRIBUTING.html</loc>
+  </url>
+  <url>
+    <loc>http://www.schlosslab.org/schtools/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>http://www.schlosslab.org/schtools/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>http://www.schlosslab.org/schtools/SUPPORT.html</loc>
+  </url>
+  <url>
+    <loc>http://www.schlosslab.org/schtools/articles/articles/logo.html</loc>
+  </url>
+  <url>
+    <loc>http://www.schlosslab.org/schtools/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>http://www.schlosslab.org/schtools/articles/introduction.html</loc>
+  </url>
+  <url>
+    <loc>http://www.schlosslab.org/schtools/articles/logo.html</loc>
+  </url>
+  <url>
+    <loc>http://www.schlosslab.org/schtools/authors.html</loc>
+  </url>
+  <url>
     <loc>http://www.schlosslab.org/schtools/index.html</loc>
+  </url>
+  <url>
+    <loc>http://www.schlosslab.org/schtools/news/index.html</loc>
+  </url>
+  <url>
+    <loc>http://www.schlosslab.org/schtools/pull_request_template.html</loc>
   </url>
   <url>
     <loc>http://www.schlosslab.org/schtools/reference/close_enough.html</loc>
   </url>
   <url>
     <loc>http://www.schlosslab.org/schtools/reference/format_number.html</loc>
+  </url>
+  <url>
+    <loc>http://www.schlosslab.org/schtools/reference/index.html</loc>
   </url>
   <url>
     <loc>http://www.schlosslab.org/schtools/reference/inline_hook.html</loc>
@@ -41,11 +83,5 @@
   </url>
   <url>
     <loc>http://www.schlosslab.org/schtools/reference/set_knitr_opts.html</loc>
-  </url>
-  <url>
-    <loc>http://www.schlosslab.org/schtools/articles/articles/logo.html</loc>
-  </url>
-  <url>
-    <loc>http://www.schlosslab.org/schtools/articles/introduction.html</loc>
   </url>
 </urlset>
