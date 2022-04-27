@@ -55,14 +55,17 @@ parse_tax <- function(dat) {
       tax_otu_label = paste0(.data[["Genus"]], " (", gsub("tu0*", "TU ", .data[["OTU"]]), ")"),
       tax_otu_label = gsub(" unclassified", "", .data[["tax_otu_label"]]),
       otu_label = paste0(gsub("tu0*", "TU ", .data[["OTU"]])),
-      label_html = stringr::str_replace(.data[['tax_otu_label']],
-                                        "([a-zA-Z]+) (.*)",
-                                        glue::glue("<i>\\1</i> \\2"))
+      label_html = stringr::str_replace(
+        .data[["tax_otu_label"]],
+        "([a-zA-Z]+) (.*)",
+        glue::glue("<i>\\1</i> \\2")
+      )
     )
   colnames(dat) <- tolower(colnames(dat))
   dat <- dat %>%
-      dplyr::relocate(c('otu_label', 'tax_otu_label', 'label_html'),
-                      .after = 'otu')
+    dplyr::relocate(c("otu_label", "tax_otu_label", "label_html"),
+      .after = "otu"
+    )
   return(dat)
 }
 
