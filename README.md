@@ -41,6 +41,22 @@ or the development version from
 devtools::install_github("SchlossLab/schtools")
 ```
 
+or install from a terminal using
+[conda](https://docs.conda.io/projects/conda/en/latest/index.html) or
+[mamba](https://mamba.readthedocs.io/en/latest/):
+
+``` bash
+mamba install -c conda-forge r-schtools
+```
+
+## Usage
+
+Check out the [introductory
+vignette](http://www.schlosslab.org/schtools/articles/introduction.html)
+for a quick start tutorial or take a look at the [reference
+documentation](http://www.schlosslab.org/schtools/reference/index.html)
+for a comprehensive list of functions.
+
 ## Help & Contributing
 
 If you come across a bug, [open an
