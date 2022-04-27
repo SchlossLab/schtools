@@ -54,11 +54,15 @@ BugReports: https://github.com/SchlossLab/schtools/issues
 Imports: 
     dplyr,
     formatR,
+    glue,
     rlang,
+    stringr,
     tidyr
 Suggests: 
     covr,
     cowplot,
+    ggplot2,
+    ggtext,
     here,
     hexSticker,
     knitr,
