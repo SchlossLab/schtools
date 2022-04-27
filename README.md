@@ -41,6 +41,22 @@ or the development version from
 devtools::install_github("SchlossLab/schtools")
 ```
 
+or install from a terminal using
+[conda](https://docs.conda.io/projects/conda/en/latest/index.html) or
+[mamba](https://mamba.readthedocs.io/en/latest/):
+
+``` bash
+mamba install -c conda-forge r-schtools
+```
+
+## Usage
+
+Check out the [introductory
+vignette](http://www.schlosslab.org/schtools/articles/introduction.html)
+for a quick start tutorial or take a look at the [reference
+documentation](http://www.schlosslab.org/schtools/reference/index.html)
+for a comprehensive list of functions.
+
 ## Help & Contributing
 
 If you come across a bug, [open an
@@ -66,19 +82,22 @@ license](https://github.com/SchlossLab/schtools/blob/main/LICENSE.md#creative-co
 
 ## Citation
 
+``` 
 
-    To cite package 'schtools' in publications use:
+To cite package 'schtools' in publications use:
 
-      Kelly Sovacool, Nick Lesniak and Patrick Schloss (2021). schtools:
-      Schloss Lab Tools for Reproducible Microbiome Research. R package
-      version 0.1.0.9000. https://github.com/SchlossLab/schtools
+  Sovacool K, Lesniak N, Schloss P (2022). _schtools: Schloss Lab Tools
+  for Reproducible Microbiome Research_.
+  http://www.schlosslab.org/schtools/,
+  https://github.com/SchlossLab/schtools.
 
-    A BibTeX entry for LaTeX users is
+A BibTeX entry for LaTeX users is
 
-      @Manual{,
-        title = {schtools: Schloss Lab Tools for Reproducible Microbiome Research},
-        author = {Kelly Sovacool and Nick Lesniak and Patrick Schloss},
-        year = {2021},
-        note = {R package version 0.1.0.9000},
-        url = {https://github.com/SchlossLab/schtools},
-      }
+  @Manual{,
+    title = {schtools: Schloss Lab Tools for Reproducible Microbiome Research},
+    author = {Kelly Sovacool and Nick Lesniak and Patrick Schloss},
+    year = {2022},
+    note = {http://www.schlosslab.org/schtools/,
+https://github.com/SchlossLab/schtools},
+  }
+```
