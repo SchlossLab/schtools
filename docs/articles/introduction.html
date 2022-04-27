@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,30 +40,25 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">schtools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.1.9000</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
 <li class="divider">
-    <li class="dropdown-header">Vignettes</li>
+    </li>
+<li class="dropdown-header">Vignettes</li>
     <li>
       <a href="../articles/introduction.html">Introduction to schtools</a>
     </li>
@@ -73,7 +70,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/SchlossLab/schtools/">
+  <a href="https://github.com/SchlossLab/schtools/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -88,13 +85,13 @@
 
       
 
-      </header><script src="introduction_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
+      </header><script src="introduction_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction to schtools</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/SchlossLab/schtools/blob/master/vignettes/introduction.Rmd"><code>vignettes/introduction.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/SchlossLab/schtools/blob/HEAD/vignettes/introduction.Rmd" class="external-link"><code>vignettes/introduction.Rmd</code></a></small>
       <div class="hidden name"><code>introduction.Rmd</code></div>
 
     </div>
@@ -102,43 +99,43 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.schlosslab.org/schtools/">schtools</a></span><span class="op">)</span></code></pre></div>
-<div id="parsing-mothur-output-files" class="section level2">
-<h2 class="hasAnchor">
-<a href="#parsing-mothur-output-files" class="anchor"></a>Parsing mothur output files</h2>
-<div id="phylip-formatted-distance-file-as-a-tibble" class="section level3">
-<h3 class="hasAnchor">
-<a href="#phylip-formatted-distance-file-as-a-tibble" class="anchor"></a>Phylip-formatted distance file as a tibble</h3>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://www.schlosslab.org/schtools/">schtools</a></span><span class="op">)</span></code></pre></div>
+<div class="section level2">
+<h2 id="parsing-mothur-output-files">Parsing mothur output files<a class="anchor" aria-label="anchor" href="#parsing-mothur-output-files"></a>
+</h2>
+<div class="section level3">
+<h3 id="phylip-formatted-distance-file-as-a-tibble">Phylip-formatted distance file as a tibble<a class="anchor" aria-label="anchor" href="#phylip-formatted-distance-file-as-a-tibble"></a>
+</h3>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dist_filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"sample.final.thetayc.0.03.lt.ave.dist"</span>,
+<code class="sourceCode R"><span class="va">dist_filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"sample.final.thetayc.0.03.lt.ave.dist"</span>,
     package <span class="op">=</span> <span class="st">"schtools"</span><span class="op">)</span>
 <span class="va">dist_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_dist.html">read_dist</a></span><span class="op">(</span><span class="va">dist_filepath</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dist_tbl</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 6 × 3</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dist_tbl</span><span class="op">)</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 3</span></span>
 <span class="co">#&gt;   rows      columns   distances</span>
-<span class="co">#&gt;   &lt;chr&gt;     &lt;chr&gt;         &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 104_1_D1  104_1_D0      0.893</span>
-<span class="co">#&gt; 2 104_1_D10 104_1_D0      0.254</span>
-<span class="co">#&gt; 3 104_1_D10 104_1_D1      0.922</span>
-<span class="co">#&gt; 4 104_1_D2  104_1_D0      0.874</span>
-<span class="co">#&gt; 5 104_1_D2  104_1_D1      0.109</span>
-<span class="co">#&gt; 6 104_1_D2  104_1_D10     0.904</span></code></pre></div>
+<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 104_1_D1  104_1_D0      0.893</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 104_1_D10 104_1_D0      0.254</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 104_1_D10 104_1_D1      0.922</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 104_1_D2  104_1_D0      0.874</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 104_1_D2  104_1_D1      0.109</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 104_1_D2  104_1_D10     0.904</span></code></pre></div>
 </div>
 </div>
-<div id="miscellaneous-helpers" class="section level2">
-<h2 class="hasAnchor">
-<a href="#miscellaneous-helpers" class="anchor"></a>Miscellaneous helpers</h2>
+<div class="section level2">
+<h2 id="miscellaneous-helpers">Miscellaneous helpers<a class="anchor" aria-label="anchor" href="#miscellaneous-helpers"></a>
+</h2>
 <p>When writing scientific papers with R Markdown, we often find ourselves using the same knitr chunk options and miscellaneous helper functions. To use our favorite options like <code>eval=TRUE</code>, <code>echo=FALSE</code>, and others, run <code><a href="../reference/set_knitr_opts.html">set_knitr_opts()</a></code> in the first chunk of your R Markdown document:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, include = FALSE}</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="in">set_knitr_opts()</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="bn">```{r, include = FALSE}</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="bn">set_knitr_opts()</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="bn">```</span></span></code></pre></div>
 <p>This also sets the inline hook to our custom <code><a href="../reference/inline_hook.html">inline_hook()</a></code> function, which automatically formats numbers in a human-readable way and inserts an Oxford comma into lists when needed.</p>
-<div id="who-doesnt-love-an-oxford-comma" class="section level3">
-<h3 class="hasAnchor">
-<a href="#who-doesnt-love-an-oxford-comma" class="anchor"></a>Who doesn’t love an Oxford comma?</h3>
+<div class="section level3">
+<h3 id="who-doesnt-love-an-oxford-comma">Who doesn’t love an Oxford comma?<a class="anchor" aria-label="anchor" href="#who-doesnt-love-an-oxford-comma"></a>
+</h3>
 <p>When writing with R Markdown, you may wish to insert a list or vector inline and correctly format it with an Oxford comma. <code><a href="../reference/inline_hook.html">inline_hook()</a></code> uses <code><a href="../reference/paste_oxford_list.html">paste_oxford_list()</a></code> to help you do just that!</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cats"</span>, <span class="st">"dogs"</span>, <span class="st">"fish"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"cats"</span>, <span class="st">"dogs"</span>, <span class="st">"fish"</span><span class="op">)</span></code></pre></div>
 <p>Insert the string as inline code with <code>`r `</code>:</p>
 <blockquote>
 <p><code>`r animals`</code> are the most common pets.</p>
@@ -148,9 +145,9 @@
 <p>cats, dogs, and fish are the most common pets.</p>
 </blockquote>
 </div>
-<div id="human-readable-numbers" class="section level3">
-<h3 class="hasAnchor">
-<a href="#human-readable-numbers" class="anchor"></a>Human-readable numbers</h3>
+<div class="section level3">
+<h3 id="human-readable-numbers">Human-readable numbers<a class="anchor" aria-label="anchor" href="#human-readable-numbers"></a>
+</h3>
 <p><code><a href="../reference/inline_hook.html">inline_hook()</a></code> uses <code>format_numbers()</code> under the hood to automatically format numbers to a human-readable format, rather than display in scientific notation.</p>
 <blockquote>
 <p>The numbers <code>`r c(1e-04, 1e-05, 1e-06)`</code> are very precise, while <code>`r c(1e04, 1e05, 1e06)`</code> are very large.</p>
@@ -174,11 +171,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://github.com/kelly-sovacool">Kelly Sovacool</a>, <a href="https://github.com/NLesniak">Nick Lesniak</a>, <a href="https://github.com/pschloss">Patrick Schloss</a>.</p>
+  <p></p>
+<p>Developed by <a href="https://github.com/kelly-sovacool" class="external-link">Kelly Sovacool</a>, <a href="https://github.com/NLesniak" class="external-link">Nick Lesniak</a>, <a href="https://github.com/pschloss" class="external-link">Patrick Schloss</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer>
@@ -186,6 +185,8 @@
 
   
 
+
+  
 
   </body>
 </html>

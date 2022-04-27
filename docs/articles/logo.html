@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">schtools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.1.9000</span>
       </span>
     </div>
 
@@ -114,7 +114,7 @@
 <div class="section level2">
 <h2 id="emojis">Emojis<a class="anchor" aria-label="anchor" href="#emojis"></a>
 </h2>
-<p>From OpenMoji, <a href="https://github.com/hfg-gmuend/openmoji/blob/master/LICENSE.txt" class="external-link">licensed under CC BY SA 4.0</a></p>
+<p>From OpenMoji, <a href="https://github.com/hfg-gmuend/openmoji/blob/master/LICENSE.txt" class="external-link">licensed under CC BY-SA 4.0</a></p>
 <ul>
 <li>poop: <a href="https://openmoji.org/library/#search=poo&amp;emoji=1F4A9" class="external-link uri">https://openmoji.org/library/#search=poo&amp;emoji=1F4A9</a>
 </li>
@@ -123,10 +123,6 @@
 <li>hammer: <a href="https://openmoji.org/library/#search=tool&amp;emoji=1F528" class="external-link uri">https://openmoji.org/library/#search=tool&amp;emoji=1F528</a>
 </li>
 </ul>
-</div>
-<div class="section level2">
-<h2 id="schtools-logo">Schtools Logo<a class="anchor" aria-label="anchor" href="#schtools-logo"></a>
-</h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">poo_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">'vignettes'</span>, <span class="st">'articles'</span>,<span class="st">'1F4A9_color.png'</span><span class="op">)</span>
 <span class="va">wrench_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">'vignettes'</span>, <span class="st">'articles'</span>, <span class="st">'1F527_color.png'</span><span class="op">)</span>
@@ -140,19 +136,28 @@
         height <span class="op">=</span> <span class="fl">2</span>,
         width <span class="op">=</span> <span class="fl">2</span>,
         units <span class="op">=</span> <span class="st">'in'</span><span class="op">)</span>
-
-<span class="va">mint</span> <span class="op">&lt;-</span> <span class="st">'#A2EAE0'</span>
+<span class="va">img</span></code></pre></div>
+<p><img src="logo_files/figure-html/emojis-1.png" width="50%"></p>
+</div>
+<div class="section level2">
+<h2 id="schtools-logo">Schtools Logo<a class="anchor" aria-label="anchor" href="#schtools-logo"></a>
+</h2>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mint</span> <span class="op">&lt;-</span> <span class="st">'#A2EAE0'</span>
 <span class="va">pink</span> <span class="op">&lt;-</span> <span class="st">'#FA9DC5'</span>
 <span class="va">orange</span> <span class="op">&lt;-</span> <span class="st">'#FFDBAD'</span>
 <span class="va">black</span> <span class="op">&lt;-</span> <span class="st">'#000000'</span>
-
+<span class="va">logo_filename</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">'vignettes'</span>, <span class="st">'articles'</span>, <span class="st">'schtools-logo.png'</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/hexSticker/man/sticker.html" class="external-link">sticker</a></span><span class="op">(</span><span class="va">img</span>, package <span class="op">=</span> <span class="st">'schtools'</span>, 
         s_x <span class="op">=</span> <span class="fl">1</span>, s_y <span class="op">=</span> <span class="fl">0.85</span>, s_width <span class="op">=</span> <span class="fl">1.6</span>, s_height <span class="op">=</span> <span class="fl">1.6</span>,
         p_x <span class="op">=</span> <span class="fl">1</span>, p_y <span class="op">=</span> <span class="fl">1.55</span>, p_color <span class="op">=</span> <span class="va">black</span>, 
         p_size <span class="op">=</span> <span class="fl">23</span>, p_family <span class="op">=</span> <span class="st">'Source Sans Pro'</span>, 
         h_fill <span class="op">=</span> <span class="va">mint</span>, h_color <span class="op">=</span> <span class="va">orange</span>,
         url <span class="op">=</span> <span class="st">'schlosslab.org/schtools'</span>, u_size <span class="op">=</span> <span class="fl">3.5</span>,
-        filename <span class="op">=</span> <span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">'vignettes'</span>, <span class="st">'articles'</span>, <span class="st">'schtools-logo.png'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+        filename <span class="op">=</span> <span class="va">logo_filename</span><span class="op">)</span>
+<span class="fu"><a href="https://wilkelab.org/cowplot/reference/ggdraw.html" class="external-link">ggdraw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://wilkelab.org/cowplot/reference/draw_image.html" class="external-link">draw_image</a></span><span class="op">(</span><span class="va">logo_filename</span><span class="op">)</span></code></pre></div>
+<p><img src="logo_files/figure-html/logo-1.png" width="50%"></p>
 </div>
   </div>
 
@@ -173,7 +178,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer>
