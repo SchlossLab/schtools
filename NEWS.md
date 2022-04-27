@@ -1,5 +1,10 @@
 # schtools development version
 
+- Improvements to `parse_tax()` (#32, @kelly-sovacool)
+    - New column `label_html` provides HTML to correctly italicize genus names but not OTU labels.
+    - Added an example the intro vignette to demonstrate using this feature with `ggtext`.
+    - Changed taxonomy data frame column names to lowercase and reordered them.
+
 # schtools 0.1.1
 
 - Refactored `read_tax()` (#30, @kelly-sovacool)
