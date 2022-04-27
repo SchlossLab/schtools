@@ -1,5 +1,7 @@
 # schtools development version
 
+- Minor documentation improvements (#33, @kelly-sovacool)
+
 # schtools 0.1.1
 
 - Refactored `read_tax()` (#30, @kelly-sovacool)
