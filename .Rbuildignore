@@ -13,3 +13,4 @@
 ^vignettes/articles$
 ^_pkgdown\.yml$
 ^pkgdown$
+^CRAN-SUBMISSION$
