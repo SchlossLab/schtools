@@ -3,7 +3,7 @@
 - local macOS install; R 4.2.0
 - win-builder; R release
 - github-actions macOS-latest; R release
-- github-actions ubuntu-latest; R devel, devel, and oldrel
+- github-actions ubuntu-latest; R release, devel, and oldrel
 - github-actions windows-latest; R release
 
 ## R CMD check results
