@@ -1,6 +1,6 @@
 ## Test environments
 
-- local macOS install; R 4.1.2
+- local macOS install; R 4.2.0
 - win-builder; R release
 - github-actions macOS-latest; R release
 - github-actions ubuntu-latest; R devel, devel, and oldrel
