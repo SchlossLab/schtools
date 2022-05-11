@@ -4,7 +4,11 @@ pkgdown_sha: ~
 articles:
   logo: logo.html
   introduction: introduction.html
+<<<<<<< HEAD
+last_built: 2022-04-27T18:50Z
+=======
 last_built: 2022-04-27T18:41Z
+>>>>>>> main
 urls:
   reference: http://www.schlosslab.org/schtools/reference
   article: http://www.schlosslab.org/schtools/articles
