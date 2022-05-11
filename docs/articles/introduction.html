@@ -104,9 +104,59 @@
 <h2 id="parsing-mothur-output-files">Parsing mothur output files<a class="anchor" aria-label="anchor" href="#parsing-mothur-output-files"></a>
 </h2>
 <div class="section level3">
+<<<<<<< HEAD
 <h3 id="phylip-formatted-distance-file-as-a-tibble">Phylip-formatted distance file as a tibble<a class="anchor" aria-label="anchor" href="#phylip-formatted-distance-file-as-a-tibble"></a>
 </h3>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+=======
+<h3 id="taxonomy-files">Taxonomy files<a class="anchor" aria-label="anchor" href="#taxonomy-files"></a>
+</h3>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">tax_filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"test.taxonomy"</span>, package <span class="op">=</span> <span class="st">"schtools"</span><span class="op">)</span>
+<span class="va">tax_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_tax.html">read_tax</a></span><span class="op">(</span><span class="va">tax_filepath</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">tax_dat</span><span class="op">)</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 10</span></span>
+<span class="co">#&gt;   otu      otu_label tax_otu_label  label_html kingdom phylum class order family</span>
+<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Otu0001  OTU 1     Bacteroides (… &lt;i&gt;Bacter… Bacter… Bacte… Bact… Bact… Bacte…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Otu0003  OTU 3     Porphyromonad… &lt;i&gt;Porphy… Bacter… Bacte… Bact… Bact… Porph…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Otu0004  OTU 4     Porphyromonad… &lt;i&gt;Porphy… Bacter… Bacte… Bact… Bact… Porph…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Otu00008 OTU 8     Enterobacteri… &lt;i&gt;Entero… Bacter… Prote… Gamm… Ente… Enter…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Otu0044  OTU 44    Bacteria (OTU… &lt;i&gt;Bacter… Bacter… Bacte… Bact… Bact… Bacte…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Otu0056  OTU 56    Bacteria (OTU… &lt;i&gt;Bacter… Bacter… Bacte… Bact… Bact… Bacte…</span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 1 more variable: genus &lt;chr&gt;</span></span></code></pre></div>
+<p>The column <code>label_html</code> provides html that correctly italicizes the genus name but not the OTU label, which can be used with <code><a href="https://wilkelab.org/ggtext/reference/element_markdown.html" class="external-link">ggtext::element_markdown()</a></code> to make nice plots:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: 'dplyr'</span>
+<span class="co">#&gt; The following objects are masked from 'package:stats':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     filter, lag</span>
+<span class="co">#&gt; The following objects are masked from 'package:base':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     intersect, setdiff, setequal, union</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/ggtext/" class="external-link">ggtext</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">20220427</span><span class="op">)</span>
+<span class="va">pick_random_bool</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">tax_dat</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span>, <span class="va">n</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="va">tax_dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">label_html</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>sample1 <span class="op">=</span> <span class="fu">pick_random_bool</span><span class="op">(</span><span class="op">)</span>, sample2 <span class="op">=</span> <span class="fu">pick_random_bool</span><span class="op">(</span><span class="op">)</span>, sample3 <span class="op">=</span> <span class="fu">pick_random_bool</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+    <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"sample"</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"sample"</span>, values_to <span class="op">=</span> <span class="st">"presence"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">sample</span>, y <span class="op">=</span> <span class="va">label_html</span>, fill <span class="op">=</span> <span class="va">presence</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">geom_tile</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>`TRUE` <span class="op">=</span> <span class="st">"#08519C"</span>,
+    `FALSE` <span class="op">=</span> <span class="st">"#F0F0F0"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html" class="external-link">scale_x_discrete</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"top"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>axis.text.y <span class="op">=</span> <span class="fu"><a href="https://wilkelab.org/ggtext/reference/element_markdown.html" class="external-link">element_markdown</a></span><span class="op">(</span><span class="op">)</span>, axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>, axis.title.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p><img src="introduction_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
+</div>
+<div class="section level3">
+<h3 id="phylip-formatted-distance-file-as-a-tibble">Phylip-formatted distance file as a tibble<a class="anchor" aria-label="anchor" href="#phylip-formatted-distance-file-as-a-tibble"></a>
+</h3>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+>>>>>>> main
 <code class="sourceCode R"><span class="va">dist_filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"sample.final.thetayc.0.03.lt.ave.dist"</span>,
     package <span class="op">=</span> <span class="st">"schtools"</span><span class="op">)</span>
 <span class="va">dist_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_dist.html">read_dist</a></span><span class="op">(</span><span class="va">dist_filepath</span><span class="op">)</span>
@@ -126,15 +176,25 @@
 <h2 id="miscellaneous-helpers">Miscellaneous helpers<a class="anchor" aria-label="anchor" href="#miscellaneous-helpers"></a>
 </h2>
 <p>When writing scientific papers with R Markdown, we often find ourselves using the same knitr chunk options and miscellaneous helper functions. To use our favorite options like <code>eval=TRUE</code>, <code>echo=FALSE</code>, and others, run <code><a href="../reference/set_knitr_opts.html">set_knitr_opts()</a></code> in the first chunk of your R Markdown document:</p>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="bn">```{r, include = FALSE}</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="bn">set_knitr_opts()</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="bn">```</span></span></code></pre></div>
+=======
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="bn">```{r, include = FALSE}</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="bn">set_knitr_opts()</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="bn">```</span></span></code></pre></div>
+>>>>>>> main
 <p>This also sets the inline hook to our custom <code><a href="../reference/inline_hook.html">inline_hook()</a></code> function, which automatically formats numbers in a human-readable way and inserts an Oxford comma into lists when needed.</p>
 <div class="section level3">
 <h3 id="who-doesnt-love-an-oxford-comma">Who doesn’t love an Oxford comma?<a class="anchor" aria-label="anchor" href="#who-doesnt-love-an-oxford-comma"></a>
 </h3>
 <p>When writing with R Markdown, you may wish to insert a list or vector inline and correctly format it with an Oxford comma. <code><a href="../reference/inline_hook.html">inline_hook()</a></code> uses <code><a href="../reference/paste_oxford_list.html">paste_oxford_list()</a></code> to help you do just that!</p>
+<<<<<<< HEAD
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+=======
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+>>>>>>> main
 <code class="sourceCode R"><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"cats"</span>, <span class="st">"dogs"</span>, <span class="st">"fish"</span><span class="op">)</span></code></pre></div>
 <p>Insert the string as inline code with <code>`r `</code>:</p>
 <blockquote>
