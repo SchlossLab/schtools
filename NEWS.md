@@ -4,6 +4,7 @@
     - New column `label_html` provides HTML to correctly italicize genus names but not OTU labels.
     - Added an example the intro vignette to demonstrate using this feature with `ggtext`.
     - Changed taxonomy data frame column names to lowercase and reordered them.
+- Minor documentation improvements (#33, @kelly-sovacool)
 
 # schtools 0.1.1
 
