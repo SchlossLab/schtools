@@ -7,7 +7,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r setup, include = FALSE}
 schtools::set_knitr_opts()
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r deps}
 library(schtools)
 ```
 
@@ -31,10 +31,10 @@ head(tax_dat)
 ```
 
 The column `label_html` provides html that correctly italicizes the genus name
-but not the OTU label, which can be used with `ggtext::element_markdown()`
+without italicizing the OTU label. This can be used with `ggtext::element_markdown()`
 to make nice plots:
 
-```{r}
+```{r italic-genus}
 library(dplyr)
 library(ggplot2)
 library(ggtext)
@@ -51,11 +51,12 @@ tax_dat %>%
            ) %>% 
     pivot_longer(starts_with('sample'), 
                  names_to = 'sample', values_to = 'presence') %>% 
-    ggplot(aes(x = sample, y = label_html, fill = presence)) +
-    geom_tile() +
+    ggplot(aes(x = sample, y = label_html)) +
+    geom_tile(colour = "whitesmoke", fill = "white", size=0.5) +
+    geom_point(aes(color = presence), size = 4) +
     scale_fill_manual(values = c(`TRUE` = "#08519C", `FALSE` = "#F0F0F0")) +
     scale_x_discrete(position = "top") +
-    theme_classic() +
+    theme_minimal() +
     theme(axis.text.y = element_markdown(),
           axis.title.y = element_blank(),
           axis.title.x = element_blank())
