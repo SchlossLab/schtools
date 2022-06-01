@@ -14,7 +14,7 @@ Schloss Lab Tools for Reproducible Microbiome Research 💩
 status](https://www.r-pkg.org/badges/version/schtools)](https://CRAN.R-project.org/package=schtools)
 [![Conda](https://img.shields.io/conda/vn/conda-forge/r-schtools)](https://anaconda.org/conda-forge/r-schtools)
 ![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/schtools)
-
+[![DOI](https://zenodo.org/badge/8862218.svg)](https://zenodo.org/badge/latestdoi/8862218)
 <!-- badges: end -->
 
 A collection of useful functions and example code created and used by
@@ -82,22 +82,20 @@ license](https://github.com/SchlossLab/schtools/blob/main/LICENSE.md#creative-co
 
 ## Citation
 
-``` 
 
-To cite package 'schtools' in publications use:
+    To cite package 'schtools' in publications use:
 
-  Sovacool K, Lesniak N, Schloss P (2022). _schtools: Schloss Lab Tools
-  for Reproducible Microbiome Research_.
-  http://www.schlosslab.org/schtools/,
-  https://github.com/SchlossLab/schtools.
+      Sovacool K, Lesniak N, Schloss P (2022). _schtools: Schloss Lab Tools
+      for Reproducible Microbiome Research_.
+      http://www.schlosslab.org/schtools/,
+      https://github.com/SchlossLab/schtools.
 
-A BibTeX entry for LaTeX users is
+    A BibTeX entry for LaTeX users is
 
-  @Manual{,
-    title = {schtools: Schloss Lab Tools for Reproducible Microbiome Research},
-    author = {Kelly Sovacool and Nick Lesniak and Patrick Schloss},
-    year = {2022},
-    note = {http://www.schlosslab.org/schtools/,
-https://github.com/SchlossLab/schtools},
-  }
-```
+      @Manual{,
+        title = {schtools: Schloss Lab Tools for Reproducible Microbiome Research},
+        author = {Kelly Sovacool and Nick Lesniak and Patrick Schloss},
+        year = {2022},
+        note = {http://www.schlosslab.org/schtools/,
+    https://github.com/SchlossLab/schtools},
+      }
