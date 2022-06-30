@@ -9,7 +9,7 @@ articles:
   navbar: Vignettes
   contents:
   - introduction
-  - logo
+  - articles/logo
 authors:
     Kelly Sovacool:
         href: "https://github.com/kelly-sovacool"
