@@ -91,24 +91,31 @@ load_deps <- function(...) {
 #' @export
 #' @author Kelly Sovacool \email{sovacool@@umich.edu}
 #' @examples
-#' if (exists('snakemake')) {
-#'   log_snakemake(quiet = FALSE)
-#' }
-log_snakemake <- function(snakemake, quiet = TRUE) {
-    if (length(snakemake@log) > 0) {
-        log_filepath <- snakemake@log[1][[1]]
-        if (isFALSE(quiet)) {
-            message(paste("Saving output to", log_filepath))
+#' # The Snakemake doesn't exist, so nothing happens
+#' log_snakemake(quiet = FALSE)
+log_snakemake <- function(quiet = TRUE) {
+    if (exists('snakemake')) {
+        if (length(snakemake@log) > 0) {
+            log_filepath <- snakemake@log[1][[1]]
+            if (isFALSE(quiet)) {
+                message(paste("Saving output to", log_filepath))
+            }
+            log <- file(log_filepath, open = "wt")
+            sink(log, append = TRUE)
+            sink(log, append = TRUE, type = "message")
+        } else {
+            if (isFALSE(quiet)) {
+                message(
+                    paste(
+                        "No log file was specified in the Snakemake rule",
+                        snakemake@rule
+                    )
+                )
+            }
         }
-        log <- file(log_filepath, open = "wt")
-        sink(log, append = TRUE)
-        sink(log, append = TRUE, type = "message")
     } else {
         if (isFALSE(quiet)) {
-            message(paste(
-                "No log file was specified in the Snakemake rule",
-                snakemake@rule
-            ))
+            message('No Snakemake object exists, so all output will print as usual')
         }
     }
 }
