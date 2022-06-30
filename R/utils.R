@@ -75,3 +75,40 @@ load_deps <- function(...) {
   )
   invisible(sapply(deps, library, verbose = FALSE, character.only = TRUE))
 }
+
+#' Save output, messages, warnings, and errors to the Snakemake log file
+#'
+#' This function checks whether a log file was specified in the Snakemake rule.
+#' If so, it directs any output, messages, warnings, or errors to the
+#' rule-specific log file.
+#' See the Snakemake documentation on [log files](https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#log-files)
+#' and [R scripts](https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#r-and-r-markdown)
+#' for more details.
+#'
+#' @param quiet Silence messages about the status of the snakemake object and
+#'   log file [default: TRUE].
+#'
+#' @export
+#' @author Kelly Sovacool \email{sovacool@@umich.edu}
+#' @examples
+#' if (exists('snakemake')) {
+#'   log_snakemake(quiet = FALSE)
+#' }
+log_snakemake <- function(snakemake, quiet = TRUE) {
+    if (length(snakemake@log) > 0) {
+        log_filepath <- snakemake@log[1][[1]]
+        if (isFALSE(quiet)) {
+            message(paste("Saving output to", log_filepath))
+        }
+        log <- file(log_filepath, open = "wt")
+        sink(log, append = TRUE)
+        sink(log, append = TRUE, type = "message")
+    } else {
+        if (isFALSE(quiet)) {
+            message(paste(
+                "No log file was specified in the Snakemake rule",
+                snakemake@rule
+            ))
+        }
+    }
+}

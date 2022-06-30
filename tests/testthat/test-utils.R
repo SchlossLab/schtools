@@ -25,3 +25,39 @@ test_that("is_nondesc() works", {
   expect_warning(is_nondesc(c()), "Zero elements were given to `is_nondesc\\(\\)`")
   expect_true(is_nondesc(1, 2, 3, 4, 5, 6, 7))
 })
+
+dummy_snakemake <- function(rule = 'test_rule',
+                            log_filename = 'tests/tmp.log',
+                            create_log = FALSE,
+                            quiet = FALSE) {
+    if (isTRUE(create_log)) {
+        log_filelist <- list(log_filename)
+    } else {
+        log_filelist <- list()
+    }
+    # setup Snakemake S4 object
+    setClass("Snakemake", representation(log = "list", rule = 'character'))
+    snakemake <- new("Snakemake", log = log_filelist, rule = rule)
+    # run the function we're actually interested in testing
+    log_snakemake(snakemake, quiet = quiet)
+    message('This is a message')
+    # close all sinks
+    for (i in seq_len(sink.number())) {
+        sink(NULL)
+    }
+}
+
+test_that("log_snakemake() saves output to a log file", {
+    expect_message(
+        dummy_snakemake(create_log = FALSE, quiet = FALSE),
+        "No log file was specified in the Snakemake rule test_rule"
+    )
+
+    # TODO: figure out how to prevent testthat from hijacking `sink()`?
+    # log_filename <- 'tests/tmp.log'
+    # expect_message(
+    #     dummy_snakemake(create_log = TRUE, quiet = FALSE,
+    #                     log_filename = log_filename),
+    #     paste('Saving output to', log_filename)
+    # )
+})
