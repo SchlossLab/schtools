@@ -70,6 +70,9 @@ for a comprehensive list of functions.
 
 ## Help & Contributing
 
+If you have questions, create a new post in 
+[Discussions](https://github.com/SchlossLab/schtools/discussions).
+
 If you come across a bug, [open an
 issue](https://github.com/SchlossLab/schtools/issues) and include a [minimal
 reproducible example](https://www.tidyverse.org/help/).
