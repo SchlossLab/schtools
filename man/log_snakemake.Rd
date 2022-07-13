@@ -8,7 +8,7 @@ log_snakemake(quiet = TRUE)
 }
 \arguments{
 \item{quiet}{Silence messages about the status of the snakemake object and
-log file \link{default: TRUE}.}
+log file (default: \code{TRUE}).}
 }
 \description{
 This function checks whether a log file was specified in the Snakemake rule.

@@ -86,7 +86,7 @@ load_deps <- function(...) {
 #' for more details.
 #'
 #' @param quiet Silence messages about the status of the snakemake object and
-#'   log file [default: TRUE].
+#'   log file (default: `TRUE`).
 #'
 #' @export
 #' @author Kelly Sovacool \email{sovacool@@umich.edu}
@@ -95,6 +95,7 @@ load_deps <- function(...) {
 #' log_snakemake(quiet = FALSE)
 log_snakemake <- function(quiet = TRUE) {
   if (exists("snakemake")) {
+    if (FALSE) { snakemake <- NULL } # silences warning "no visible binding for global variable ‘snakemake’
     if (length(snakemake@log) > 0) {
       log_filepath <- snakemake@log[1][[1]]
       if (isFALSE(quiet)) {
