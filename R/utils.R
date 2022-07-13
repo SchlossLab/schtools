@@ -95,7 +95,9 @@ load_deps <- function(...) {
 #' log_snakemake(quiet = FALSE)
 log_snakemake <- function(quiet = TRUE) {
   if (exists("snakemake")) {
-    if (FALSE) { snakemake <- NULL } # silences warning "no visible binding for global variable ‘snakemake’
+    if (FALSE) {
+      snakemake <- NULL
+    } # silences warning "no visible binding for global variable ‘snakemake’
     if (length(snakemake@log) > 0) {
       log_filepath <- snakemake@log[1][[1]]
       if (isFALSE(quiet)) {
