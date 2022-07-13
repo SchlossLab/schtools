@@ -91,7 +91,7 @@ load_deps <- function(...) {
 #' @export
 #' @author Kelly Sovacool \email{sovacool@@umich.edu}
 #' @examples
-#' # The Snakemake doesn't exist, so nothing happens
+#' # The Snakemake object doesn't exist, so nothing happens
 #' log_snakemake(quiet = FALSE)
 log_snakemake <- function(quiet = TRUE) {
   if (exists("snakemake")) {
