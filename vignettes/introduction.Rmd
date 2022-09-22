@@ -69,7 +69,7 @@ tax_dat %>%
 #### Pooling OTU counts at different taxonomic levels
 
 A common task is to repeat OTU-level analyses at different taxonomic levels to
-determine [which resolution is optimal for answering your questions](doi.org/doi/10.1128/mbio.03161-21). 
+determine [which resolution is optimal for answering your questions](https://doi.org/10.1128/mbio.03161-21). 
 You'll need a shared file, generated from clustering sequences into OTUs with
 mothur, and a corresponding taxonomy file.
 Take a look at the [mothur documentation](https://mothur.org/wiki/) for info on
