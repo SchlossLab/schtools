@@ -24,6 +24,10 @@ library(schtools)
 
 ### Taxonomy files
 
+mothur formats taxonomy files as tab-separated values (tsv). 
+You can use `read_tax()` to parse the taxonomy data and create separate columns
+for each taxonomic level.
+
 ```{r read_tax}
 tax_filepath <- system.file("extdata", "test.taxonomy", package = "schtools")
 tax_dat <- read_tax(tax_filepath)
@@ -31,8 +35,8 @@ head(tax_dat)
 ```
 
 The column `label_html` provides html that correctly italicizes the genus name
-without italicizing the OTU label. This can be used with `ggtext::element_markdown()`
-to make nice plots:
+without italicizing the OTU label. This can be used with
+`ggtext::element_markdown()` to make nice plots:
 
 ```{r italic-genus}
 library(dplyr)
@@ -62,9 +66,37 @@ tax_dat %>%
           axis.title.x = element_blank())
 ```
 
+#### Pooling OTU counts at different taxonomic levels
+
+A common task is to repeat OTU-level analyses at different taxonomic levels to
+determine [which resolution is optimal for answering your questions](https://doi.org/10.1128/mbio.03161-21). 
+You'll need a shared file, generated from clustering sequences into OTUs with
+mothur, and a corresponding taxonomy file.
+Take a look at the [mothur documentation](https://mothur.org/wiki/) for info on
+generating these files and performing microbiome analyses.
+
+```{r pool_genus}
+tax_dat <- read_tax(system.file("extdata", "test.taxonomy",
+                                package = "schtools"))
+shared_dat <- readr::read_tsv(system.file("extdata", "test.shared",
+                                          package = "schtools"))
+pool_taxon_counts(shared_dat, tax_dat, genus)
+```
+
+In this example, `pool_taxon_counts()` pools the OTU counts in the shared file 
+at the genus level and returns new shared and taxonomy data frames.
+You can do this for any taxonomic level in your taxonomy data frame.
+
+```{r pool_phylum}
+pool_taxon_counts(shared_dat, tax_dat, phylum)
+```
 
 
-### Phylip-formatted distance file as a tibble
+### Distance files
+
+If you have a distance file saved as a phylip-formatted lower triangle matrix
+from mothur's [`dist.seqs`](https://mothur.org/wiki/dist.seqs/) command, 
+you can read it into R with `read_dist()`:
  
 ```{r read_dist}
 dist_filepath <- system.file("extdata",
@@ -75,7 +107,7 @@ head(dist_tbl)
 ```
 
 
-## Miscellaneous helpers
+## R Markdown helpers for scientific writing
 
 When writing scientific papers with R Markdown, we often find ourselves 
 using the same knitr chunk options and miscellaneous helper functions.
