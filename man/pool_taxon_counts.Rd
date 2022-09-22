@@ -24,8 +24,12 @@ a corresponding taxonomy dataframe with new OTU numbers.
 Implementation adapted from \href{https://github.com/SchlossLab/Armour_Resolution_mBio_2021/blob/master/code/get_phylotype_shared.R}{here}.
 }
 \examples{
-tax_dat <- read_tax('inst/extdata/test.taxonomy')
-shared_dat <- readr::read_tsv('inst/extdata/test.shared')
+tax_dat <- read_tax(system.file("extdata", "test.taxonomy",
+                                package = "schtools")
+                    )
+shared_dat <- readr::read_tsv(system.file("extdata", "test.shared",
+                                          package = "schtools")
+                              )
 pool_taxon_counts(shared_dat, tax_dat, genus)
 pool_taxon_counts(shared_dat, tax_dat, family)
 pool_taxon_counts(shared_dat, tax_dat, phylum)
