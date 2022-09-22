@@ -1,4 +1,11 @@
-# MIT License
+# License
+
+The software is licensed under the 
+[MIT License](#mit-license).
+Everything else is licensed under the 
+[CC BY-SA license](#creative-commons-share-alike-license).
+
+## MIT License
 
 Copyright (c) 2021 Kelly L. Sovacool, Nick Lesniak, and Patrick D. Schloss
 
@@ -19,3 +26,13 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Creative Commons Share Alike License
+
+The schtools logo is licensed under the 
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/#) 
+license. 
+The hammer and poo images contained in the logo were designed by
+[OpenMoji](https://openmoji.org/), the open-source emoji and icon project,
+and are also licensed under 
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/#).

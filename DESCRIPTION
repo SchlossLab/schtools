@@ -1,7 +1,7 @@
 Package: schtools
 Title: Schloss Lab Tools for Reproducible Microbiome Research
-Version: 0.1.0.9000
-Date: 2021-11-19
+Version: 0.2.1.9000
+Date: 2022-05-11
 Authors@R: 
     c(person(given = "Kelly",
              family = "Sovacool",
@@ -48,18 +48,27 @@ Description: A collection of useful functions and example code created and
     publication.  See the website <http://www.schlosslab.org/schtools/>
     for more information, documentation, and examples.
 License: MIT + file LICENSE
-URL: https://github.com/SchlossLab/schtools
+URL: http://www.schlosslab.org/schtools/,
+    https://github.com/SchlossLab/schtools
 BugReports: https://github.com/SchlossLab/schtools/issues
 Imports: 
     dplyr,
     formatR,
+    glue,
     rlang,
+    stringr,
     tidyr
 Suggests: 
     covr,
+    cowplot,
+    ggplot2,
+    ggtext,
+    here,
+    hexSticker,
     knitr,
     purrr,
     rmarkdown,
+    showtext,
     testthat
 VignetteBuilder: 
     knitr

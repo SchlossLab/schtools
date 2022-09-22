@@ -10,3 +10,7 @@
 ^codecov\.yml$
 ^cran-comments\.md$
 ^CRAN-RELEASE$
+^vignettes/articles$
+^_pkgdown\.yml$
+^pkgdown$
+^CRAN-SUBMISSION$

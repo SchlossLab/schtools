@@ -1,6 +1,6 @@
-#' Convert taxonomy strings into dataframe of labels based on taxnomic classification
+#' Convert taxonomy strings into dataframe of labels based on taxonomic classification
 #'
-#' @param dat datframe from mothur taxonomy file with columns `OTU`, `Size`, and `Taxonomy`
+#' @param dat dataframe from mothur taxonomy file with columns `OTU`, `Size`, and `Taxonomy`
 #'
 #' @return a wide dataframe with taxonomic labels
 #' @export
@@ -54,7 +54,17 @@ parse_tax <- function(dat) {
     dplyr::mutate(
       tax_otu_label = paste0(.data[["Genus"]], " (", gsub("tu0*", "TU ", .data[["OTU"]]), ")"),
       tax_otu_label = gsub(" unclassified", "", .data[["tax_otu_label"]]),
-      otu_label = paste0(gsub("tu0*", "TU ", .data[["OTU"]]))
+      otu_label = paste0(gsub("tu0*", "TU ", .data[["OTU"]])),
+      label_html = stringr::str_replace(
+        .data[["tax_otu_label"]],
+        "([a-zA-Z]+) (.*)",
+        glue::glue("<i>\\1</i> \\2")
+      )
+    )
+  colnames(dat) <- tolower(colnames(dat))
+  dat <- dat %>%
+    dplyr::relocate(c("otu_label", "tax_otu_label", "label_html"),
+      .after = "otu"
     )
   return(dat)
 }
