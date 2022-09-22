@@ -38,10 +38,10 @@ test_that('pool_taxon_counts works', {
             ),
             tax = structure(
                 list(
-                    OTU = c("Otu1", "Otu2", "Otu3"),
-                    Size = c(33,
+                    otu = c("Otu1", "Otu2", "Otu3"),
+                    size = c(33,
                              22, 11),
-                    Taxonomy = c(
+                    genus = c(
                         "Bacteroides",
                         "Enterobacteriaceae unclassified",
                         "Veillonella"
@@ -76,9 +76,9 @@ test_that('pool_taxon_counts works', {
             ),
             tax = structure(
                 list(
-                    OTU = "Otu1",
-                    Size = 66,
-                    Taxonomy = "Bacteria"
+                    otu = "Otu1",
+                    size = 66,
+                    kingdom = "Bacteria"
                 ),
                 class = c("tbl_df", "tbl", "data.frame"),
                 row.names = c(NA,-1L)

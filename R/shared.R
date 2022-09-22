@@ -64,10 +64,7 @@ pool_taxon_counts <- function(otu_shared_dat, otu_tax_dat, taxon_level) {
         dplyr::group_by(otu) %>%
         dplyr::summarize(countsum = sum(otu_counts)) %>%
         dplyr::inner_join(new_otu_nums, by = 'otu') %>%
-        dplyr::rename("OTU" = "otu",
-               "Size" = "countsum",
-               "Taxonomy" = rlang::as_name(rlang::enquo(taxon_level))
-               )
+        dplyr::rename("size" = "countsum")
 
     return(list(shared = pooled_shared,
                 tax = new_tax))
