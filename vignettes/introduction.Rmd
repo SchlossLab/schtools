@@ -20,7 +20,36 @@ knitr::opts_chunk$set(
 library(schtools)
 ```
 
-## Parsing mothur output files
+## Handling mothur data
+
+### Calculated relative abundances
+
+You can read a shared file and calculate relative abundances with `calc_relabun()`:
+
+```{r calc_relabun}
+shared_dat <- readr::read_tsv(system.file("extdata", "test.shared",
+                                          package = "schtools"))
+relabun_dat <- shared_dat %>% calc_relabun()
+head(relabun_dat)
+```
+
+`calc_relabun()` returns the data frame in long format. 
+You can use `tidyr::pivot_wider()` to convert it to wide format:
+
+```{r pivot_wider}
+wide_dat <- relabun_dat %>% 
+    tidyr::pivot_wider(names_from = "otu", values_from = "rel_abun")
+head(wide_dat)
+```
+
+You can see that the relative abundances for each sample sum to 1:
+
+```{r sum1}
+wide_dat %>% 
+    select(starts_with('Otu')) %>% 
+    rowSums()
+```
+
 
 ### Phylip-formatted distance file as a tibble
  
