@@ -25,11 +25,11 @@ Implementation adapted from \href{https://github.com/SchlossLab/Armour_Resolutio
 }
 \examples{
 tax_dat <- read_tax(system.file("extdata", "test.taxonomy",
-                                package = "schtools")
-                    )
+  package = "schtools"
+))
 shared_dat <- readr::read_tsv(system.file("extdata", "test.shared",
-                                          package = "schtools")
-                              )
+  package = "schtools"
+))
 pool_taxon_counts(shared_dat, tax_dat, genus)
 pool_taxon_counts(shared_dat, tax_dat, family)
 pool_taxon_counts(shared_dat, tax_dat, phylum)
