@@ -2,7 +2,7 @@
 % Please edit documentation in R/shared.R
 \name{pool_taxon_counts}
 \alias{pool_taxon_counts}
-\title{Get a pooled shared data frame at a particular taxonomic level}
+\title{Pool OTU counts at a particular taxonomic level}
 \usage{
 pool_taxon_counts(otu_shared_dat, otu_tax_dat, taxon_level)
 }
@@ -21,6 +21,8 @@ a shared data frame with the OTUs at the specified \code{taxon_level} and
 a corresponding taxonomy dataframe with new OTU numbers.
 }
 \description{
+Enables comparing analyses at different taxonomic resolutions,
+as seen in \url{https://doi.org/10.1128/mbio.03161-21}.
 Implementation adapted from \href{https://github.com/SchlossLab/Armour_Resolution_mBio_2021/blob/master/code/get_phylotype_shared.R}{here}.
 }
 \examples{
