@@ -23,9 +23,9 @@
 #' pool_taxon_counts(shared_dat, tax_dat, family)
 #' pool_taxon_counts(shared_dat, tax_dat, phylum)
 pool_taxon_counts <- function(otu_shared_dat, otu_tax_dat, taxon_level) {
-
+    countsum <- Group <- label <- numOtus <- otu <- otu_counts <- NULL
     shared_long <- otu_shared_dat %>%
-        tidyr::pivot_longer(starts_with("Otu"),
+        tidyr::pivot_longer(tidyr::starts_with("Otu"),
                             names_to = 'otu',
                             values_to = 'otu_counts')
 
