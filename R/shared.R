@@ -17,8 +17,12 @@
 #' @author Pat Schloss \email{pschloss@@umich.edu}
 #'
 #' @examples
-#' tax_dat <- read_tax('inst/extdata/test.taxonomy')
-#' shared_dat <- readr::read_tsv('inst/extdata/test.shared')
+#' tax_dat <- read_tax(system.file("extdata", "test.taxonomy",
+#'                                 package = "schtools")
+#'                     )
+#' shared_dat <- readr::read_tsv(system.file("extdata", "test.shared",
+#'                                           package = "schtools")
+#'                               )
 #' pool_taxon_counts(shared_dat, tax_dat, genus)
 #' pool_taxon_counts(shared_dat, tax_dat, family)
 #' pool_taxon_counts(shared_dat, tax_dat, phylum)
@@ -49,6 +53,7 @@ pool_taxon_counts <- function(otu_shared_dat, otu_tax_dat, taxon_level) {
         dplyr::mutate(numOtus = ncol(.) - 1,
                label = rlang::as_name(rlang::enquo(taxon_level))
                ) %>%
+        dplyr::select(order(colnames(.))) %>%
         dplyr::select(label, Group, numOtus, tidyr::starts_with('Otu'))
 
     new_tax <- pooled_shared %>%
