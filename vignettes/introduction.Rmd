@@ -18,7 +18,10 @@ knitr::opts_chunk$set(
 
 ```{r deps}
 library(schtools)
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(tidyr)
 ```
 
 ## Handling mothur data
@@ -73,7 +76,7 @@ library(ggtext)
 set.seed(20220427)
 
 relabun_dat %>%
-    mutate(sample_num = str_remove(sample, 'p') %>% as.integer(),
+    mutate(sample_num = stringr::str_remove(sample, 'p') %>% as.integer(),
            treatment = case_when(sample_num %% 2 == 1 ~ 'A', 
                                                  TRUE ~ 'B')
            ) %>% 
