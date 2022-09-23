@@ -67,6 +67,7 @@ Suggests:
     hexSticker,
     knitr,
     purrr,
+    readr,
     rmarkdown,
     showtext,
     testthat

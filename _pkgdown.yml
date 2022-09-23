@@ -21,12 +21,13 @@ reference:
 - title:
   contents:
   - schtools
-- title: Readers
+- title: Microbiome
   desc: >
-    Read microbiome-related files.
+    Read files & handle microbiome-related data.
   contents:
   - starts_with('read_')
   - starts_with('parse_')
+  - pool_taxon_counts
 - title: R Markdown helpers
   desc: >
     Format publication-quality documents.

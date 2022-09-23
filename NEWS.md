@@ -2,6 +2,10 @@
 
 - New function `log_snakemake()` redirects all output to a rule-specific log
   file when called by a Snakemake rule (#35, @kelly-sovacool).
+- New function `pool_taxon_counts()` pools OTU counts at a particular taxonomic 
+  level (e.g. genus, phylum, etc.) to enable comparing analyses at different 
+  taxonomic resolutions, as seen in <https://doi.org/10.1128/mbio.03161-21> 
+  (#37, @kelly-sovacool).
 
 # schtools 0.2.1
 
