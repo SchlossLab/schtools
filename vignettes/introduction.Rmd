@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 
 ```{r deps}
 library(schtools)
+library(tidyverse)
 ```
 
 ## Handling mothur data
@@ -27,8 +28,8 @@ library(schtools)
 You can read a shared file and calculate relative abundances with `calc_relabun()`:
 
 ```{r calc_relabun}
-shared_dat <- readr::read_tsv(system.file("extdata", "test.shared",
-                                          package = "schtools"))
+shared_dat <- read_tsv(system.file("extdata", "test.shared", 
+                                   package = "schtools"))
 relabun_dat <- shared_dat %>% calc_relabun()
 head(relabun_dat)
 ```
@@ -38,7 +39,7 @@ You can use `tidyr::pivot_wider()` to convert it to wide format:
 
 ```{r pivot_wider}
 wide_dat <- relabun_dat %>% 
-    tidyr::pivot_wider(names_from = "otu", values_from = "rel_abun")
+    pivot_wider(names_from = "otu", values_from = "rel_abun")
 head(wide_dat)
 ```
 
@@ -69,7 +70,6 @@ without italicizing the OTU label. This can be used with
 
 ```{r italic-genus}
 library(ggtext)
-library(tidyverse)
 set.seed(20220427)
 
 relabun_dat %>%
@@ -94,6 +94,9 @@ mothur, and a corresponding taxonomy file.
 Take a look at the [mothur documentation](https://mothur.org/wiki/) for info on
 generating these files and performing microbiome analyses.
 
+In this example, `pool_taxon_counts()` pools the OTU counts in the shared file 
+at the genus level and returns new shared and taxonomy data frames.
+
 ```{r pool_genus}
 tax_dat <- read_tax(system.file("extdata", "test.taxonomy",
                                 package = "schtools"))
@@ -102,8 +105,6 @@ shared_dat <- readr::read_tsv(system.file("extdata", "test.shared",
 pool_taxon_counts(shared_dat, tax_dat, genus)
 ```
 
-In this example, `pool_taxon_counts()` pools the OTU counts in the shared file 
-at the genus level and returns new shared and taxonomy data frames.
 You can do this for any taxonomic level in your taxonomy data frame.
 
 ```{r pool_phylum}
