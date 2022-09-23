@@ -59,8 +59,8 @@ You can use `read_tax()` to parse the taxonomy data and create separate columns
 for each taxonomic level.
 
 ```{r read_tax}
-tax_filepath <- system.file("extdata", "test.taxonomy", package = "schtools")
-tax_dat <- read_tax(tax_filepath)
+tax_dat <- read_tax(system.file("extdata", "test.taxonomy", 
+                                package = "schtools"))
 head(tax_dat)
 ```
 
