@@ -22,7 +22,7 @@ library(schtools)
 
 ## Handling mothur data
 
-### Calculated relative abundances
+### Calculate relative abundances
 
 You can read a shared file and calculate relative abundances with `calc_relabun()`:
 
@@ -68,31 +68,21 @@ without italicizing the OTU label. This can be used with
 `ggtext::element_markdown()` to make nice plots:
 
 ```{r italic-genus}
-library(dplyr)
-library(ggplot2)
 library(ggtext)
-library(tidyr)
+library(tidyverse)
 set.seed(20220427)
-pick_random_bool <- function(n = nrow(tax_dat)) {
-        sample(c(TRUE, FALSE), n, replace = TRUE)
-    }
-tax_dat %>% 
-    select(label_html) %>% 
-    mutate(sample1 = pick_random_bool(),
-           sample2 = pick_random_bool(),
-           sample3 = pick_random_bool() 
+
+relabun_dat %>%
+    mutate(sample_num = str_remove(sample, 'p') %>% as.integer(),
+           treatment = case_when(sample_num %% 2 == 1 ~ 'A', 
+                                                 TRUE ~ 'B')
            ) %>% 
-    pivot_longer(starts_with('sample'), 
-                 names_to = 'sample', values_to = 'presence') %>% 
-    ggplot(aes(x = sample, y = label_html)) +
-    geom_tile(colour = "whitesmoke", fill = "white", size=0.5) +
-    geom_point(aes(color = presence), size = 4) +
-    scale_fill_manual(values = c(`TRUE` = "#08519C", `FALSE` = "#F0F0F0")) +
-    scale_x_discrete(position = "top") +
+    inner_join(tax_dat, by = "otu") %>%
+    ggplot(aes(x = rel_abun, y = label_html, color = treatment)) +
+    geom_jitter(alpha = 0.7, height = 0.2) +
+    labs(x = 'Relative abundance', y = '') +
     theme_minimal() +
-    theme(axis.text.y = element_markdown(),
-          axis.title.y = element_blank(),
-          axis.title.x = element_blank())
+    theme(axis.text.y = element_markdown())
 ```
 
 #### Pooling OTU counts at different taxonomic levels
