@@ -17,7 +17,7 @@
 calc_relabun <- function(abs_abun_dat) {
     count <- Group <- mutate <- otu <- rel_abun <- total_counts <- NULL
     abs_abun_dat$total_counts <- rowSums(abs_abun_dat %>%
-                                             dplyr::select(starts_with('Otu')))
+                                             dplyr::select(dplyr::starts_with('Otu')))
     rel_abun_dat <- abs_abun_dat %>%
         dplyr::rename(sample = Group) %>%
         tidyr::pivot_longer(dplyr::starts_with("Otu"),
