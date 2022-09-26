@@ -1,4 +1,5 @@
-library(tidyverse)
+library(dplyr)
+library(tidyr)
 shared_dat <- data.frame(
     label = rep.int(0.03, 3),
     Group = glue::glue("p{seq.int(1, 3, 1)}") %>% as.character(),
