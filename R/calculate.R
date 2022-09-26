@@ -15,11 +15,14 @@
 #'                                           package = "schtools"))
 #' shared_dat %>% calc_relabun()
 calc_relabun <- function(abs_abun_dat) {
-    abs_abun_dat$total_counts <- rowSums(abs_abun_dat %>% select(starts_with('Otu')))
+    count <- Group <- mutate <- otu <- rel_abun <- total_counts <- NULL
+    abs_abun_dat$total_counts <- rowSums(abs_abun_dat %>%
+                                             dplyr::select(starts_with('Otu')))
     rel_abun_dat <- abs_abun_dat %>%
-        rename(sample = Group) %>%
-        pivot_longer(starts_with("Otu"), names_to = 'otu', values_to = 'count') %>%
-        mutate(rel_abun = count / total_counts) %>%
-        select(sample, otu, rel_abun)
+        dplyr::rename(sample = Group) %>%
+        tidyr::pivot_longer(dplyr::starts_with("Otu"),
+                            names_to = 'otu', values_to = 'count') %>%
+        dplyr::mutate(rel_abun = count / total_counts) %>%
+        dplyr::select(sample, otu, rel_abun)
     return(rel_abun_dat)
 }
