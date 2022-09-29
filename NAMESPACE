@@ -2,6 +2,7 @@
 
 export("%>%")
 export(.data)
+export(calc_relabun)
 export(close_enough)
 export(format_number)
 export(inline_hook)

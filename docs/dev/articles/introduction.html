@@ -90,17 +90,77 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://www.schlosslab.org/schtools/">schtools</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://www.schlosslab.org/schtools/">schtools</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter, lag</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org" class="external-link">readr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
-<h2 id="parsing-mothur-output-files">Parsing mothur output files<a class="anchor" aria-label="anchor" href="#parsing-mothur-output-files"></a>
+<h2 id="handling-mothur-data">Handling mothur data<a class="anchor" aria-label="anchor" href="#handling-mothur-data"></a>
 </h2>
+<div class="section level3">
+<h3 id="calculate-relative-abundances">Calculate relative abundances<a class="anchor" aria-label="anchor" href="#calculate-relative-abundances"></a>
+</h3>
+<p>You can read a shared file and calculate relative abundances with <code><a href="../reference/calc_relabun.html">calc_relabun()</a></code>:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">shared_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_tsv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"test.shared"</span>, package <span class="op">=</span> <span class="st">"schtools"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">10</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">15</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span></span>
+<span><span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> "\t"</span></span>
+<span><span class="co">#&gt; <span style="color: #BB0000;">chr</span>  (1): Group</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">dbl</span> (14): label, numOtus, Otu0001, Otu0003, Otu0004, Otu00008, Otu0044, Otu0...</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
+<span><span class="va">relabun_dat</span> <span class="op">&lt;-</span> <span class="va">shared_dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="../reference/calc_relabun.html">calc_relabun</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">relabun_dat</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 3</span></span></span>
+<span><span class="co">#&gt;   sample otu      rel_abun</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> p1     Otu0001      0   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> p1     Otu0003      0   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> p1     Otu0004      0   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> p1     Otu00008     0   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> p1     Otu0044      0.25</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> p1     Otu0056      0.25</span></span></code></pre></div>
+<p><code><a href="../reference/calc_relabun.html">calc_relabun()</a></code> returns the data frame in long format. You can use <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">tidyr::pivot_wider()</a></code> to convert it to wide format:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">wide_dat</span> <span class="op">&lt;-</span> <span class="va">relabun_dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="st">"otu"</span>, values_from <span class="op">=</span> <span class="st">"rel_abun"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">wide_dat</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 13</span></span></span>
+<span><span class="co">#&gt;   sample Otu0001 Otu0003 Otu0004 Otu00…¹ Otu0044 Otu0056 Otu0057 Otu0058 Otu0159</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> p1       0        0      0       0       0.25    0.25    0       0.25      0  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> p2       0.167    0      0.167   0       0.167   0       0       0.167     0  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> p3       0        0.2    0       0       0.2     0       0       0         0.2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> p4       0.25     0.25   0       0.25    0       0       0       0         0  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> p5       0.25     0      0.25    0       0.25    0       0       0         0  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> p6       0.167    0      0       0.167   0       0.167   0.167   0.167     0  </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 3 more variables: Otu0208 &lt;dbl&gt;, Otu0328 &lt;dbl&gt;, Otu0329 &lt;dbl&gt;, and</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   abbreviated variable name ¹​Otu00008</span></span></span></code></pre></div>
+<p>You can see that the relative abundances for each sample sum to 1:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">wide_dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"Otu"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowSums</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt;  [1] 1 1 1 1 1 1 1 1 1 1</span></span></code></pre></div>
+</div>
 <div class="section level3">
 <h3 id="taxonomy-files">Taxonomy files<a class="anchor" aria-label="anchor" href="#taxonomy-files"></a>
 </h3>
 <p>mothur formats taxonomy files as tab-separated values (tsv). You can use <code><a href="../reference/read_tax.html">read_tax()</a></code> to parse the taxonomy data and create separate columns for each taxonomic level.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">tax_filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"test.taxonomy"</span>, package <span class="op">=</span> <span class="st">"schtools"</span><span class="op">)</span></span>
-<span><span class="va">tax_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_tax.html">read_tax</a></span><span class="op">(</span><span class="va">tax_filepath</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">tax_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_tax.html">read_tax</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"test.taxonomy"</span>, package <span class="op">=</span> <span class="st">"schtools"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">tax_dat</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 10</span></span></span>
 <span><span class="co">#&gt;   otu      otu_label tax_otu_l…¹ label…² kingdom phylum class order family genus</span></span>
@@ -113,37 +173,23 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Otu0056  OTU 56    Bacteria (… &lt;i&gt;Bac… Bacter… Bacte… Bact… Bact… Bacte… Bact…</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># … with abbreviated variable names ¹​tax_otu_label, ²​label_html</span></span></span></code></pre></div>
 <p>The column <code>label_html</code> provides html that correctly italicizes the genus name without italicizing the OTU label. This can be used with <code><a href="https://wilkelab.org/ggtext/reference/element_markdown.html" class="external-link">ggtext::element_markdown()</a></code> to make nice plots:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
-<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     filter, lag</span></span>
-<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/ggtext/" class="external-link">ggtext</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/ggtext/" class="external-link">ggtext</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">20220427</span><span class="op">)</span></span>
-<span><span class="va">pick_random_bool</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">tax_dat</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span>, <span class="va">n</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span><span class="va">tax_dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">label_html</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>sample1 <span class="op">=</span> <span class="fu">pick_random_bool</span><span class="op">(</span><span class="op">)</span>, sample2 <span class="op">=</span> <span class="fu">pick_random_bool</span><span class="op">(</span><span class="op">)</span>, sample3 <span class="op">=</span> <span class="fu">pick_random_bool</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"sample"</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"sample"</span>, values_to <span class="op">=</span> <span class="st">"presence"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">sample</span>, y <span class="op">=</span> <span class="va">label_html</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">geom_tile</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"whitesmoke"</span>, fill <span class="op">=</span> <span class="st">"white"</span>,</span>
-<span>    size <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">presence</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>`TRUE` <span class="op">=</span> <span class="st">"#08519C"</span>,</span>
-<span>    `FALSE` <span class="op">=</span> <span class="st">"#F0F0F0"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html" class="external-link">scale_x_discrete</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"top"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>axis.text.y <span class="op">=</span> <span class="fu"><a href="https://wilkelab.org/ggtext/reference/element_markdown.html" class="external-link">element_markdown</a></span><span class="op">(</span><span class="op">)</span>, axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>, axis.title.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span></span>
+<span><span class="va">relabun_dat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>sample_num <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html" class="external-link">str_remove</a></span><span class="op">(</span><span class="va">sample</span>, <span class="st">"p"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="op">)</span>, treatment <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html" class="external-link">case_when</a></span><span class="op">(</span><span class="va">sample_num</span><span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html" class="external-link">%%</a></span><span class="fl">2</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">~</span> <span class="st">"A"</span>, <span class="cn">TRUE</span> <span class="op">~</span> <span class="st">"B"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">inner_join</a></span><span class="op">(</span><span class="va">tax_dat</span>, by <span class="op">=</span> <span class="st">"otu"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">rel_abun</span>, y <span class="op">=</span> <span class="va">label_html</span>, color <span class="op">=</span> <span class="va">treatment</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html" class="external-link">geom_jitter</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.7</span>,</span>
+<span>    height <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Relative abundance"</span>, y <span class="op">=</span> <span class="st">""</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>axis.text.y <span class="op">=</span> <span class="fu"><a href="https://wilkelab.org/ggtext/reference/element_markdown.html" class="external-link">element_markdown</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="introduction_files/figure-html/italic-genus-1.png" width="700"></p>
 <div class="section level4">
 <h4 id="pooling-otu-counts-at-different-taxonomic-levels">Pooling OTU counts at different taxonomic levels<a class="anchor" aria-label="anchor" href="#pooling-otu-counts-at-different-taxonomic-levels"></a>
 </h4>
 <p>A common task is to repeat OTU-level analyses at different taxonomic levels to determine <a href="https://doi.org/10.1128/mbio.03161-21" class="external-link">which resolution is optimal for answering your questions</a>. You’ll need a shared file, generated from clustering sequences into OTUs with mothur, and a corresponding taxonomy file. Take a look at the <a href="https://mothur.org/wiki/" class="external-link">mothur documentation</a> for info on generating these files and performing microbiome analyses.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<p>In this example, <code><a href="../reference/pool_taxon_counts.html">pool_taxon_counts()</a></code> pools the OTU counts in the shared file at the genus level and returns new shared and taxonomy data frames.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tax_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_tax.html">read_tax</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"test.taxonomy"</span>, package <span class="op">=</span> <span class="st">"schtools"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">shared_dat</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_tsv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"test.shared"</span>, package <span class="op">=</span> <span class="st">"schtools"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">10</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">15</span></span></span>
@@ -185,8 +231,8 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Otu08     4 Clostridium XVIII                             </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Otu09     7 Candidatus Saccharibacteria unclassified      </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Otu10     5 Clostridiales Incertae Sedis XIII unclassified</span></span></code></pre></div>
-<p>In this example, <code><a href="../reference/pool_taxon_counts.html">pool_taxon_counts()</a></code> pools the OTU counts in the shared file at the genus level and returns new shared and taxonomy data frames. You can do this for any taxonomic level in your taxonomy data frame.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<p>You can do this for any taxonomic level in your taxonomy data frame.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/pool_taxon_counts.html">pool_taxon_counts</a></span><span class="op">(</span><span class="va">shared_dat</span>, <span class="va">tax_dat</span>, <span class="va">phylum</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $shared</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 8</span></span></span>
@@ -218,7 +264,7 @@
 <h3 id="distance-files">Distance files<a class="anchor" aria-label="anchor" href="#distance-files"></a>
 </h3>
 <p>If you have a distance file saved as a phylip-formatted lower triangle matrix from mothur’s <a href="https://mothur.org/wiki/dist.seqs/" class="external-link"><code>dist.seqs</code></a> command, you can read it into R with <code><a href="../reference/read_dist.html">read_dist()</a></code>:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dist_filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"sample.final.thetayc.0.03.lt.ave.dist"</span>,</span>
 <span>    package <span class="op">=</span> <span class="st">"schtools"</span><span class="op">)</span></span>
 <span><span class="va">dist_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_dist.html">read_dist</a></span><span class="op">(</span><span class="va">dist_filepath</span><span class="op">)</span></span>
@@ -238,15 +284,15 @@
 <h2 id="r-markdown-helpers-for-scientific-writing">R Markdown helpers for scientific writing<a class="anchor" aria-label="anchor" href="#r-markdown-helpers-for-scientific-writing"></a>
 </h2>
 <p>When writing scientific papers with R Markdown, we often find ourselves using the same knitr chunk options and miscellaneous helper functions. To use our favorite options like <code>eval=TRUE</code>, <code>echo=FALSE</code>, and others, run <code><a href="../reference/set_knitr_opts.html">set_knitr_opts()</a></code> in the first chunk of your R Markdown document:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="bn">```{r, include = FALSE}</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="bn">set_knitr_opts()</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="bn">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a><span class="bn">```{r, include = FALSE}</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="bn">set_knitr_opts()</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="bn">```</span></span></code></pre></div>
 <p>This also sets the inline hook to our custom <code><a href="../reference/inline_hook.html">inline_hook()</a></code> function, which automatically formats numbers in a human-readable way and inserts an Oxford comma into lists when needed.</p>
 <div class="section level3">
 <h3 id="who-doesnt-love-an-oxford-comma">Who doesn’t love an Oxford comma?<a class="anchor" aria-label="anchor" href="#who-doesnt-love-an-oxford-comma"></a>
 </h3>
 <p>When writing with R Markdown, you may wish to insert a list or vector inline and correctly format it with an Oxford comma. <code><a href="../reference/inline_hook.html">inline_hook()</a></code> uses <code><a href="../reference/paste_oxford_list.html">paste_oxford_list()</a></code> to help you do just that!</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"cats"</span>, <span class="st">"dogs"</span>, <span class="st">"fish"</span><span class="op">)</span></span></code></pre></div>
 <p>Insert the string as inline code with <code>`r `</code>:</p>
 <blockquote>
