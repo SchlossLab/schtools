@@ -20,7 +20,8 @@ Calculate OTU relative abundances from a shared file
 }
 \examples{
 shared_dat <- readr::read_tsv(system.file("extdata", "test.shared",
-                                          package = "schtools"))
+  package = "schtools"
+))
 shared_dat \%>\% calc_relabun()
 }
 \author{
