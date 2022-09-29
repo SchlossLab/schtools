@@ -46,3 +46,4 @@ reference:
   - is_nondesc
   - load_deps
   - log_snakemake
+  - starts_with('theme_')
