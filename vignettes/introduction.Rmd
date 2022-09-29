@@ -18,9 +18,42 @@ knitr::opts_chunk$set(
 
 ```{r deps}
 library(schtools)
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(tidyr)
 ```
 
-## Parsing mothur output files
+## Handling mothur data
+
+### Calculate relative abundances
+
+You can read a shared file and calculate relative abundances with `calc_relabun()`:
+
+```{r calc_relabun}
+shared_dat <- read_tsv(system.file("extdata", "test.shared", 
+                                   package = "schtools"))
+relabun_dat <- shared_dat %>% calc_relabun()
+head(relabun_dat)
+```
+
+`calc_relabun()` returns the data frame in long format. 
+You can use `tidyr::pivot_wider()` to convert it to wide format:
+
+```{r pivot_wider}
+wide_dat <- relabun_dat %>% 
+    pivot_wider(names_from = "otu", values_from = "rel_abun")
+head(wide_dat)
+```
+
+You can see that the relative abundances for each sample sum to 1:
+
+```{r sum1}
+wide_dat %>% 
+    select(starts_with('Otu')) %>% 
+    rowSums()
+```
+
 
 ### Taxonomy files
 
@@ -29,8 +62,8 @@ You can use `read_tax()` to parse the taxonomy data and create separate columns
 for each taxonomic level.
 
 ```{r read_tax}
-tax_filepath <- system.file("extdata", "test.taxonomy", package = "schtools")
-tax_dat <- read_tax(tax_filepath)
+tax_dat <- read_tax(system.file("extdata", "test.taxonomy", 
+                                package = "schtools"))
 head(tax_dat)
 ```
 
@@ -39,31 +72,20 @@ without italicizing the OTU label. This can be used with
 `ggtext::element_markdown()` to make nice plots:
 
 ```{r italic-genus}
-library(dplyr)
-library(ggplot2)
 library(ggtext)
-library(tidyr)
 set.seed(20220427)
-pick_random_bool <- function(n = nrow(tax_dat)) {
-        sample(c(TRUE, FALSE), n, replace = TRUE)
-    }
-tax_dat %>% 
-    select(label_html) %>% 
-    mutate(sample1 = pick_random_bool(),
-           sample2 = pick_random_bool(),
-           sample3 = pick_random_bool() 
+
+relabun_dat %>%
+    mutate(sample_num = stringr::str_remove(sample, 'p') %>% as.integer(),
+           treatment = case_when(sample_num %% 2 == 1 ~ 'A', 
+                                                 TRUE ~ 'B')
            ) %>% 
-    pivot_longer(starts_with('sample'), 
-                 names_to = 'sample', values_to = 'presence') %>% 
-    ggplot(aes(x = sample, y = label_html)) +
-    geom_tile(colour = "whitesmoke", fill = "white", size=0.5) +
-    geom_point(aes(color = presence), size = 4) +
-    scale_fill_manual(values = c(`TRUE` = "#08519C", `FALSE` = "#F0F0F0")) +
-    scale_x_discrete(position = "top") +
+    inner_join(tax_dat, by = "otu") %>%
+    ggplot(aes(x = rel_abun, y = label_html, color = treatment)) +
+    geom_jitter(alpha = 0.7, height = 0.2) +
+    labs(x = 'Relative abundance', y = '') +
     theme_minimal() +
-    theme(axis.text.y = element_markdown(),
-          axis.title.y = element_blank(),
-          axis.title.x = element_blank())
+    theme(axis.text.y = element_markdown())
 ```
 
 #### Pooling OTU counts at different taxonomic levels
@@ -75,6 +97,9 @@ mothur, and a corresponding taxonomy file.
 Take a look at the [mothur documentation](https://mothur.org/wiki/) for info on
 generating these files and performing microbiome analyses.
 
+In this example, `pool_taxon_counts()` pools the OTU counts in the shared file 
+at the genus level and returns new shared and taxonomy data frames.
+
 ```{r pool_genus}
 tax_dat <- read_tax(system.file("extdata", "test.taxonomy",
                                 package = "schtools"))
@@ -83,8 +108,6 @@ shared_dat <- readr::read_tsv(system.file("extdata", "test.shared",
 pool_taxon_counts(shared_dat, tax_dat, genus)
 ```
 
-In this example, `pool_taxon_counts()` pools the OTU counts in the shared file 
-at the genus level and returns new shared and taxonomy data frames.
 You can do this for any taxonomic level in your taxonomy data frame.
 
 ```{r pool_phylum}

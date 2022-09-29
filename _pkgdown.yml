@@ -23,10 +23,11 @@ reference:
   - schtools
 - title: Microbiome
   desc: >
-    Read files & handle microbiome-related data.
+    Handle microbiome-related data.
   contents:
   - starts_with('read_')
   - starts_with('parse_')
+  - calc_relabun
   - pool_taxon_counts
 - title: R Markdown helpers
   desc: >
