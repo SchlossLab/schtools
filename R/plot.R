@@ -14,12 +14,12 @@
 #'   geom_point() +
 #'   theme_sovacool()
 theme_sovacool <- function() {
-    return(list(
-        ggplot2::theme_bw(),
-        ggplot2::theme(
-            legend.margin = ggplot2::margin(0, 0, 0, 0, unit = "pt"),
-            legend.box.margin = ggplot2::margin(0, 0, 0, 0, unit = "pt"),
-            plot.margin = ggplot2::margin(0, 0, 0, 0, unit = "pt")
-        )
-    ))
+  return(list(
+    ggplot2::theme_bw(),
+    ggplot2::theme(
+      legend.margin = ggplot2::margin(0, 0, 0, 0, unit = "pt"),
+      legend.box.margin = ggplot2::margin(0, 0, 0, 0, unit = "pt"),
+      plot.margin = ggplot2::margin(0, 0, 0, 0, unit = "pt")
+    )
+  ))
 }
