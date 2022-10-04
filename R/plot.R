@@ -47,28 +47,30 @@ theme_sovacool <- function() {
 #'   geom_point() +
 #'   theme_lucas()
 theme_lucas <- function() {
-    return(list(
-        hrbrthemes::theme_ipsum(
-            base_family       = "PT Sans",
-            base_size         = 20,
-            axis_title_family = "PT Sans Narrow",
-            axis_title_size   = 20,
-            axis_text_size    = 16,
-            axis_title_just   = "c"
-        ),
-        ggplot2::theme(
-                plot.title       = ggplot2::element_text(hjust = 0.5),
-                plot.subtitle    = ggplot2::element_text(hjust = 0.5),
-                plot.margin      = ggplot2::margin(15, 15, 15, 15),
-                panel.grid.minor = ggplot2::element_blank(),
-                panel.background = ggplot2::element_blank(),
-                legend.position  = "bottom",
-                legend.key       = ggplot2::element_rect(
-                    fill = "white", color = "white", size = 4),
-                legend.key.width = ggplot2::unit(2, "cm"),
-                legend.text      = ggplot2::element_text(size = 12),
-                plot.caption     = ggplot2::element_text(
-                    color = "#85919b", hjust = 0, size = 12, face = "plain")
-            )
-    ))
+  return(list(
+    hrbrthemes::theme_ipsum(
+      base_family       = "PT Sans",
+      base_size         = 20,
+      axis_title_family = "PT Sans Narrow",
+      axis_title_size   = 20,
+      axis_text_size    = 16,
+      axis_title_just   = "c"
+    ),
+    ggplot2::theme(
+      plot.title = ggplot2::element_text(hjust = 0.5),
+      plot.subtitle = ggplot2::element_text(hjust = 0.5),
+      plot.margin = ggplot2::margin(15, 15, 15, 15),
+      panel.grid.minor = ggplot2::element_blank(),
+      panel.background = ggplot2::element_blank(),
+      legend.position = "bottom",
+      legend.key = ggplot2::element_rect(
+        fill = "white", color = "white", size = 4
+      ),
+      legend.key.width = ggplot2::unit(2, "cm"),
+      legend.text = ggplot2::element_text(size = 12),
+      plot.caption = ggplot2::element_text(
+        color = "#85919b", hjust = 0, size = 12, face = "plain"
+      )
+    )
+  ))
 }
