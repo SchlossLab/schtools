@@ -7,6 +7,9 @@
   taxonomic resolutions, as seen in <https://doi.org/10.1128/mbio.03161-21> 
   (#37, @kelly-sovacool).
 - New function `calc_relabun()` calculates OTU relative abundances (#38, @kelly-sovacool).
+- New custom themes for ggplot2:
+    - `theme_sovacool()` (#39, @kelly-sovacool)
+    - `theme_lucas()` (#40, @sklucas)
 
 # schtools 0.2.1
 
