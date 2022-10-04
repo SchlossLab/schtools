@@ -65,6 +65,7 @@ Suggests:
     ggtext,
     here,
     hexSticker,
+    hrbrthemes,
     knitr,
     purrr,
     readr,
