@@ -10,13 +10,14 @@ theme_lucas()
 list of ggproto objects
 }
 \description{
-Requires the \code{hrbrthemes} package.
+Requires the \code{hrbrthemes} package and the \verb{PT Sans} and \verb{PT Sans Narrow}
+fonts from Google Fonts.
 }
 \examples{
 library(ggplot2)
 library(showtext)
 
-# run once to download the PT Sans font
+# run once to download the PT Sans fonts
 font_add_google(name = "PT Sans", family = "PT Sans")
 font_add_google(name = "PT Sans Narrow", family = "PT Sans Narrow")
 showtext_auto()
