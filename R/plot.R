@@ -25,7 +25,8 @@ theme_sovacool <- function() {
 }
 #' Sarah's go-to theme for ggplot2
 #'
-#' Requires the `hrbrthemes` package.
+#' Requires the `hrbrthemes` package and the `PT Sans` and `PT Sans Narrow`
+#' fonts from Google Fonts.
 #'
 #' @return list of ggproto objects
 #' @export
@@ -33,6 +34,14 @@ theme_sovacool <- function() {
 #'
 #' @examples
 #' library(ggplot2)
+#' library(showtext)
+#'
+#' # run once to download the PT Sans fonts
+#' font_add_google(name = "PT Sans", family = "PT Sans")
+#' font_add_google(name = "PT Sans Narrow", family = "PT Sans Narrow")
+#' showtext_auto()
+#'
+#' # make a plot with theme_lucas()
 #' ggplot(mtcars) +
 #'   aes(x = mpg, y = wt, color = cyl) +
 #'   geom_point() +
