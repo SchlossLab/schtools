@@ -7,7 +7,7 @@
 calc_relabun(abs_abun_dat)
 }
 \arguments{
-\item{abs_abun_dat}{a data frame from reading in a \href{https://mothur.org/wiki/shared_file}{shared file}.
+\item{abs_abun_dat}{a data frame from reading in a \href{https://mothur.org/wiki/shared_file/}{shared file}.
 Should contain a \code{Group} column for sample names,
 \code{Otu} columns for absolute counts of each OTU,
 and rows as each sample.}

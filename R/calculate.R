@@ -1,7 +1,7 @@
 
 #' Calculate OTU relative abundances from a shared file
 #'
-#' @param abs_abun_dat a data frame from reading in a [shared file](https://mothur.org/wiki/shared_file).
+#' @param abs_abun_dat a data frame from reading in a [shared file](https://mothur.org/wiki/shared_file/).
 #'   Should contain a `Group` column for sample names,
 #'   `Otu` columns for absolute counts of each OTU,
 #'   and rows as each sample.
