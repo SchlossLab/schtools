@@ -22,7 +22,7 @@ a corresponding taxonomy dataframe with new OTU numbers.
 }
 \description{
 Enables comparing analyses at different taxonomic resolutions,
-as seen in \url{https://doi.org/10.1128/mbio.03161-21}.
+as seen in \doi{10.1128/mbio.03161-21}.
 Implementation adapted from \href{https://github.com/SchlossLab/Armour_Resolution_mBio_2021/blob/master/code/get_phylotype_shared.R}{here}.
 }
 \examples{

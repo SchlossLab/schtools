@@ -2,7 +2,7 @@
 #' Pool OTU counts at a particular taxonomic level
 #'
 #' Enables comparing analyses at different taxonomic resolutions,
-#' as seen in <https://doi.org/10.1128/mbio.03161-21>.
+#' as seen in \doi{10.1128/mbio.03161-21}.
 #' Implementation adapted from [here](https://github.com/SchlossLab/Armour_Resolution_mBio_2021/blob/master/code/get_phylotype_shared.R).
 #'
 #' @param otu_shared_dat data frame created from a [shared file](https://mothur.org/wiki/shared_file/)
