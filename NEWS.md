@@ -1,3 +1,5 @@
+# schtools development version
+
 # schtools 0.3.0
 
 - New function `log_snakemake()` redirects all output to a rule-specific log
