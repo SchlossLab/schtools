@@ -37,6 +37,11 @@ reference:
   - inline_hook
   - paste_oxford_list
   - format_number
+- title: ggplot2 helpers
+  desc: >
+    Make your plots even prettier.
+  contents:
+  - starts_with("theme_")
 - title: Everything else
   desc: >
     Useful tools for miscellaneous tasks.
@@ -46,4 +51,4 @@ reference:
   - is_nondesc
   - load_deps
   - log_snakemake
-  - starts_with('theme_')
+
