@@ -1,5 +1,7 @@
 # schtools development version
 
+- Preemptively fix test failure in advance of next ggplot2 release (#41, @kelly-sovacool).
+
 # schtools 0.3.0
 
 - New function `log_snakemake()` redirects all output to a rule-specific log
