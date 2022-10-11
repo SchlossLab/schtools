@@ -1,4 +1,9 @@
 library(ggplot2)
+library(showtext)
+font_add_google(name = "PT Sans", family = "PT Sans")
+font_add_google(name = "PT Sans Narrow", family = "PT Sans Narrow")
+showtext_auto()
+
 plot_sovacool <- ggplot(mtcars) +
   aes(x = factor(gear), y = mpg, color = factor(cyl)) +
   geom_boxplot() +
