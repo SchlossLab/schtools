@@ -1,27 +1,30 @@
 library(ggplot2)
 plot_ggdefault <- ggplot(mtcars) +
-    aes(x = mpg, y = wt, color = cyl) +
-    geom_point()
+  aes(x = mpg, y = wt, color = cyl) +
+  geom_point()
 plot_sovacool <- ggplot(mtcars) +
-    aes(x = mpg, y = wt, color = cyl) +
-    geom_point() +
-    theme_sovacool()
+  aes(x = mpg, y = wt, color = cyl) +
+  geom_point() +
+  theme_sovacool()
 plot_lucas <- ggplot(mtcars) +
-    aes(x = mpg, y = wt, color = cyl) +
-    geom_point() +
-    theme_lucas()
+  aes(x = mpg, y = wt, color = cyl) +
+  geom_point() +
+  theme_lucas()
 
 test_that("theme_sovacool has no margins", {
-  expect_equal(plot_sovacool$theme$legend.margin,
-               margin(0, 0, 0, 0, unit = "pt")
-               )
-  expect_equal(plot_sovacool$theme$plot.margin,
-               margin(0, 0, 0, 0, unit = "pt")
-               )
-  expect_equal(plot_sovacool$theme$legend.box.margin,
-               margin(0, 0, 0, 0, unit = "pt")
-               )
+  expect_equal(
+    plot_sovacool$theme$legend.margin,
+    margin(0, 0, 0, 0, unit = "pt")
+  )
+  expect_equal(
+    plot_sovacool$theme$plot.margin,
+    margin(0, 0, 0, 0, unit = "pt")
+  )
+  expect_equal(
+    plot_sovacool$theme$legend.box.margin,
+    margin(0, 0, 0, 0, unit = "pt")
+  )
 })
 test_that("theme_lucas custom font works", {
-    expect_equal(plot_lucas$theme$text$family, "PT Sans")
+  expect_equal(plot_lucas$theme$text$family, "PT Sans")
 })
