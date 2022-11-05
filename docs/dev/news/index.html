@@ -57,7 +57,8 @@
 <ul><li>New function <code><a href="../reference/log_snakemake.html">log_snakemake()</a></code> redirects all output to a rule-specific log file when called by a Snakemake rule (<a href="https://github.com/SchlossLab/schtools/issues/35" class="external-link">#35</a>, <a href="https://github.com/kelly-sovacool" class="external-link">@kelly-sovacool</a>).</li>
 <li>New function <code><a href="../reference/pool_taxon_counts.html">pool_taxon_counts()</a></code> pools OTU counts at a particular taxonomic level (e.g. genus, phylum, etc.) to enable comparing analyses at different taxonomic resolutions, as seen in <a href="https://doi.org/10.1128/mbio.03161-21" class="external-link uri">https://doi.org/10.1128/mbio.03161-21</a> (<a href="https://github.com/SchlossLab/schtools/issues/37" class="external-link">#37</a>, <a href="https://github.com/kelly-sovacool" class="external-link">@kelly-sovacool</a>).</li>
 <li>New function <code><a href="../reference/calc_relabun.html">calc_relabun()</a></code> calculates OTU relative abundances (<a href="https://github.com/SchlossLab/schtools/issues/38" class="external-link">#38</a>, <a href="https://github.com/kelly-sovacool" class="external-link">@kelly-sovacool</a>).</li>
-<li>New custom themes for ggplot2:<ul><li>
+<li>New custom themes for ggplot2:
+<ul><li>
 <code><a href="../reference/theme_sovacool.html">theme_sovacool()</a></code> (<a href="https://github.com/SchlossLab/schtools/issues/39" class="external-link">#39</a>, <a href="https://github.com/kelly-sovacool" class="external-link">@kelly-sovacool</a>)</li>
 <li>
 <code><a href="../reference/theme_lucas.html">theme_lucas()</a></code> (<a href="https://github.com/SchlossLab/schtools/issues/40" class="external-link">#40</a>, <a href="https://github.com/sklucas" class="external-link">@sklucas</a>)</li>
@@ -65,7 +66,8 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.1" id="schtools-021">schtools 0.2.1<a class="anchor" aria-label="anchor" href="#schtools-021"></a></h2><p class="text-muted">CRAN release: 2022-05-11</p>
-<ul><li>Improvements to <code><a href="../reference/parse_tax.html">parse_tax()</a></code> (<a href="https://github.com/SchlossLab/schtools/issues/32" class="external-link">#32</a>, <a href="https://github.com/kelly-sovacool" class="external-link">@kelly-sovacool</a>).<ul><li>New column <code>label_html</code> provides HTML to correctly italicize genus names but not OTU labels.</li>
+<ul><li>Improvements to <code><a href="../reference/parse_tax.html">parse_tax()</a></code> (<a href="https://github.com/SchlossLab/schtools/issues/32" class="external-link">#32</a>, <a href="https://github.com/kelly-sovacool" class="external-link">@kelly-sovacool</a>).
+<ul><li>New column <code>label_html</code> provides HTML to correctly italicize genus names but not OTU labels.</li>
 <li>Added an example to the intro vignette to demonstrate using this feature with <code>ggtext</code>.</li>
 <li>Changed taxonomy data frame column names to lowercase and reordered them.</li>
 </ul></li>
@@ -73,7 +75,8 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.1" id="schtools-011">schtools 0.1.1<a class="anchor" aria-label="anchor" href="#schtools-011"></a></h2><p class="text-muted">CRAN release: 2022-03-11</p>
-<ul><li>Refactored <code><a href="../reference/read_tax.html">read_tax()</a></code> (<a href="https://github.com/SchlossLab/schtools/issues/30" class="external-link">#30</a>, <a href="https://github.com/kelly-sovacool" class="external-link">@kelly-sovacool</a>).<ul><li>New function <code><a href="../reference/parse_tax.html">parse_tax()</a></code> to separate the logic of reading and parsing taxonomy files.</li>
+<ul><li>Refactored <code><a href="../reference/read_tax.html">read_tax()</a></code> (<a href="https://github.com/SchlossLab/schtools/issues/30" class="external-link">#30</a>, <a href="https://github.com/kelly-sovacool" class="external-link">@kelly-sovacool</a>).
+<ul><li>New function <code><a href="../reference/parse_tax.html">parse_tax()</a></code> to separate the logic of reading and parsing taxonomy files.</li>
 <li>
 <code><a href="../reference/read_tax.html">read_tax()</a></code> now accepts a <code>sep</code> parameter to handle different delim file types (e.g. csv or tsv).</li>
 </ul></li>
@@ -84,7 +87,8 @@
 <p>This is the first release version of schtools! 🎉</p>
 <ul><li>You can now install schtools from <a href="https://cran.r-project.org/package=schtools" class="external-link">CRAN</a>!</li>
 <li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
-<li>Major new functions:<ul><li>
+<li>Major new functions:
+<ul><li>
 <code><a href="../reference/read_dist.html">read_dist()</a></code> (<a href="https://github.com/SchlossLab/schtools/issues/10" class="external-link">#10</a>, <a href="https://github.com/NLesniak" class="external-link">@NLesniak</a>)</li>
 <li>
 <code><a href="../reference/read_tax.html">read_tax()</a></code> (<a href="https://github.com/SchlossLab/schtools/issues/22" class="external-link">#22</a>, <a href="https://github.com/NLesniak" class="external-link">@NLesniak</a>)</li>
@@ -103,7 +107,9 @@
 <li>
 <code><a href="../reference/is_nondesc.html">is_nondesc()</a></code> (<a href="https://github.com/SchlossLab/schtools/issues/28" class="external-link">#28</a>, <a href="https://github.com/kelly-sovacool" class="external-link">@kelly-sovacool</a>)</li>
 </ul></li>
-<li>New vignettes:<ul><li><code>introduction</code></li></ul></li>
+<li>New vignettes:
+<ul><li><code>introduction</code></li>
+</ul></li>
 </ul></div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>

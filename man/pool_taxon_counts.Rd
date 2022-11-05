@@ -13,8 +13,9 @@ at the OTU level.}
 \item{otu_tax_dat}{data frame created from a \href{https://mothur.org/wiki/taxonomy_file/}{taxonomy file}
 at the OTU level. Must be from the same dataset as the shared file.}
 
-\item{taxon_level}{taxonomic level to pool OTUs into (kingdom, phylum,
-class, order, family, genus). This should be a column in \code{otu_tax_dat}.}
+\item{taxon_level}{taxonomic level to pool OTUs into.
+Options: "kingdom", "phylum", "class", "order", "family", "genus".
+This should be the name of a column in \code{otu_tax_dat} as a character string.}
 }
 \value{
 a shared data frame with the OTUs at the specified \code{taxon_level} and
@@ -32,9 +33,9 @@ tax_dat <- read_tax(system.file("extdata", "test.taxonomy",
 shared_dat <- readr::read_tsv(system.file("extdata", "test.shared",
   package = "schtools"
 ))
-pool_taxon_counts(shared_dat, tax_dat, genus)
-pool_taxon_counts(shared_dat, tax_dat, family)
-pool_taxon_counts(shared_dat, tax_dat, phylum)
+pool_taxon_counts(shared_dat, tax_dat, "genus")
+pool_taxon_counts(shared_dat, tax_dat, "family")
+pool_taxon_counts(shared_dat, tax_dat, "phylum")
 }
 \author{
 Kelly Sovacool, \email{sovacool@umich.edu}

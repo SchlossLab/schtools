@@ -35,18 +35,19 @@ From OpenMoji, [licensed under CC BY-SA 4.0](https://github.com/hfg-gmuend/openm
 - hammer: https://openmoji.org/library/#search=tool&emoji=1F528
 
 ```{r emojis, dpi=300, out.width='50%'}
-poo_file <- here('vignettes', 'articles','1F4A9_color.png')
-wrench_file <- here('vignettes', 'articles', '1F527_color.png')
-hammer_file <- here('vignettes', 'articles', '1F528_color.png')
+poo_file <- here("vignettes", "articles", "1F4A9_color.png")
+wrench_file <- here("vignettes", "articles", "1F527_color.png")
+hammer_file <- here("vignettes", "articles", "1F528_color.png")
 img <- ggdraw() +
-    #draw_image(wrench_file, scale = 0.55, x = 0.195, y = 0.05) +
-    draw_image(hammer_file, scale = 0.7, x = -0.32, y = 0.05) +
-    draw_image(poo_file) 
-ggsave2(img, 
-        filename = here('vignettes', 'articles', 'poo-hammer.png'),
-        height = 2,
-        width = 2,
-        units = 'in')
+  # draw_image(wrench_file, scale = 0.55, x = 0.195, y = 0.05) +
+  draw_image(hammer_file, scale = 0.7, x = -0.32, y = 0.05) +
+  draw_image(poo_file)
+ggsave2(img,
+  filename = here("vignettes", "articles", "poo-hammer.png"),
+  height = 2,
+  width = 2,
+  units = "in"
+)
 img
 ```
 
@@ -54,19 +55,21 @@ img
 ## Schtools Logo
 
 ```{r logo, dpi=300, out.width='50%'}
-mint <- '#A2EAE0'
-pink <- '#FA9DC5'
-orange <- '#FFDBAD'
-black <- '#000000'
-logo_filename <-  here('vignettes', 'articles', 'schtools-logo.png')
-sticker(img, package = 'schtools', 
-        s_x = 1, s_y = 0.85, s_width = 1.6, s_height = 1.6,
-        p_x = 1, p_y = 1.55, p_color = black, 
-        p_size = 23, p_family = 'Source Sans Pro', 
-        h_fill = mint, h_color = orange,
-        url = 'schlosslab.org/schtools', u_size = 3.5,
-        filename = logo_filename)
+mint <- "#A2EAE0"
+pink <- "#FA9DC5"
+orange <- "#FFDBAD"
+black <- "#000000"
+logo_filename <- here("vignettes", "articles", "schtools-logo.png")
+sticker(img,
+  package = "schtools",
+  s_x = 1, s_y = 0.85, s_width = 1.6, s_height = 1.6,
+  p_x = 1, p_y = 1.55, p_color = black,
+  p_size = 23, p_family = "Source Sans Pro",
+  h_fill = mint, h_color = orange,
+  url = "schlosslab.org/schtools", u_size = 3.5,
+  filename = logo_filename
+)
 ggdraw() +
-    draw_image(logo_filename)
+  draw_image(logo_filename)
 ```
 

@@ -31,12 +31,13 @@ parse_tax <- function(dat) {
       ) %>%
       # order classification level
       dplyr::mutate(Level = factor(.data[["Level"]], levels)) %>%
-      dplyr::left_join(dplyr::group_by(., .data[["OTU"]]) %>%
-        dplyr::filter(.data[["Classification"]] != "unclassified") %>%
-        # select lowest level classification
-        dplyr::filter(.data[["Level"]] == levels[max(as.numeric(.data[["Level"]]))]) %>%
-        dplyr::select(.data[["OTU"]], Lowest_classified = .data[["Classification"]]),
-      by = "OTU"
+      dplyr::left_join(
+        dplyr::group_by(., .data[["OTU"]]) %>%
+          dplyr::filter(.data[["Classification"]] != "unclassified") %>%
+          # select lowest level classification
+          dplyr::filter(.data[["Level"]] == levels[max(as.numeric(.data[["Level"]]))]) %>%
+          dplyr::select(.data[["OTU"]], Lowest_classified = .data[["Classification"]]),
+        by = "OTU"
       ) %>%
       dplyr::mutate(Classification = ifelse(.data[["Classification"]] == "unclassified",
         # append unclassified with lowest classification

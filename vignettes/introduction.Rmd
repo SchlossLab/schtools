@@ -31,8 +31,9 @@ library(tidyr)
 You can read a shared file and calculate relative abundances with `calc_relabun()`:
 
 ```{r calc_relabun}
-shared_dat <- read_tsv(system.file("extdata", "test.shared", 
-                                   package = "schtools"))
+shared_dat <- read_tsv(system.file("extdata", "test.shared",
+  package = "schtools"
+))
 relabun_dat <- shared_dat %>% calc_relabun()
 head(relabun_dat)
 ```
@@ -41,17 +42,17 @@ head(relabun_dat)
 You can use `tidyr::pivot_wider()` to convert it to wide format:
 
 ```{r pivot_wider}
-wide_dat <- relabun_dat %>% 
-    pivot_wider(names_from = "otu", values_from = "rel_abun")
+wide_dat <- relabun_dat %>%
+  pivot_wider(names_from = "otu", values_from = "rel_abun")
 head(wide_dat)
 ```
 
 You can see that the relative abundances for each sample sum to 1:
 
 ```{r sum1}
-wide_dat %>% 
-    select(starts_with('Otu')) %>% 
-    rowSums()
+wide_dat %>%
+  select(starts_with("Otu")) %>%
+  rowSums()
 ```
 
 
@@ -62,8 +63,9 @@ You can use `read_tax()` to parse the taxonomy data and create separate columns
 for each taxonomic level.
 
 ```{r read_tax}
-tax_dat <- read_tax(system.file("extdata", "test.taxonomy", 
-                                package = "schtools"))
+tax_dat <- read_tax(system.file("extdata", "test.taxonomy",
+  package = "schtools"
+))
 head(tax_dat)
 ```
 
@@ -76,16 +78,19 @@ library(ggtext)
 set.seed(20220427)
 
 relabun_dat %>%
-    mutate(sample_num = stringr::str_remove(sample, 'p') %>% as.integer(),
-           treatment = case_when(sample_num %% 2 == 1 ~ 'A', 
-                                                 TRUE ~ 'B')
-           ) %>% 
-    inner_join(tax_dat, by = "otu") %>%
-    ggplot(aes(x = rel_abun, y = label_html, color = treatment)) +
-    geom_jitter(alpha = 0.7, height = 0.2) +
-    labs(x = 'Relative abundance', y = '') +
-    theme_minimal() +
-    theme(axis.text.y = element_markdown())
+  mutate(
+    sample_num = stringr::str_remove(sample, "p") %>% as.integer(),
+    treatment = case_when(
+      sample_num %% 2 == 1 ~ "A",
+      TRUE ~ "B"
+    )
+  ) %>%
+  inner_join(tax_dat, by = "otu") %>%
+  ggplot(aes(x = rel_abun, y = label_html, color = treatment)) +
+  geom_jitter(alpha = 0.7, height = 0.2) +
+  labs(x = "Relative abundance", y = "") +
+  theme_minimal() +
+  theme(axis.text.y = element_markdown())
 ```
 
 #### Pooling OTU counts at different taxonomic levels
@@ -102,16 +107,18 @@ at the genus level and returns new shared and taxonomy data frames.
 
 ```{r pool_genus}
 tax_dat <- read_tax(system.file("extdata", "test.taxonomy",
-                                package = "schtools"))
+  package = "schtools"
+))
 shared_dat <- readr::read_tsv(system.file("extdata", "test.shared",
-                                          package = "schtools"))
-pool_taxon_counts(shared_dat, tax_dat, genus)
+  package = "schtools"
+))
+pool_taxon_counts(shared_dat, tax_dat, "genus")
 ```
 
 You can do this for any taxonomic level in your taxonomy data frame.
 
 ```{r pool_phylum}
-pool_taxon_counts(shared_dat, tax_dat, phylum)
+pool_taxon_counts(shared_dat, tax_dat, "phylum")
 ```
 
 
@@ -123,8 +130,9 @@ you can read it into R with `read_dist()`:
  
 ```{r read_dist}
 dist_filepath <- system.file("extdata",
-                             "sample.final.thetayc.0.03.lt.ave.dist",
-                             package = "schtools")
+  "sample.final.thetayc.0.03.lt.ave.dist",
+  package = "schtools"
+)
 dist_tbl <- read_dist(dist_filepath)
 head(dist_tbl)
 ```
@@ -155,7 +163,7 @@ inline and correctly format it with an Oxford comma.
 `inline_hook()` uses `paste_oxford_list()` to help you do just that!
 
 ```{r oxford}
-animals <- c('cats', 'dogs', 'fish')
+animals <- c("cats", "dogs", "fish")
 ```
 
 Insert the string as inline code with `` `r ` ``:
