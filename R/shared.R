@@ -33,12 +33,13 @@ pool_taxon_counts <- function(otu_shared_dat, otu_tax_dat, taxon_level) {
   countsum <- Group <- label <- numOtus <- otu <- otu_counts <- NULL
   levels <- c("kingdom", "phylum", "class", "order", "family", "genus")
   if (length(taxon_level) != 1) {
-      stop(paste0("Only one taxon_level is accepted at a time. You provided: ", length(taxon_level)))
+    stop(paste0("Only one taxon_level is accepted at a time. You provided: ", length(taxon_level)))
   } else if (!(taxon_level) %in% levels) {
-      stop(paste0("taxon_level '", taxon_level,
-                  "' not recognized. Recognized taxonomic levels are:\n ",
-                  paste_oxford_list(levels))
-      )
+    stop(paste0(
+      "taxon_level '", taxon_level,
+      "' not recognized. Recognized taxonomic levels are:\n ",
+      paste_oxford_list(levels)
+    ))
   }
   shared_long <- otu_shared_dat %>%
     tidyr::pivot_longer(tidyr::starts_with("Otu"),
