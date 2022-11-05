@@ -88,25 +88,19 @@ license](https://github.com/SchlossLab/schtools/blob/main/LICENSE.md#creative-co
 
 To cite schtools in publications, use:
 
-> 
-> 
 > <p>
-> 
 > Sovacool K, Lesniak N, Schloss P (2022). <em>schtools: Schloss Lab
 > Tools for Reproducible Microbiome Research</em>.
 > <http://www.schlosslab.org/schtools/>,
 > <https://github.com/SchlossLab/schtools>.
-> 
 > </p>
 
 A BibTeX entry for LaTeX users is:
 
-``` 
- @Manual{,
-  title = {schtools: Schloss Lab Tools for Reproducible Microbiome Research},
-  author = {Kelly Sovacool and Nick Lesniak and Patrick Schloss},
-  year = {2022},
-  note = {http://www.schlosslab.org/schtools/,
-https://github.com/SchlossLab/schtools},
-} 
-```
+     @Manual{,
+      title = {schtools: Schloss Lab Tools for Reproducible Microbiome Research},
+      author = {Kelly Sovacool and Nick Lesniak and Patrick Schloss},
+      year = {2022},
+      note = {http://www.schlosslab.org/schtools/,
+    https://github.com/SchlossLab/schtools},
+    } 
