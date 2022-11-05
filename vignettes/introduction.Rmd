@@ -105,13 +105,13 @@ tax_dat <- read_tax(system.file("extdata", "test.taxonomy",
                                 package = "schtools"))
 shared_dat <- readr::read_tsv(system.file("extdata", "test.shared",
                                           package = "schtools"))
-pool_taxon_counts(shared_dat, tax_dat, genus)
+pool_taxon_counts(shared_dat, tax_dat, 'genus')
 ```
 
 You can do this for any taxonomic level in your taxonomy data frame.
 
 ```{r pool_phylum}
-pool_taxon_counts(shared_dat, tax_dat, phylum)
+pool_taxon_counts(shared_dat, tax_dat, 'phylum')
 ```
 
 

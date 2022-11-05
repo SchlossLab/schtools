@@ -1,6 +1,7 @@
 # schtools development version
 
 - Preemptively fix test failure in advance of next ggplot2 release (#41, @kelly-sovacool).
+- `pool_taxon_counts()` now takes the `taxon_level` argument as a character rather than a data variable.
 
 # schtools 0.3.0
 

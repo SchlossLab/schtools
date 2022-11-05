@@ -21,7 +21,7 @@ shared_dat <- data.frame(
 
 test_that("pool_taxon_counts works", {
   expect_equal(
-    pool_taxon_counts(shared_dat, tax_dat, genus),
+    pool_taxon_counts(shared_dat, tax_dat, 'genus'),
     list(
       shared = structure(
         list(
@@ -66,7 +66,7 @@ test_that("pool_taxon_counts works", {
     )
   )
   expect_equal(
-    pool_taxon_counts(shared_dat, tax_dat, kingdom),
+    pool_taxon_counts(shared_dat, tax_dat, 'kingdom'),
     list(
       shared = structure(
         list(
@@ -102,5 +102,8 @@ test_that("pool_taxon_counts works", {
       )
     )
   )
-  expect_error(pool_taxon_counts(shared_dat, tax_dat, not_a_taxon))
+  expect_error(pool_taxon_counts(shared_dat, tax_dat, 'not_a_taxon'),
+               "taxon_level 'not_a_taxon' not recognized.")
+  expect_error(pool_taxon_counts(shared_dat, tax_dat, c('multiple', 'taxa')),
+               "Only one taxon_level is accepted at a time. You provided: 2")
 })

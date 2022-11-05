@@ -9,8 +9,9 @@
 #'   at the OTU level.
 #' @param otu_tax_dat data frame created from a [taxonomy file](https://mothur.org/wiki/taxonomy_file/)
 #'  at the OTU level. Must be from the same dataset as the shared file.
-#' @param taxon_level taxonomic level to pool OTUs into (kingdom, phylum,
-#'  class, order, family, genus). This should be a column in `otu_tax_dat`.
+#' @param taxon_level taxonomic level to pool OTUs into.
+#'   Options: "kingdom", "phylum", "class", "order", "family", "genus".
+#'   This should be the name of a column in `otu_tax_dat` as a character string.
 #'
 #' @return a shared data frame with the OTUs at the specified `taxon_level` and
 #'   a corresponding taxonomy dataframe with new OTU numbers.
@@ -25,11 +26,20 @@
 #' shared_dat <- readr::read_tsv(system.file("extdata", "test.shared",
 #'   package = "schtools"
 #' ))
-#' pool_taxon_counts(shared_dat, tax_dat, genus)
-#' pool_taxon_counts(shared_dat, tax_dat, family)
-#' pool_taxon_counts(shared_dat, tax_dat, phylum)
+#' pool_taxon_counts(shared_dat, tax_dat, "genus")
+#' pool_taxon_counts(shared_dat, tax_dat, "family")
+#' pool_taxon_counts(shared_dat, tax_dat, "phylum")
 pool_taxon_counts <- function(otu_shared_dat, otu_tax_dat, taxon_level) {
   countsum <- Group <- label <- numOtus <- otu <- otu_counts <- NULL
+  levels <- c("kingdom", "phylum", "class", "order", "family", "genus")
+  if (length(taxon_level) != 1) {
+      stop(paste0("Only one taxon_level is accepted at a time. You provided: ", length(taxon_level)))
+  } else if (!(taxon_level) %in% levels) {
+      stop(paste0("taxon_level '", taxon_level,
+                  "' not recognized. Recognized taxonomic levels are:\n ",
+                  paste_oxford_list(levels))
+      )
+  }
   shared_long <- otu_shared_dat %>%
     tidyr::pivot_longer(tidyr::starts_with("Otu"),
       names_to = "otu",
@@ -37,7 +47,8 @@ pool_taxon_counts <- function(otu_shared_dat, otu_tax_dat, taxon_level) {
     )
 
   new_otu_nums <- otu_tax_dat %>%
-    dplyr::select({{ taxon_level }}) %>%
+    dplyr::as_tibble() %>%
+    dplyr::select(dplyr::all_of(taxon_level)) %>%
     unique() %>%
     dplyr::mutate(otu = paste0(
       "Otu",
@@ -48,18 +59,18 @@ pool_taxon_counts <- function(otu_shared_dat, otu_tax_dat, taxon_level) {
     ))
 
   pooled_shared <- dplyr::inner_join(shared_long,
-    otu_tax_dat %>% dplyr::select(otu, {{ taxon_level }}),
+    otu_tax_dat %>% dplyr::select(otu, dplyr::all_of(taxon_level)),
     by = "otu"
   ) %>%
-    dplyr::group_by({{ taxon_level }}, Group) %>%
+    dplyr::group_by(!!rlang::sym(taxon_level), Group) %>%
     dplyr::summarize(countsum = sum(otu_counts)) %>%
     dplyr::ungroup() %>%
-    dplyr::inner_join(new_otu_nums, by = rlang::as_name(rlang::enquo(taxon_level))) %>%
-    dplyr::select(-{{ taxon_level }}) %>%
+    dplyr::inner_join(new_otu_nums, by = taxon_level) %>%
+    dplyr::select(-dplyr::all_of(taxon_level)) %>%
     tidyr::pivot_wider(names_from = otu, values_from = countsum) %>%
     dplyr::mutate(
       numOtus = ncol(.) - 1,
-      label = rlang::as_name(rlang::enquo(taxon_level))
+      label = taxon_level
     ) %>%
     dplyr::select(order(colnames(.))) %>%
     dplyr::select(label, Group, numOtus, tidyr::starts_with("Otu"))
