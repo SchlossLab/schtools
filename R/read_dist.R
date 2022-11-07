@@ -31,10 +31,10 @@ read_dist <- function(dist_filename) {
   return(
     distance_matrix %>%
       tidyr::pivot_longer(
-        cols = -.data[["rows"]],
+        cols = -all_of("rows"),
         values_to = "distances",
         names_to = "columns"
       ) %>%
-      dplyr::filter(!is.na(.data[["distances"]]))
+      dplyr::filter(!is.na(all_of("distances")))
   )
 }
