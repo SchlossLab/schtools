@@ -1,8 +1,12 @@
-test_that("read_tax works on example file", {
-  taxonomy_out <- read_tax(system.file("extdata",
-    "test.taxonomy",
-    package = "schtools"
-  ))
+tax_infilename <- system.file("extdata",
+                      "test.taxonomy",
+                      package = "schtools"
+)
+tax_raw_tbl <- readr::read_tsv(tax_infilename)
+
+test_that("parse_tax works on example file", {
+
+  taxonomy_out <- parse_tax(tax_raw_tbl)
   expect_equal(
     colnames(taxonomy_out),
     c(
@@ -31,4 +35,8 @@ test_that("read_tax works on example file", {
       "<i>Clostridiales</i> Incertae Sedis XIII (OTU 329)"
     )
   )
+})
+test_that("read_tax works as well as `read_tsv %>% parse_tax`", {
+    expect_equal(read_tax(tax_infilename),
+                 parse_tax(tax_raw_tbl))
 })
