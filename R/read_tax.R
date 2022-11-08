@@ -23,7 +23,7 @@ parse_tax <- function(dat) {
   # in older version of mothur unclassified are listed as unclassified
   # without information from higher level classification
   # for those cases, append with lowest identified classification
-  if ("unclassified" %in% (dat_sep %>% dplyr::pull('Genus'))) {
+  if ("unclassified" %in% (dat_sep %>% dplyr::pull("Genus"))) {
     dat_sep <- dat_sep %>%
       tidyr::pivot_longer(
         cols = -OTU,
@@ -32,12 +32,13 @@ parse_tax <- function(dat) {
       ) %>%
       # order classification level
       dplyr::mutate(Level = factor(Level, levels)) %>%
-      dplyr::left_join(dplyr::group_by(., OTU) %>%
-        dplyr::filter(Classification != "unclassified") %>%
-        # select lowest level classification
-        dplyr::filter(Level == levels[max(as.numeric(Level))]) %>%
-        dplyr::select(OTU, Lowest_classified = Classification),
-      by = "OTU"
+      dplyr::left_join(
+        dplyr::group_by(., OTU) %>%
+          dplyr::filter(Classification != "unclassified") %>%
+          # select lowest level classification
+          dplyr::filter(Level == levels[max(as.numeric(Level))]) %>%
+          dplyr::select(OTU, Lowest_classified = Classification),
+        by = "OTU"
       ) %>%
       dplyr::mutate(Classification = ifelse(Classification == "unclassified",
         # append unclassified with lowest classification
