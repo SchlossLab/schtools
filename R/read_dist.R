@@ -14,6 +14,7 @@
 #' dist_tbl <- read_dist(dist_filepath)
 #' head(dist_tbl)
 read_dist <- function(dist_filename) {
+  distances <- rows <- NULL
   # TODO: input validation - make sure file has expected format & throw errors if it doesn't
   # read in the first row to determine the matrix dimensions
   matrix_dim <-
@@ -31,10 +32,10 @@ read_dist <- function(dist_filename) {
   return(
     distance_matrix %>%
       tidyr::pivot_longer(
-        cols = -.data[["rows"]],
+        cols = -rows,
         values_to = "distances",
         names_to = "columns"
       ) %>%
-      dplyr::filter(!is.na(.data[["distances"]]))
+      dplyr::filter(!is.na(distances))
   )
 }
