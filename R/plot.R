@@ -64,7 +64,7 @@ theme_lucas <- function() {
       panel.background = ggplot2::element_blank(),
       legend.position = "bottom",
       legend.key = ggplot2::element_rect(
-        fill = "white", color = "white", size = 4
+        fill = "white", color = "white", linewidth = 4
       ),
       legend.key.width = ggplot2::unit(2, "cm"),
       legend.text = ggplot2::element_text(size = 12),

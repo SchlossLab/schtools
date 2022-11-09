@@ -1,0 +1,26 @@
+name: schtools-dev
+channels:
+  - conda-forge
+  - r
+dependencies:
+  - r-base=4
+  - r-devtools
+  - r-dplyr
+  - r-formatR
+  - r-glue
+  - r-rlang
+  - r-stringr
+  - r-tidyr
+  - r-covr
+  - r-cowplot
+  - r-ggplot2=3.4.0
+  - r-ggtext
+  - r-here
+  #- r-hexSticker
+  - r-hrbrthemes
+  - r-knitr
+  - r-purrr
+  - r-readr
+  - r-rmarkdown
+  - r-showtext
+  - r-testthat 
