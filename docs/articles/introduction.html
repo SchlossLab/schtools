@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">schtools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -216,7 +216,7 @@ taxonomy data frames.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
-<span><span class="fu"><a href="../reference/pool_taxon_counts.html">pool_taxon_counts</a></span><span class="op">(</span><span class="va">shared_dat</span>, <span class="va">tax_dat</span>, <span class="va">genus</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/pool_taxon_counts.html">pool_taxon_counts</a></span><span class="op">(</span><span class="va">shared_dat</span>, <span class="va">tax_dat</span>, <span class="st">"genus"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $shared</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 13</span></span></span>
 <span><span class="co">#&gt;    label Group numOtus Otu01 Otu02 Otu03 Otu04 Otu05 Otu06 Otu07 Otu08 Otu09</span></span>
@@ -250,7 +250,7 @@ taxonomy data frames.</p>
 <p>You can do this for any taxonomic level in your taxonomy data
 frame.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/pool_taxon_counts.html">pool_taxon_counts</a></span><span class="op">(</span><span class="va">shared_dat</span>, <span class="va">tax_dat</span>, <span class="va">phylum</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/pool_taxon_counts.html">pool_taxon_counts</a></span><span class="op">(</span><span class="va">shared_dat</span>, <span class="va">tax_dat</span>, <span class="st">"phylum"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $shared</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 8</span></span></span>
 <span><span class="co">#&gt;    label  Group numOtus  Otu1  Otu2  Otu3  Otu4  Otu5</span></span>

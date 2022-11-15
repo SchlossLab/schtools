@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">schtools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +53,13 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.3.0" id="schtools-030">schtools 0.3.0<a class="anchor" aria-label="anchor" href="#schtools-030"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.3.1" id="schtools-031">schtools 0.3.1<a class="anchor" aria-label="anchor" href="#schtools-031"></a></h2>
+<ul><li>Fixes for API changes in ggplot2 v3.4.0 and tidyselect v1.2.0 (<a href="https://github.com/SchlossLab/schtools/issues/42" class="external-link">#42</a>, <a href="https://github.com/SchlossLab/schtools/issues/44" class="external-link">#44</a>, <a href="https://github.com/kelly-sovacool" class="external-link">@kelly-sovacool</a>).</li>
+<li>
+<code><a href="../reference/pool_taxon_counts.html">pool_taxon_counts()</a></code> now takes the <code>taxon_level</code> argument as a character rather than a data variable (<a href="https://github.com/SchlossLab/schtools/issues/43" class="external-link">#43</a>, <a href="https://github.com/kelly-sovacool" class="external-link">@kelly-sovacool</a>).</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.3.0" id="schtools-030">schtools 0.3.0<a class="anchor" aria-label="anchor" href="#schtools-030"></a></h2><p class="text-muted">CRAN release: 2022-10-05</p>
 <ul><li>New function <code><a href="../reference/log_snakemake.html">log_snakemake()</a></code> redirects all output to a rule-specific log file when called by a Snakemake rule (<a href="https://github.com/SchlossLab/schtools/issues/35" class="external-link">#35</a>, <a href="https://github.com/kelly-sovacool" class="external-link">@kelly-sovacool</a>).</li>
 <li>New function <code><a href="../reference/pool_taxon_counts.html">pool_taxon_counts()</a></code> pools OTU counts at a particular taxonomic level (e.g. genus, phylum, etc.) to enable comparing analyses at different taxonomic resolutions, as seen in <a href="https://doi.org/10.1128/mbio.03161-21" class="external-link uri">https://doi.org/10.1128/mbio.03161-21</a> (<a href="https://github.com/SchlossLab/schtools/issues/37" class="external-link">#37</a>, <a href="https://github.com/kelly-sovacool" class="external-link">@kelly-sovacool</a>).</li>
 <li>New function <code><a href="../reference/calc_relabun.html">calc_relabun()</a></code> calculates OTU relative abundances (<a href="https://github.com/SchlossLab/schtools/issues/38" class="external-link">#38</a>, <a href="https://github.com/kelly-sovacool" class="external-link">@kelly-sovacool</a>).</li>
