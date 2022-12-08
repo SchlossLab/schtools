@@ -1,5 +1,7 @@
 # schtools development version
 
+- `set_knitr_opts()` now sets message to `FALSE` (#45, @kelly-sovacool).
+
 # schtools 0.3.1
 
 - Fixes for API changes in ggplot2 v3.4.0 and tidyselect v1.2.0 (#42, #44, @kelly-sovacool).
