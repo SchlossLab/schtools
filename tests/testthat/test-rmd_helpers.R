@@ -27,6 +27,7 @@ test_that("set_knitr_opts() works", {
     tidy = TRUE,
     echo = FALSE,
     eval = TRUE,
+    message = FALSE,
     warning = FALSE,
     cache = FALSE
   )
