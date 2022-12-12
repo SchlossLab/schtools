@@ -108,6 +108,7 @@ set_knitr_opts <- function() {
     tidy = TRUE,
     echo = FALSE,
     eval = TRUE,
+    message = FALSE,
     warning = FALSE,
     cache = FALSE
   )
