@@ -38,3 +38,27 @@ test_that("log_snakemake() prints messages when quiet=FALSE", {
     #     paste('Saving output to', log_filename)
     # )
 })
+
+test_wildcards <- function() {
+    setClass("Snakemake", representation(rule = "character", wildcards = 'list'))
+    snakemake <<- new("Snakemake",
+                     rule = "train_ml",
+                     wildcards = list("otu-mini-bin", "glmnet", "101",
+                                      dataset = "otu-mini-bin",
+                                      method = "glmnet",
+                                      seed = "101")
+    )
+    return(get_wildcards_tbl())
+}
+
+test_that('get_wildcards_tbl() works', {
+    expect_equal(test_wildcards(),
+                 structure(list(dataset = "otu-mini-bin",
+                                method = "glmnet",
+                                seed = 101),
+                           row.names = c(NA, -1L),
+                           class = c("tbl_df", "tbl", "data.frame")
+                           )
+                 )
+
+})

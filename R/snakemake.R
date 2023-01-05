@@ -45,3 +45,24 @@ log_snakemake <- function(quiet = TRUE) {
         }
     }
 }
+
+#' Get the Snakemake wildcards as a tibble
+#'
+#' @return a tibble of wildcards, with columns as names and rows as values
+#' @export
+#' @author Kelly Sovacool \email{sovacool@@umich.edu}
+get_wildcards_tbl <- function() {
+    if (!exists('snakemake')) {
+        stop('No Snakemake object exists')
+    } else if (length(snakemake@wildcards) == 0) {
+        warning('The Snakemake object contains no wildcards')
+    }
+    wildcard_names <- snakemake@wildcards %>%
+        names() %>%
+        Filter(function(x) {nchar(x) > 0}, .)
+    wildcards <- snakemake@wildcards[wildcard_names] %>%
+        dplyr::as_tibble() %>%
+        dplyr::mutate(seed = as.numeric(seed))
+    return(wildcards)
+}
+
