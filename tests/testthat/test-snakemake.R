@@ -1,4 +1,3 @@
-
 dummy_snakemake <- function(rule = "test_rule",
                             log_filename = "tests/tmp.log",
                             create_log = FALSE,

@@ -1,4 +1,3 @@
-
 #' Save output, messages, warnings, and errors to the Snakemake log file
 #'
 #' This function checks whether a log file was specified in the Snakemake rule.
