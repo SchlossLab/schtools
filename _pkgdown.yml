@@ -42,6 +42,12 @@ reference:
     Make your plots even prettier.
   contents:
   - starts_with("theme_")
+- title: Snakemake helpers
+  desc: >
+    Helpers for runnning R scripts from Snakemake
+  contents:
+    - contains('snakemake')
+    - get_wildcards_tbl
 - title: Everything else
   desc: >
     Useful tools for miscellaneous tasks.
@@ -50,5 +56,3 @@ reference:
   - is_nearly_whole
   - is_nondesc
   - load_deps
-  - log_snakemake
-
