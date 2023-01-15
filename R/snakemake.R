@@ -52,8 +52,10 @@ log_snakemake <- function(quiet = TRUE) {
 #' @export
 #' @author Kelly Sovacool \email{sovacool@@umich.edu}
 get_wildcards_tbl <- function() {
+  seed <- NULL
   if (!exists("snakemake")) {
     stop("No Snakemake object exists")
+    snakemake <- NULL
   } else if (length(snakemake@wildcards) == 0) {
     warning("The Snakemake object contains no wildcards")
   }
