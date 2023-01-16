@@ -15,13 +15,8 @@ Found the following (possibly) invalid URLs:
     From: README.md
     Status: 400
     Message: Bad Request
-  URL: https://doi.org/10.1128/mbio.03161-21
-    From: inst/doc/introduction.html
-          NEWS.md
-    Status: 503
-    Message: Service Unavailable
-    
-These URLs work in my browser.
+
+This URL works in my browser.
 
 ## revdepcheck results
 
