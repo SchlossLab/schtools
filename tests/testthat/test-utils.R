@@ -1,4 +1,3 @@
-
 test_that("is_nearly_whole() works", {
   expect_true(is_nearly_whole(.Machine$double.eps))
   expect_true(is_nearly_whole(0))

@@ -1,4 +1,3 @@
-
 #' Pool OTU counts at a particular taxonomic level
 #'
 #' Enables comparing analyses at different taxonomic resolutions,

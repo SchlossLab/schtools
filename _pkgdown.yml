@@ -29,7 +29,7 @@ reference:
   - starts_with('parse_')
   - calc_relabun
   - pool_taxon_counts
-- title: R Markdown helpers
+- title: R Markdown
   desc: >
     Format publication-quality documents.
   contents:
@@ -37,11 +37,17 @@ reference:
   - inline_hook
   - paste_oxford_list
   - format_number
-- title: ggplot2 helpers
+- title: ggplot2
   desc: >
     Make your plots even prettier.
   contents:
   - starts_with("theme_")
+- title: Snakemake
+  desc: >
+    Helpers for running R scripts from Snakemake.
+  contents:
+    - contains('snakemake')
+    - get_wildcards_tbl
 - title: Everything else
   desc: >
     Useful tools for miscellaneous tasks.
@@ -50,5 +56,3 @@ reference:
   - is_nearly_whole
   - is_nondesc
   - load_deps
-  - log_snakemake
-

@@ -1,4 +1,4 @@
-# schtools development version
+# schtools 0.4.0
 
 - `set_knitr_opts()` now sets message to `FALSE` (#45, @kelly-sovacool).
 - New function `get_wildcards_tbl()` returns the Snakemake wildcards list as a tibble (#46, @kelly-sovacool).
