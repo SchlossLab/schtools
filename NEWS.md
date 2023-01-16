@@ -1,3 +1,7 @@
+# schtools development version
+
+- Minor bug fix in `get_wildcards_tbl()` (#48, @kelly-sovacool).
+
 # schtools 0.4.0
 
 - `set_knitr_opts()` now sets message to `FALSE` (#45, @kelly-sovacool).
