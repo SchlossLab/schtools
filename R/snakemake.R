@@ -51,7 +51,6 @@ log_snakemake <- function(quiet = TRUE) {
 #' @export
 #' @author Kelly Sovacool \email{sovacool@@umich.edu}
 get_wildcards_tbl <- function() {
-  seed <- NULL
   if (!exists("snakemake")) {
     stop("No Snakemake object exists")
     snakemake <- NULL
@@ -64,7 +63,6 @@ get_wildcards_tbl <- function() {
       nchar(x) > 0
     }, .)
   wildcards <- snakemake@wildcards[wildcard_names] %>%
-    dplyr::as_tibble() %>%
-    dplyr::mutate(seed = as.numeric(seed))
+    dplyr::as_tibble()
   return(wildcards)
 }
