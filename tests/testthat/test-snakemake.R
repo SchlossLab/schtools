@@ -45,7 +45,7 @@ test_wildcards <- function() {
     wildcards = list("otu-mini-bin", "glmnet", "101",
       dataset = "otu-mini-bin",
       method = "glmnet",
-      seed = "101"
+      seed = 101
     )
   )
   return(get_wildcards_tbl())
