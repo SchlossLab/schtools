@@ -20,7 +20,7 @@ test_that("read_dist works on example file", {
     row.names = c(NA, -6L),
     class = c("tbl_df", "tbl", "data.frame")
   )
-  dist_out <- read_dist(system.file("extdata",
+  dist_out <- read_dist_lt_as_tbl(system.file("extdata",
     "sample.final.thetayc.0.03.lt.ave.dist",
     package = "schtools"
   ))

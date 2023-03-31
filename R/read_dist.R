@@ -13,7 +13,7 @@
 #' )
 #' dist_tbl <- read_dist(dist_filepath)
 #' head(dist_tbl)
-read_dist <- function(dist_filename) {
+read_dist_lt_as_tbl <- function(dist_filename) {
   distances <- rows <- NULL
   # TODO: input validation - make sure file has expected format & throw errors if it doesn't
   # read in the first row to determine the matrix dimensions
