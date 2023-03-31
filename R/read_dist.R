@@ -1,8 +1,11 @@
 #' Read in lower left triangular matrix from file
 #'
-#' @param dist_filename filename of lower left triangular matrix (.dist)
+#' Assumes the distance file is a phylip-formatted lower left triangular matrix
+#' as described in \url{https://mothur.org/wiki/phylip-formatted_distance_matrix/}
 #'
-#' @return distance matrix as a tibble
+#' @param dist_filename file name of a lower left triangular matrix (`.dist`)
+#'
+#' @return distance matrix as a `tibble` in long format
 #' @export
 #' @author Nick Lesniak, \email{nlesniak@@umich.edu}
 #'
