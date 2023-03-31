@@ -1,11 +1,15 @@
-#' Read in lower left triangular matrix as a long tibble
+#' @name read_dist
+#' @title Read lower triangular distance files as tibbles and matrices
+NULL
+
+#' @describeIn read_dist Read in lower left triangular matrix as a long tibble
 #'
-#' Assumes the distance file is a phylip-formatted lower left triangular matrix
+#' Assumes the file is a phylip-formatted lower left triangular matrix
 #' as described in \url{https://mothur.org/wiki/phylip-formatted_distance_matrix/}
 #'
 #' @param filename file name of a lower left triangular matrix (`.dist`)
 #'
-#' @return distance matrix as a `tibble` in long format
+#' @return matrix as a `tibble` in long format
 #' @export
 #' @author Nick Lesniak, \email{nlesniak@@umich.edu}
 #'
@@ -16,7 +20,7 @@
 #' )
 #' dist_tbl <- read_dist(dist_filepath)
 #' head(dist_tbl)
-read_dist_lt_as_tbl <- function(filename) {
+read_lt_as_tbl <- function(filename) {
   distances <- rows <- NULL
   # TODO: input validation - make sure file has expected format & throw errors if it doesn't
   # read in the first row to determine the matrix dimensions
@@ -43,14 +47,13 @@ read_dist_lt_as_tbl <- function(filename) {
   )
 }
 
-#' Read in lower left triangular matrix
+#' @describeIn read_dist Read in lower left triangular matrix
 #'
-#' @inheritParams read_dist_lt_as_tbl
 #'
-#' @return distance matrix
+#' @return matrix
 #' @export
 #' @author Pat Schloss, \email{pschloss@@umich.edu}
-read_dist_lt_as_mat <- function(filename){
+read_lt_mat <- function(filename){
 
     file <- scan(file_name,
                  what=character(),
