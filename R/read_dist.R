@@ -1,4 +1,4 @@
-#' Read in lower left triangular matrix from file
+#' Read in lower left triangular matrix as a long tibble
 #'
 #' Assumes the distance file is a phylip-formatted lower left triangular matrix
 #' as described in \url{https://mothur.org/wiki/phylip-formatted_distance_matrix/}
@@ -43,7 +43,14 @@ read_dist_lt_as_tbl <- function(filename) {
   )
 }
 
-read_matrix <- function(file_name){
+#' Read in lower left triangular matrix
+#'
+#' @inheritParams read_dist_lt_as_tbl
+#'
+#' @return distance matrix
+#' @export
+#' @author Pat Schloss, \email{pschloss@@umich.edu}
+read_dist_lt_as_mat <- function(filename){
 
     file <- scan(file_name,
                  what=character(),
