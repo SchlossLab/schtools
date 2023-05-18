@@ -20,7 +20,8 @@ theme_sovacool <- function() {
       legend.margin = ggplot2::margin(0, 0, 0, 0, unit = "pt"),
       legend.box.margin = ggplot2::margin(0, 0, 0, 0, unit = "pt"),
       plot.margin = ggplot2::margin(0, 0, 0, 0, unit = "pt"),
-      plot.caption = ggplot2::element_text(hjust = 0)
+      plot.caption = ggplot2::element_text(hjust = 0),
+      strip.background = element_blank()
     )
   ))
 }
