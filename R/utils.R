@@ -14,7 +14,7 @@ is_nearly_whole <- function(x) {
   abs(x - round(x)) < .Machine$double.eps^0.5
 }
 
-#' Check whether two numeric vectors are close enough for gov't work.
+#' Check whether two numeric vectors are close enough
 #'
 #' This is like `dplyr::near()` except with much less precision.
 #'

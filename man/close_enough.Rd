@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{close_enough}
 \alias{close_enough}
-\title{Check whether two numeric vectors are close enough for gov't work.}
+\title{Check whether two numeric vectors are close enough}
 \usage{
 close_enough(x, y, tol = 10^-3)
 }
