@@ -1,6 +1,6 @@
 Package: schtools
 Title: Schloss Lab Tools for Reproducible Microbiome Research
-Version: 0.4.0.9000
+Version: 0.4.0.9001
 Date: 2023-01-15
 Authors@R: 
     c(person(given = "Kelly",
@@ -8,23 +8,23 @@ Authors@R:
              role = c("aut", "cre"),
              email = "sovacool@umich.edu",
              comment = c(ORCID = "0000-0003-3283-829X")),
-      person(given = "Nick",
+      person(given = "Nicholas",
              family = "Lesniak",
              role = "aut",
              email = "nlesniak@umich.edu",
              comment = c(ORCID = "0000-0001-9359-5194")),
+      person(given = "Sarah",
+             family = "Lucas",
+             role = "aut",
+             comment = c(ORCID = "0000-0003-1676-5801")),
+      person(given = "Courtney",
+             family = "Armour",
+             role = "aut",
+             comment = c(ORCID = "0000-0002-5250-1224")),
       person(given = "Patrick",
              family = "Schloss",
              role = "aut",
              email = "pschloss@umich.edu"),
-      person(given = "Sarah",
-             family = "Lucas",
-             role = "ctb",
-             comment = c(ORCID = "0000-0003-1676-5801")),
-      person(given = "Courtney",
-             family = "Armour",
-             role = "ctb",
-             comment = c(ORCID = "0000-0002-5250-1224")),
       person(given = "Jacqueline",
              family = "Moltzau",
              role = "ctb",
@@ -77,4 +77,4 @@ VignetteBuilder:
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
