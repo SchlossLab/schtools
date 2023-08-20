@@ -1,6 +1,7 @@
-# schtools development version
+# schtools 0.4.1
 
 - Minor bug fix in `get_wildcards_tbl()` (#48, @kelly-sovacool).
+- Fix roxygen package doc syntax (https://github.com/r-lib/roxygen2/issues/1491, @kelly-sovacool).
 
 # schtools 0.4.0
 
