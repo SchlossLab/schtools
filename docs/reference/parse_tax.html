@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">schtools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,15 +88,15 @@
 <span class="r-in"><span><span class="va">taxonomy_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="read_tax.html">read_tax</a></span><span class="op">(</span><span class="va">taxonomy_filepath</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">taxonomy_tbl</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 10</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   otu      otu_label tax_otu_l…¹ label…² kingdom phylum class order family genus</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Otu0001  OTU 1     Bacteroide… &lt;i&gt;Bac… Bacter… Bacte… Bact… Bact… Bacte… Bact…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Otu0003  OTU 3     Porphyromo… &lt;i&gt;Por… Bacter… Bacte… Bact… Bact… Porph… Porp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Otu0004  OTU 4     Porphyromo… &lt;i&gt;Por… Bacter… Bacte… Bact… Bact… Porph… Porp…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> Otu00008 OTU 8     Enterobact… &lt;i&gt;Ent… Bacter… Prote… Gamm… Ente… Enter… Ente…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> Otu0044  OTU 44    Bacteria (… &lt;i&gt;Bac… Bacter… Bacte… Bact… Bact… Bacte… Bact…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> Otu0056  OTU 56    Bacteria (… &lt;i&gt;Bac… Bacter… Bacte… Bact… Bact… Bacte… Bact…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with abbreviated variable names ¹​tax_otu_label, ²​label_html</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   otu      otu_label tax_otu_label  label_html kingdom phylum class order family</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Otu0001  OTU 1     Bacteroides (… &lt;i&gt;Bacter… Bacter… Bacte… Bact… Bact… Bacte…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Otu0003  OTU 3     Porphyromonad… &lt;i&gt;Porphy… Bacter… Bacte… Bact… Bact… Porph…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Otu0004  OTU 4     Porphyromonad… &lt;i&gt;Porphy… Bacter… Bacte… Bact… Bact… Porph…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> Otu00008 OTU 8     Enterobacteri… &lt;i&gt;Entero… Bacter… Prote… Gamm… Ente… Enter…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> Otu0044  OTU 44    Bacteria (OTU… &lt;i&gt;Bacter… Bacter… Bacte… Bact… Bact… Bacte…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> Otu0056  OTU 56    Bacteria (OTU… &lt;i&gt;Bacter… Bacter… Bacte… Bact… Bact… Bacte…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1 more variable: genus &lt;chr&gt;</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -104,7 +104,7 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by <a href="https://github.com/kelly-sovacool" class="external-link">Kelly Sovacool</a>, <a href="https://github.com/NLesniak" class="external-link">Nick Lesniak</a>, <a href="https://github.com/pschloss" class="external-link">Patrick Schloss</a>.</p>
+  <p></p><p>Developed by <a href="https://github.com/kelly-sovacool" class="external-link">Kelly Sovacool</a>, Nicholas Lesniak, Sarah Lucas, Courtney Armour, <a href="https://github.com/pschloss" class="external-link">Patrick Schloss</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">

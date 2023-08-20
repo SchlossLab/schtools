@@ -7,6 +7,5 @@
 #' [website](http://www.schlosslab.org/schtools/) for more information,
 #' documentation, and examples.
 #'
-#' @docType package
-#' @name schtools
-NULL
+#' @keywords internal
+"_PACKAGE"
