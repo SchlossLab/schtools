@@ -93,7 +93,7 @@ To cite schtools in publications, use:
 > <em>schtools: Schloss Lab Tools for Reproducible Microbiome
 > Research</em>.
 > <a href="https://doi.org/10.5281/zenodo.6540686">doi:10.5281/zenodo.6540686</a>,
-> <a href="http://www.schlosslab.org/schtools">http://www.schlosslab.org/schtools</a>.
+> <a href="http://www.schlosslab.org/schtools/">http://www.schlosslab.org/schtools/</a>.
 > </p>
 
 A BibTeX entry for LaTeX users is:
@@ -103,5 +103,5 @@ A BibTeX entry for LaTeX users is:
       author = {Kelly L. Sovacool and Nicholas Lesniak and Sarah K. Lucas and Courtney R. Armour and Patrick D. Schloss},
       year = {2022},
       doi = {10.5281/zenodo.6540686},
-      url = {http://www.schlosslab.org/schtools},
+      url = {http://www.schlosslab.org/schtools/},
     } 
