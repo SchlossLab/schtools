@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">schtools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -125,16 +125,16 @@ format:</p>
 <span>    <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="st">"otu"</span>, values_from <span class="op">=</span> <span class="st">"rel_abun"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">wide_dat</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 13</span></span></span>
-<span><span class="co">#&gt;   sample Otu0001 Otu0003 Otu0004 Otu00…¹ Otu0044 Otu0056 Otu0057 Otu0058 Otu0159</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> p1       0        0      0       0       0.25    0.25    0       0.25      0  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> p2       0.167    0      0.167   0       0.167   0       0       0.167     0  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> p3       0        0.2    0       0       0.2     0       0       0         0.2</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> p4       0.25     0.25   0       0.25    0       0       0       0         0  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> p5       0.25     0      0.25    0       0.25    0       0       0         0  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> p6       0.167    0      0       0.167   0       0.167   0.167   0.167     0  </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 3 more variables: Otu0208 &lt;dbl&gt;, Otu0328 &lt;dbl&gt;, Otu0329 &lt;dbl&gt;, and</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   abbreviated variable name ¹​Otu00008</span></span></span></code></pre></div>
+<span><span class="co">#&gt;   sample Otu0001 Otu0003 Otu0004 Otu00008 Otu0044 Otu0056 Otu0057 Otu0058</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> p1       0        0      0        0       0.25    0.25    0       0.25 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> p2       0.167    0      0.167    0       0.167   0       0       0.167</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> p3       0        0.2    0        0       0.2     0       0       0    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> p4       0.25     0.25   0        0.25    0       0       0       0    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> p5       0.25     0      0.25     0       0.25    0       0       0    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> p6       0.167    0      0        0.167   0       0.167   0.167   0.167</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 4 more variables: Otu0159 &lt;dbl&gt;, Otu0208 &lt;dbl&gt;, Otu0328 &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   Otu0329 &lt;dbl&gt;</span></span></span></code></pre></div>
 <p>You can see that the relative abundances for each sample sum to
 1:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
@@ -153,15 +153,15 @@ separate columns for each taxonomic level.</p>
 <code class="sourceCode R"><span><span class="va">tax_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_tax.html">read_tax</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"test.taxonomy"</span>, package <span class="op">=</span> <span class="st">"schtools"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">tax_dat</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 10</span></span></span>
-<span><span class="co">#&gt;   otu      otu_label tax_otu_l…¹ label…² kingdom phylum class order family genus</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Otu0001  OTU 1     Bacteroide… &lt;i&gt;Bac… Bacter… Bacte… Bact… Bact… Bacte… Bact…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Otu0003  OTU 3     Porphyromo… &lt;i&gt;Por… Bacter… Bacte… Bact… Bact… Porph… Porp…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Otu0004  OTU 4     Porphyromo… &lt;i&gt;Por… Bacter… Bacte… Bact… Bact… Porph… Porp…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Otu00008 OTU 8     Enterobact… &lt;i&gt;Ent… Bacter… Prote… Gamm… Ente… Enter… Ente…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Otu0044  OTU 44    Bacteria (… &lt;i&gt;Bac… Bacter… Bacte… Bact… Bact… Bacte… Bact…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Otu0056  OTU 56    Bacteria (… &lt;i&gt;Bac… Bacter… Bacte… Bact… Bact… Bacte… Bact…</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with abbreviated variable names ¹​tax_otu_label, ²​label_html</span></span></span></code></pre></div>
+<span><span class="co">#&gt;   otu      otu_label tax_otu_label  label_html kingdom phylum class order family</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Otu0001  OTU 1     Bacteroides (… &lt;i&gt;Bacter… Bacter… Bacte… Bact… Bact… Bacte…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Otu0003  OTU 3     Porphyromonad… &lt;i&gt;Porphy… Bacter… Bacte… Bact… Bact… Porph…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Otu0004  OTU 4     Porphyromonad… &lt;i&gt;Porphy… Bacter… Bacte… Bact… Bact… Porph…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Otu00008 OTU 8     Enterobacteri… &lt;i&gt;Entero… Bacter… Prote… Gamm… Ente… Enter…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Otu0044  OTU 44    Bacteria (OTU… &lt;i&gt;Bacter… Bacter… Bacte… Bact… Bact… Bacte…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Otu0056  OTU 56    Bacteria (OTU… &lt;i&gt;Bacter… Bacter… Bacte… Bact… Bact… Bacte…</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 1 more variable: genus &lt;chr&gt;</span></span></span></code></pre></div>
 <p>The column <code>label_html</code> provides html that correctly
 italicizes the genus name without italicizing the OTU label. This can be
 used with <code><a href="https://wilkelab.org/ggtext/reference/element_markdown.html" class="external-link">ggtext::element_markdown()</a></code> to make nice
@@ -207,7 +207,7 @@ taxonomy data frames.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> genus p7         10     0     0     0     1     1     0     1     0     1</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> genus p8         10     0     1     1     2     0     0     1     1     0</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> genus p9         10     0     1     1     2     0     0     1     1     1</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 1 more variable: Otu10 &lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 1 more variable: Otu10 &lt;dbl&gt;</span></span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $tax</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 3</span></span></span>
@@ -333,7 +333,7 @@ while <code>`r c(1e04, 1e05, 1e06)`</code> are very large.</p>
 
     <footer><div class="pkgdown-footer-left">
   <p></p>
-<p>Developed by <a href="https://github.com/kelly-sovacool" class="external-link">Kelly Sovacool</a>, <a href="https://github.com/NLesniak" class="external-link">Nick Lesniak</a>, <a href="https://github.com/pschloss" class="external-link">Patrick Schloss</a>.</p>
+<p>Developed by <a href="https://github.com/kelly-sovacool" class="external-link">Kelly Sovacool</a>, Nicholas Lesniak, Sarah Lucas, Courtney Armour, <a href="https://github.com/pschloss" class="external-link">Patrick Schloss</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
