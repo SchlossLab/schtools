@@ -4,6 +4,6 @@ bibentry(
   author   = "Kelly L. Sovacool, Nicholas Lesniak, Sarah K. Lucas, Courtney R. Armour, Patrick D. Schloss",
   year     = 2022,
   doi      = "10.5281/zenodo.6540686",
-  url      = "http://www.schlosslab.org/schtools",
+  url      = "http://www.schlosslab.org/schtools/",
   header = "To cite schtools in publications, please use:"
 )
