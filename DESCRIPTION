@@ -1,6 +1,6 @@
 Package: schtools
 Title: Schloss Lab Tools for Reproducible Microbiome Research
-Version: 0.4.1
+Version: 0.4.1.9000
 Date: 2023-08-21
 Authors@R: 
     c(person(given = "Kelly",
