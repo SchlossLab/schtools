@@ -2,19 +2,35 @@
 % Please edit documentation in R/read_dist.R
 \name{read_dist}
 \alias{read_dist}
-\title{Read in lower left triangular matrix from file}
+\alias{read_lt_as_tbl}
+\alias{read_lt_mat}
+\title{Read lower triangular distance files as tibbles and matrices}
 \usage{
-read_dist(dist_filename)
+read_lt_as_tbl(filename)
+
+read_lt_mat(filename)
 }
 \arguments{
-\item{dist_filename}{filename of lower left triangular matrix (.dist)}
+\item{filename}{file name of a lower left triangular matrix (\code{.dist})}
 }
 \value{
-distance matrix as a tibble
+matrix as a \code{tibble} in long format
+
+matrix
 }
 \description{
-Read in lower left triangular matrix from file
+Read lower triangular distance files as tibbles and matrices
 }
+\section{Functions}{
+\itemize{
+\item \code{read_lt_as_tbl()}: Read in lower left triangular matrix as a long tibble
+
+Assumes the file is a phylip-formatted lower left triangular matrix
+as described in \url{https://mothur.org/wiki/phylip-formatted_distance_matrix/}
+
+\item \code{read_lt_mat()}: Read in lower left triangular matrix
+
+}}
 \examples{
 dist_filepath <- system.file("extdata",
   "sample.final.thetayc.0.03.lt.ave.dist",
@@ -25,4 +41,6 @@ head(dist_tbl)
 }
 \author{
 Nick Lesniak, \email{nlesniak@umich.edu}
+
+Pat Schloss, \email{pschloss@umich.edu}
 }
